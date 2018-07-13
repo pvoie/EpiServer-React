@@ -248,9 +248,14 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Settings\ContentEditorTabs.cs" />
+    <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blocks\BaseBlockData.cs" />
+    <Compile Include="Models\Interfaces\IPageViewModel.cs" />
+    <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,12 +264,7 @@
     <Folder Include="Business\Factories\" />
     <Folder Include="Business\Initialization\" />
     <Folder Include="Business\Rendering\Services\" />
-    <Folder Include="Business\Settings\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\Blocks\" />
-    <Folder Include="Models\Interfaces\" />
     <Folder Include="Models\Media\" />
-    <Folder Include="Models\Pages\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Static\" />
