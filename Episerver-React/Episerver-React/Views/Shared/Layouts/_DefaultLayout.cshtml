@@ -1,0 +1,23 @@
+﻿@model IPageViewModel<BasePageData>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.CurrentPage.SeoTitle</title>
+    <meta name="description" content="@Model.CurrentPage.SeoDescription" />
+    <meta name="keywords" content="@Model.CurrentPage.SeoKeywords" />
+</head>
+<body>
+    <header>
+       
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -37,7 +38,15 @@ namespace Episerver_React.Models.Pages
             Order = 30,
             GroupName = ContentEditorTabs.SeoDetails)]
         [UIHint(UIHint.Textarea)]
-        public virtual string SeoKeywords { get; set; }       
+        public virtual string SeoKeywords { get; set; }
+        #endregion
+
+        #region Helpers
+
+        public virtual string ViewName
+        {
+            get { return this.GetOriginalType().Name; }
+        }
         #endregion
     }
 }
