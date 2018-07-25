@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Episerver_React.Models.Product>
+@{ 
+    var message = TempData["EMPTY"];
+}
+<div id="products-table">
+    <h4 style="color:darkred">@message</h4>
+    <table id="table">
+
+        @if (Model != null)
+        {
+
+
+            foreach (var item in Model)
+            {
+                <tr class="product-search">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td class="description">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="price">
+                        @Html.DisplayFor(modelItem => item.Price) EUR
+                    </td>
+
+                </tr>
+                <tr class="space"></tr>
+            }
+        }
+
+    </table>
+</div>
