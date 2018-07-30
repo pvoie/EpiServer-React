@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 //using System.Web.Services.Description;
 using Episerver_React.Models;
-using Sgml;
+
 
 namespace Episerver_React.Controllers
 {
@@ -14,21 +14,19 @@ namespace Episerver_React.Controllers
     {
         
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int pageIndex)
         {
 
             using (var context = new EPiServerDB())
             {
-                IEnumerable<Product> model = context.Products.ToList();
+                IEnumerable<Product> model = context.Products.ToPage(12, pageIndex);
+                               
+                ViewBag.Pages = context.Products.Count().NumberOfPages(12);
+                ViewBag.CurrentPage = pageIndex;
+                ViewBag.ItemsOnPage = 12;
 
-
-                return View(model.Reverse());
+                return View(model);
             }
-        
-          
-
-
-                
         }
 
         // GET: Products/Details/5
@@ -50,101 +48,101 @@ namespace Episerver_React.Controllers
         }
 
         // GET: Products/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Products/Create
-        [HttpPost]
-        public ActionResult Create(Product product)
-        {
+        //[HttpPost]
+        //public ActionResult Create(Product product)
+        //{
             
             
-                using (var context = new EPiServerDB())
-                {
-                    if (ModelState.IsValid)
-                    {
-                    context.Products.Add(product);
-                    context.SaveChanges();
-                    var message = "Your product has been created";
-                    TempData["OK"] = message;
-                    return RedirectToAction("Index");
-                    }
-                return View();
+        //        using (var context = new EPiServerDB())
+        //        {
+        //            if (ModelState.IsValid)
+        //            {
+        //            context.Products.Add(product);
+        //            context.SaveChanges();
+        //            var message = "Your product has been created";
+        //            TempData["OK"] = message;
+        //            return RedirectToAction("Index");
+        //            }
+        //        return View();
                                                   
 
-                }
+        //        }
                  
-          }
+        //  }
 
-        // GET: Products/Edit/5
-        public ActionResult Edit(int id)
-        {
+        //// GET: Products/Edit/5
+        //public ActionResult Edit(int id)
+        //{
 
-            using (var context = new EPiServerDB())
-            {
-                IEnumerable<Product> model = context.Products.ToList();
+        //    using (var context = new EPiServerDB())
+        //    {
+        //        IEnumerable<Product> model = context.Products.ToList();
 
 
-                return View(model.FirstOrDefault(p => p.Id==id));
-            }
-        }
+        //        return View(model.FirstOrDefault(p => p.Id==id));
+        //    }
+        //}
 
         // POST: Products/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, Product product)
-        {
-            using (var context = new EPiServerDB())
-            {
-                if (ModelState.IsValid)
-                {
-                    context.Entry(product).State = EntityState.Modified;
-                    context.SaveChanges();
-                    var message = "Your product has been updated";
-                    TempData["OK"] = message;
-                    return RedirectToAction("Index");
-                }
-                return View();
+        //[HttpPost]
+        //public ActionResult Edit(int id, Product product)
+        //{
+        //    using (var context = new EPiServerDB())
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            context.Entry(product).State = EntityState.Modified;
+        //            context.SaveChanges();
+        //            var message = "Your product has been updated";
+        //            TempData["OK"] = message;
+        //            return RedirectToAction("Index");
+        //        }
+        //        return View();
 
                 
-            }
-        }
+        //    }
+        //}
 
         // GET: Products/Delete/5
-        public ActionResult Delete(int id)
-        {
+        //public ActionResult Delete(int id)
+        //{
 
-            using (var context = new EPiServerDB())
-            {
+        //    using (var context = new EPiServerDB())
+        //    {
 
-                    var product = context.Products.Find(id);
-                    context.Entry(product).State = EntityState.Deleted;
-                    context.SaveChanges();
+        //            var product = context.Products.Find(id);
+        //            context.Entry(product).State = EntityState.Deleted;
+        //            context.SaveChanges();
 
-                    TempData["RED"] = "Your product has been deleted";
+        //            TempData["RED"] = "Your product has been deleted";
 
-                    return RedirectToAction("Index");
+        //            return RedirectToAction("Index");
                 
                 
-            }
-        }
+        //    }
+        //}
 
         // POST: Products/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
     
         

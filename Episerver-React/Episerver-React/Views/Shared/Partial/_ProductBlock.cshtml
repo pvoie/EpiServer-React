@@ -1,0 +1,19 @@
+﻿@model Episerver_React.Models.Product
+
+<div class="col-3 item-p">
+
+    <div class="name">
+        <a href="@Url.Action("Details", "Products", new { id = Model.Id })" style="text-decoration:none;">
+            <h3 class="text-center text-dark text-justify h-25">@Html.DisplayFor(modelItem => Model.Name)</h3>
+        </a>
+    </div>
+    <div class="w-100"></div>
+
+    <div class="details">
+        <a href="@Url.Action("Details", "Products", new { id = Model.Id })" style="text-decoration:none;">
+            <img src="@Model.Image" class="card-img-bottom" />
+            <h2 class="figure-caption text-center price">@Html.DisplayFor(p => Model.Price) EUR</h2>
+        </a>
+    </div>
+
+</div>

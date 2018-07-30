@@ -6,22 +6,27 @@ namespace Episerver_React
     {
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
-        {
+        {            
+            //css
+            bundles.Add(new StyleBundle("~/Content/css")
+                    .IncludeDirectory("~/Static/Styles", "*.css"));
 
-            //var path= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+            bundles.Add(new StyleBundle("~/Content/bootstrapCss")
+                    .Include("~/Content/bootstrap.min.css"));
 
-           // var jBundle = new ScriptBundle("~/bundles/jquery1", path);
-
+            //js
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                    .Include("~/Static/Scripts/jquery-3.3.1.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css")
-                   .IncludeDirectory("~/Static/Styles","*.css"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap")
+                   .Include("~/Static/Scripts/jquery-3.3.1.slim.min.js")
+                   .Include("~/Scripts/umd/popper.min.js")
+                   .Include("~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/myscripts")
                     .Include("~/Static/Scripts/MyScript.js"));
 
-           // bundles.Add(jBundle);
+           
 
            // BundleTable.EnableOptimizations = true;
         }

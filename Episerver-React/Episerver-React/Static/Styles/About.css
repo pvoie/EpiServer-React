@@ -1,4 +1,6 @@
-﻿.about 
+﻿
+
+.about 
 {
     display: block;
     list-style-type:none;
@@ -37,6 +39,7 @@ table td
 
 .price{
     text-align:center;
+    margin-bottom:0px!important;
 }
 
 .description{
@@ -78,8 +81,10 @@ input{
 }
 
 #form0{
+    width: 60%;
     margin-top:7px;
     margin-left:25%;
+    float: none;
 }
 
 #create-product-button{
@@ -107,7 +112,104 @@ input{
     
     
     background: #efefef;
-    background: -webkit-linear-gradient(top, #f3f3f3 0%,#ffffff 50%);*/
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#ffffff 50%);
     
+ }
+
+.topnav .admin {
+    background-color: darkred;
+    float: right;
+}
+
+.products-table-admin{
+    margin-left:10%;
+    margin-left:10%;
+}
+
+
+.user-products tr {
+    background-color: rgba(143,188,143,0.1);
+    border-radius:10px;
     
 }
+
+.user-products a{
+    text-decoration:none;
+    color: black;
+}
+
+
+.products-container {
+    width: 90%;
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/*.products-container ul{
+    margin: 0px;
+    padding:0px;
+}*/
+
+    /*.products-container ul li {
+        list-style: none;
+        float: left;
+        width: 20%;
+        height: 300px;
+        background: rgba(51, 51, 51, 0.2);
+        margin: 40px 40px 0px;
+        text-align: center;
+        box-sizing: border-box;
+        border: 2px solid rgba(51, 51, 51, 0.1);
+    }*/
+
+    .products-container .name:hover {
+       opacity: 0.6;
+    }
+
+    .products-container .details:hover {
+        opacity: 0.6;
+    }
+
+    .products-container h3 {
+        font-size: 1.4rem;
+    }
+
+.products-container ul li img {
+       max-width:200px;
+       max-height:200px;
+    }
+
+ .products-container ul li .products-details:hover {
+            opacity:0.6;
+        }
+
+ .products-container ul li a {
+            text-decoration:none;
+            color:black;
+        }
+
+    .products-container ul li .products-details {
+        background-color: white;
+        margin: 5px 5px 5px;
+    }
+
+    .products-container .price {
+        color: #333;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+.item-p {
+    background-color: white;
+    border: 2px solid rgba(51, 51, 51, 0.1);
+    margin-right: 10px;
+    margin-bottom:15px;
+    min-height:100%;
+}
+
+.item-p .name{
+    max-height:100%;
+}
+
+   

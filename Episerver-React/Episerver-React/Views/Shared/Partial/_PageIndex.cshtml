@@ -1,0 +1,50 @@
+﻿
+<nav aria-label="...">
+    <ul class="pagination">
+        @if (ViewBag.CurrentPage == 0)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage-1 })" tabindex="-1">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage-1 })" tabindex="-1">Previous</a>
+            </li>
+        }
+
+        @for (int page = 0; page <= ViewBag.Pages; page++)
+        {
+            var k = page + 1;
+            if (page == ViewBag.CurrentPage)
+            {
+                <li class="page-item active">
+                    <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= page })">@k <span class="sr-only">(current)</span></a>
+                </li>
+
+            }
+            else
+            {
+                
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= page })">@k</a></li>
+            }
+
+
+        }
+        @if (ViewBag.CurrentPage == ViewBag.Pages)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage+1 })">Next</a>
+            </li>
+
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage+1 })">Next</a>
+            </li>
+        }
+
+    </ul>
+</nav>

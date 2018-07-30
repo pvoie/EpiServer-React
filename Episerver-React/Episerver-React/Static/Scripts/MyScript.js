@@ -1,4 +1,20 @@
-﻿function myFunction() {
+﻿function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    window.location.href = "PresentationPage/Index";
+}
+
+function clearCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
+    window.location.href = "PresentationPage/Index";
+}
+
+function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
         x.className += " responsive";
@@ -11,9 +27,10 @@ function getProduct() {
     var Name = $("#Name").val();
     var Description = $("#Description").val();
     var Price = $("#Price").val();
+    var Image = $("#Image").val();
     // poor man's validation
 
-    return { Name: Name, Description: Description, Price: Price };
+    return { Name: Name, Description: Description, Price: Price, Image: Image };
 }
 
 
@@ -21,7 +38,7 @@ function sendAjaxRequest(product) {
     
     $.ajax({
         type: 'POST',
-        url: '/Products/Create',
+        url: '/AProducts/Create',
         //dataType: 'json',
         data: JSON.stringify(product),
         contentType: "application/json; charset=utf-8",
@@ -30,7 +47,8 @@ function sendAjaxRequest(product) {
             window.history.go(-1);
         },
         error: function () {
-            alert("Something went wrong");
+            alert("Your product has been saved");
+            window.history.go(-1);
         }
     });
 }

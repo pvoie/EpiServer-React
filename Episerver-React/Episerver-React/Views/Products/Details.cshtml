@@ -6,42 +6,38 @@
 }
 
 
+@Html.ActionLink("Back to previous page", null, null, null, new { href = Request.UrlReferrer })
+<div class="container">
+    <div class="product-display">
+        
+        <figure class="w-50 mr-4">
+            <img class="img-fluid figure-img float-left mt-5 mr-3" src="@Html.DisplayFor(p => p.Image)">
+        </figure>
+        <h1>@Html.DisplayFor(p => p.Name)</h1>
 
-<div class="product-display">
+        <section>
 
-    <header>
-        <hgroup>
-            <h1>@Html.DisplayFor(p => p.Name)</h1>
-            <h4>@Html.DisplayFor(p => p.Description)</h4>
-        </hgroup>
-    </header>
+            <p>@Html.DisplayFor(p => p.Description)</p>
 
-    <figure>
-        <img class="product-image" src="@Html.DisplayFor(p => p.Image)">
-    </figure>
+            @*<details>
+                @*<summary>Product Features</summary>
+                <ul>
+                    <li>8 mega pixel camera with full 1080p video recording</li>
+                    <li>Siri voice assitant</li>
+                    <li>iCloud</li>
+                    <li>Air Print</li>
+                    <li>Retina display</li>
+                    <li>Photo and video geotagging</li>
+                </ul>
+            </details>*@
+            <h3>@Html.DisplayFor(p => p.Price) EUR</h3>
+            <button class="btn btn-default">Buy Now</button>
 
-    <section>
+        </section>
 
-        <p>The faster dual-core A5 chip. The 8MP camera with all-new optics also shoots 1080p HD video. And introducing Siri. It's the most amazing iPhone yet.</p>
-
-        <details>
-            <summary>Product Features</summary>
-            <ul>
-                <li>8 mega pixel camera with full 1080p video recording</li>
-                <li>Siri voice assitant</li>
-                <li>iCloud</li>
-                <li>Air Print</li>
-                <li>Retina display</li>
-                <li>Photo and video geotagging</li>
-            </ul>
-        </details>
-
-        <button>Buy Now</button>
-
-    </section>
-
-</div>
+    </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")*@
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+
 </p>
+    </div>

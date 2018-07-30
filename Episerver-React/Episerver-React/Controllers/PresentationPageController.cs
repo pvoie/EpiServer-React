@@ -16,17 +16,62 @@ namespace Episerver_React.Controllers
         // GET: AboutPage
         public ActionResult Index()
         {
-            return View();
+            using (var context = new EPiServerDB() )
+            {
+                if (Request["mycookie"] != null)
+                {
+                    if (String.IsNullOrWhiteSpace(Request.Cookies["mycookie"].Value))
+                    {
+                        IEnumerable<Product> model = context.Products.ToPage(6, 0);
+                        ViewBag.CurrentPage = 0;
+                        ViewBag.ItemsOnPage = 6;
+
+                        return View(model);
+                    }
+                    else
+                    {
+                        IEnumerable<Product> model = context.Products.Search(Request.Cookies["mycookie"].Value).ToList();
+                        ViewBag.CurrentPage = 0;
+                        ViewBag.ItemsOnPage = 6;
+                        ViewBag.Message = "Some recommend products for you: ";
+
+                        return View(model);
+
+                    }
+
+                }
+                else
+                {
+                    IEnumerable<Product> model = context.Products.ToPage(6, 0);
+                    ViewBag.CurrentPage = 0;
+                    ViewBag.ItemsOnPage = 6;
+
+                    return View(model);
+
+                }
+
+
+
+            }
+                
         }
 
-        public ActionResult Search(string SearchString)
+        public ActionResult Search(string SearchString, int pageIndex)
         {
-            if (SearchString != "") {
-                var model = _db.Products.AsQueryable().Where(p => p.Name.Contains(SearchString)).ToList();
-                                
-                if(model.Count > 0)
+            if (String.IsNullOrWhiteSpace(SearchString))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+
+                var model = _db.Products.Search(SearchString);
+
+                if (model.Count() > 0)
                 {
-                    return View("Index", model);
+
+                    ViewBag.ItemsOnPage = 12;
+                    return View("~/Views/PresentationPage/Index.cshtml", model);
                 }
                 else
                 {
@@ -34,12 +79,8 @@ namespace Episerver_React.Controllers
                     return RedirectToAction("Index");
 
                 }
-              }
-            else
-            {
-                return RedirectToAction("Index");
             }
-            
+
         }
 
 
