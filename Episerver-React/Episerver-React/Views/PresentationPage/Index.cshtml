@@ -17,16 +17,8 @@
         nec sum. Foco ab ob im sane fore de nova tale.
     </p>
 
-
-    @*@<div>
-        @using (Html.BeginForm("Search", "PresentationPage", FormMethod.Get))
-        {
-            <p>
-                @Html.TextBox("SearchString") <br />
-                <input type="submit" value="Search Products" />
-            </p>
-        }
-    </div>*@
+    
+    <h4 style="color:darkred">@message</h4>
 
     <div id="products-table">
         <h4 style="color:darkred">@ViewBag.Message</h4>
@@ -88,7 +80,7 @@
 
         </div>
     </div>
-    
+
 </div>
 
 

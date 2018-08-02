@@ -275,6 +275,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
+    <Compile Include="Models\PriceAttribute.cs" />
     <Compile Include="Models\EPiServerDB.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\PageHandler.cs" />

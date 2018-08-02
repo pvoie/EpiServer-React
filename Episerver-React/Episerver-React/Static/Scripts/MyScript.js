@@ -24,9 +24,11 @@ function myFunction() {
 }
 
 function getProduct() {
+
+
+    var Price = $("#Price").val();
     var Name = $("#Name").val();
     var Description = $("#Description").val();
-    var Price = $("#Price").val();
     var Image = $("#Image").val();
     // poor man's validation
 
@@ -66,7 +68,13 @@ $(document).ready(function () {
         }
         else
         {
-            sendAjaxRequest(product);
+            if (product.Price < 0) {
+                $('#price-error').text('Price must be greater than 0');
+            }
+            else {
+                sendAjaxRequest(product);
+            }
+           
         }
         
     });
