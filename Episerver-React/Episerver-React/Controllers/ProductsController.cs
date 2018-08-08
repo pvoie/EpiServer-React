@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 //using System.Web.Services.Description;
 using Episerver_React.Models;
+using Episerver_React.Models.ViewModels;
 
 
 namespace Episerver_React.Controllers
@@ -14,16 +15,27 @@ namespace Episerver_React.Controllers
     {
         
         // GET: Products
-        public ActionResult Index(int pageIndex)
+        public ActionResult Index(int pageIndex = 0)
         {
 
             using (var context = new EPiServerDB())
             {
-                IEnumerable<Product> model = context.Products.ToPage(12, pageIndex);
-                               
-                ViewBag.Pages = context.Products.Count().NumberOfPages(12);
-                ViewBag.CurrentPage = pageIndex;
-                ViewBag.ItemsOnPage = 12;
+                IEnumerable<Product> items = context.Products.ToPage(12, pageIndex);
+
+                var model = new GeneralViewModel
+                {
+                    Items = items,
+                    PageInfo = new PaginationViewModel
+                    {
+                        Pages = context.Products.Count().NumberOfPages(12),
+                        CurrentPage = pageIndex,
+                        ItemsOnPage = 12
+                    }
+
+                };
+                //ViewBag.Pages = context.Products.Count().NumberOfPages(12);
+                //ViewBag.CurrentPage = pageIndex;
+                //ViewBag.ItemsOnPage = 12;
 
                 return View(model);
             }
@@ -47,105 +59,96 @@ namespace Episerver_React.Controllers
             }
         }
 
-        // GET: Products/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        // POST: Products/Create
-        //[HttpPost]
-        //public ActionResult Create(Product product)
-        //{
-            
-            
-        //        using (var context = new EPiServerDB())
-        //        {
-        //            if (ModelState.IsValid)
-        //            {
-        //            context.Products.Add(product);
-        //            context.SaveChanges();
-        //            var message = "Your product has been created";
-        //            TempData["OK"] = message;
-        //            return RedirectToAction("Index");
-        //            }
-        //        return View();
-                                                  
-
-        //        }
-                 
-        //  }
-
-        //// GET: Products/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-
-        //    using (var context = new EPiServerDB())
-        //    {
-        //        IEnumerable<Product> model = context.Products.ToList();
-
-
-        //        return View(model.FirstOrDefault(p => p.Id==id));
-        //    }
-        //}
-
-        // POST: Products/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(int id, Product product)
-        //{
-        //    using (var context = new EPiServerDB())
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            context.Entry(product).State = EntityState.Modified;
-        //            context.SaveChanges();
-        //            var message = "Your product has been updated";
-        //            TempData["OK"] = message;
-        //            return RedirectToAction("Index");
-        //        }
-        //        return View();
-
+        public ActionResult Category(string category, int pageIndex = 0)
+        {
+            using (var context = new EPiServerDB())
+            {
+                var products = context.Products.Where(p => p.SubCategory.Category.Name==category).ToList();
                 
-        //    }
-        //}
 
-        // GET: Products/Delete/5
-        //public ActionResult Delete(int id)
-        //{
+                var model = new GeneralViewModel
+                {
+                    Items = products.OrderBy(p => p.Id).Skip(pageIndex * 12).Take(12),
+                    PageInfo = new PaginationViewModel
+                    {
+                        Pages = products.Count.NumberOfPages(12),
+                        CurrentPage = pageIndex,
+                        ItemsOnPage = 12
+                       
+                    }
 
-        //    using (var context = new EPiServerDB())
-        //    {
+                };
 
-        //            var product = context.Products.Find(id);
-        //            context.Entry(product).State = EntityState.Deleted;
-        //            context.SaveChanges();
+                //ViewBag.Pages = products.Count.NumberOfPages(12);
+                //ViewBag.CurrentPage = pageIndex;
+                //ViewBag.ItemsOnPage = 12;
+                return View("~/Views/Products/Index.cshtml", model);
 
-        //            TempData["RED"] = "Your product has been deleted";
+            }
 
-        //            return RedirectToAction("Index");
+
+
+        }
+
+        public ActionResult Subcategory(string category,string subcategory, int pageIndex = 0)
+        {
+            using (var context = new EPiServerDB())
+            {
+                var products = context.Products.Where(p => p.SubCategory.Name==subcategory&&p.SubCategory.Category.Name==category).ToList();
+
+
+                var model = new GeneralViewModel
+                {
+                    Items = products.OrderBy(p => p.Id).Skip(pageIndex * 12).Take(12),
+                    PageInfo = new PaginationViewModel
+                    {
+                        Pages = products.Count.NumberOfPages(12),
+                        CurrentPage = pageIndex,
+                        ItemsOnPage = 12
+
+                    }
+
+                };
                 
-                
-        //    }
-        //}
+                return View("~/Views/Products/Index.cshtml", model);
 
-        // POST: Products/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
+            }
 
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
 
-    
-        
+
+        }
+
+
+
+        public ActionResult AdvancedSearch(SearchModel searchModel, int pageIndex = 0)
+        {
+            using (var context = new EPiServerDB())
+            {
+                var products = context.Products.Where(p => p.SubCategory.Category.Name.Contains(searchModel.Category)).Where(p=>p.Description.Contains(searchModel.Size)).ToList();
+
+                var model = new GeneralViewModel
+                {
+                    Items = products.OrderBy(p => p.Id).Skip(pageIndex * 12).Take(12),
+                    PageInfo = new PaginationViewModel
+                    {
+                        Pages = products.Count.NumberOfPages(12),
+                        CurrentPage = pageIndex,
+                        ItemsOnPage = 12,
+                        Model = searchModel
+                    }
+
+                };
+
+                //ViewBag.Pages = products.Count.NumberOfPages(12);
+                //ViewBag.CurrentPage = pageIndex;
+                //ViewBag.ItemsOnPage = 12;
+                return View("~/Views/Products/Index.cshtml", model);
+
+            }
+
+
+
+        }
 
     }
 }

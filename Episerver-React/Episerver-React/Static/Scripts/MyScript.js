@@ -55,6 +55,40 @@ function sendAjaxRequest(product) {
     });
 }
 
+//Filter for products
+
+function getFilters() {
+
+
+    var Gender = $("#selectGender").val();
+    var Size = $("#selectSize").val();
+    
+    return { Gender: Gender, Size: Size };
+}
+
+
+function sendAjaxFilters(filters) {
+
+    $.ajax({
+        type: 'get',
+        url: '/Products/AdvancedSearch',
+        //dataType: 'json',
+        data: JSON.stringify(filters),
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            console.log("Your product", data);
+
+            
+        },
+        error: function () {
+            console.log("Your product has been saved");
+            
+        }
+    });
+}
+
+
+
 $(document).ready(function () {
     $("#create-product-button").click(function () {
         //e.preventDefault();
@@ -78,5 +112,36 @@ $(document).ready(function () {
         }
         
     });
+
+    $("#filtersForm").hide();
+
+    $("#showFilters").click(function () {
+
+        if ($("#filtersForm").is(':visible')) {
+            $("#showFilters").html("Filter your results &#9660;");
+            $("#filtersForm").hide();
+        }
+        else {
+            $("#showFilters").html("Filter your results &#9650;");
+            $("#filtersForm").show();
+        }
+                
+    });
+
+
+    if ($("#selectCategory").find(":selected").text() == "Men") {
+        $("#selectSizeWomen").prop("disabled", true).hide();
+        $("#selectSizeKids").prop("disabled", true).hide();
+    }
+    //else
+    //    if ($("#selectCategory").find(":selected").text() == "Women") {
+    //        $("#selectSizeMen").prop("disabled", true).hide();
+    //        $("#selectSizeKids").prop("disabled", true).hide();
+    //    } else
+    //        if ($("#selectCategory").find(":selected").text() == "Kids"){
+    //            $("#selectSizeMen").prop("disabled", true).hide();
+    //            $("#selectSizeWomen").prop("disabled", true).hide();
+    //        }
+
 
 });

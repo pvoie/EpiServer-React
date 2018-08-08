@@ -14,22 +14,14 @@
             <img class="img-fluid figure-img float-left mt-5 mr-3" src="@Html.DisplayFor(p => p.Image)">
         </figure>
         <h1>@Html.DisplayFor(p => p.Name)</h1>
+        @if (Model.SubCategory!=null)
+        {
+            Html.ActionLink(Model.SubCategory.ToString(), "SubCategory", new { category = Model.SubCategory.Category, subcategory = Model.SubCategory });
+        }
 
         <section>
 
             <p>@Html.DisplayFor(p => p.Description)</p>
-
-            @*<details>
-                @*<summary>Product Features</summary>
-                <ul>
-                    <li>8 mega pixel camera with full 1080p video recording</li>
-                    <li>Siri voice assitant</li>
-                    <li>iCloud</li>
-                    <li>Air Print</li>
-                    <li>Retina display</li>
-                    <li>Photo and video geotagging</li>
-                </ul>
-            </details>*@
             <h3>@Html.DisplayFor(p => p.Price) EUR</h3>
             <button class="btn btn-default">Buy Now</button>
 

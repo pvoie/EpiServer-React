@@ -15,6 +15,6 @@ namespace Episerver_React.Models
         [Price(ErrorMessage ="Price must be greater than 0")]
         public int Price { get; set; }
         public string Image { get; set; }
-        public Category Category { get; set; }
+        public SubCategory SubCategory { get; set; }
     }
 }

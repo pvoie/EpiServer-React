@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Episerver_React.Models.MenuViewModel>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    @Html.ActionLink("Home", "Index", "PresentationPage", null, new { @class = "navbar-brand" })
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a class="text-uppercase text-white" href="@Url.Action("Index", "Products")">All</a>
+
+                            </div>
+                            @foreach (var menuLine in Model)
+                            {
+                                <div class="col-md-4">
+                                    <span class="text-uppercase text-white">@menuLine.Title</span>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action(menuLine.Action, menuLine.Controller, new {category = menuLine.Title, pageIndex = 0 })">All</a>
+                                        </li>
+                                        @foreach (var subMenu in menuLine.SubMenu)
+                                        {
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action(subMenu.Action, subMenu.Controller, new {category = menuLine.Title, subcategory = subMenu.Title, pageIndex = 0 })">@subMenu.Title</a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            }
+                            <!-- /.col-md-4  -->
+                            @*<div class="col-md-4">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#">Active</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link item</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link item</a>
+                                        </li>
+                                    </ul>
+                                </div>*@
+                            <!-- /.col-md-4  -->
+                            @*<div class="col-md-4">
+                                    <a href="">
+                                        <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                    </a>
+                                    <p class="text-white">Short image call to action</p>
+                                </div>*@
+                            <!-- /.col-md-4  -->
+                        </div>
+                    </div>
+                    <!--  /.container  -->
+
+                </div>
+            </li>
+
+
+
+
+        </ul>
+        @using (Ajax.BeginForm("Search", "PresentationPage", new { pageIndex = 0 }, new AjaxOptions
+        {
+            HttpMethod = "get",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "products-table"
+        }, htmlAttributes: new { @class = "form-inline my-2 my-lg-0" }
+   ))
+        {
+            <input type="search" name="SearchString" class="form-control mr-sm-2" />
+            <input type="submit" value="Search" class="btn btn-outline-light my-2 my-sm-0" />
+        }
+
+        @*<form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>*@
+    </div>
+    @Html.ActionLink("Admin", "Index", "Aproducts", new { Area = "Admin" }, new { @class = "navbar-brand bg-danger" })
+</nav>

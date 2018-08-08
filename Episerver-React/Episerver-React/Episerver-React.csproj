@@ -266,6 +266,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AProductsController.cs" />
     <Compile Include="Business\Settings\ContentEditorTabs.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PresentationPageController.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
@@ -274,7 +275,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\FilterConstants.cs" />
+    <Compile Include="Models\ViewModels\GeneralViewModel.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\PriceAttribute.cs" />
     <Compile Include="Models\EPiServerDB.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
@@ -282,7 +287,10 @@
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\PaginationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +303,7 @@
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Views\Blocks\" />
+    <Folder Include="Views\Menu\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
@@ -354,8 +363,10 @@
     <Content Include="Static\Scripts\jquery-3.3.1.min.js" />
     <Content Include="Static\Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Static\Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Static\Scripts\MenuV2Script.js" />
     <Content Include="Static\Scripts\MyScript.js" />
     <Content Include="Static\Styles\About.css" />
+    <Content Include="Static\Styles\MenuV2Style.css" />
     <Content Include="Static\Styles\Style.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
@@ -389,6 +400,10 @@
     <Content Include="Views\Shared\Partial\_PageIndex.cshtml" />
     <Content Include="Views\Shared\Partial\_ProductBlock.cshtml" />
     <Content Include="Views\Shared\Partial\_CookieBanner.cshtml" />
+    <Content Include="Views\Shared\Partial\_Menu.cshtml" />
+    <Content Include="Views\Shared\Partial\_RedMessage.cshtml" />
+    <Content Include="Views\Shared\Partial\_SearchFiltersBlock.cshtml" />
+    <Content Include="Views\Shared\Partial\_MenuV2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

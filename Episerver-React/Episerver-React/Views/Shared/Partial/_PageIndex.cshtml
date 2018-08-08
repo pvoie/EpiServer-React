@@ -1,48 +1,55 @@
-﻿
+﻿@using Episerver_React.Models
+@model Episerver_React.Models.ViewModels.PaginationViewModel
+@{ 
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+    string CurrentURL = HttpContext.Current.Request.Url.AbsoluteUri;
+    
+}
 <nav aria-label="...">
     <ul class="pagination">
-        @if (ViewBag.CurrentPage == 0)
+        @if (Model.CurrentPage == 0)
         {
             <li class="page-item disabled">
-                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage-1 })" tabindex="-1">Previous</a>
+                <a class="page-link" href="@Url.Action(action,controller, new {pageIndex= Model.CurrentPage-1 })" tabindex="-1">Previous</a>
             </li>
         }
         else
         {
             <li class="page-item">
-                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage-1 })" tabindex="-1">Previous</a>
+                <a class="page-link" href="@CurrentURL.AddParam("pageIndex", (Model.CurrentPage-1).ToString())" tabindex="-1">Previous</a>
             </li>
         }
 
-        @for (int page = 0; page <= ViewBag.Pages; page++)
+        @for (int page = 0; page <= Model.Pages; page++)
         {
             var k = page + 1;
-            if (page == ViewBag.CurrentPage)
+            if (page == Model.CurrentPage)
             {
                 <li class="page-item active">
-                    <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= page })">@k <span class="sr-only">(current)</span></a>
+                    <a class="page-link" href="@CurrentURL.AddParam("pageIndex", (Model.CurrentPage).ToString())">@k <span class="sr-only">(current)</span></a>
                 </li>
 
             }
             else
             {
                 
-                <li class="page-item"><a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= page })">@k</a></li>
+                <li class="page-item"><a class="page-link" href="@CurrentURL.AddParam("pageIndex", (page).ToString())">@k</a></li>
             }
 
 
         }
-        @if (ViewBag.CurrentPage == ViewBag.Pages)
+        @if (Model.CurrentPage == Model.Pages)
         {
             <li class="page-item disabled">
-                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage+1 })">Next</a>
+                <a class="page-link" href="@CurrentURL.AddParam("pageIndex", (Model.Pages).ToString())">Next</a>
             </li>
 
         }
         else
         {
             <li class="page-item">
-                <a class="page-link" href="@Url.Action("Index","Products", new {pageIndex= ViewBag.CurrentPage+1 })">Next</a>
+                <a class="page-link" href="@CurrentURL.AddParam("pageIndex", (Model.CurrentPage+1).ToString())">Next</a>
             </li>
         }
 

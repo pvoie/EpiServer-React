@@ -14,6 +14,9 @@ namespace Episerver_React
             bundles.Add(new StyleBundle("~/Content/bootstrapCss")
                     .Include("~/Content/bootstrap.min.css"));
 
+            bundles.Add(new StyleBundle("~/Content/MenuV2css")
+                    .Include("~/Static/Styles/MenuV2Style.css"));
+
             //js
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                    .Include("~/Static/Scripts/jquery-3.3.1.js"));
@@ -26,7 +29,10 @@ namespace Episerver_React
             bundles.Add(new ScriptBundle("~/bundles/myscripts")
                     .Include("~/Static/Scripts/MyScript.js"));
 
-           
+            bundles.Add(new ScriptBundle("~/bundles/menuV2scripts")
+                .Include("~/Static/Scripts/MenuV2Script.js"));
+
+
 
            // BundleTable.EnableOptimizations = true;
         }

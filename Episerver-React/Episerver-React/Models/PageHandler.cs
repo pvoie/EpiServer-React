@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Episerver_React.Controllers;
 using System.Data.Entity;
+using System.Web;
 
 namespace Episerver_React.Models
 {
@@ -51,5 +52,23 @@ namespace Episerver_React.Models
                 return searchResult;
             }
         }
+
+
+
+
+
+        public static string AddParam(this string URL ,string paramName, string paramValue)
+        {
+            string currentURL = URL;
+            var uriBuilder = new UriBuilder(currentURL);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            query[paramName] = paramValue;
+            uriBuilder.Query = query.ToString();
+            currentURL = uriBuilder.ToString();
+
+
+            return currentURL;
+        }
+
     }
 }

@@ -11,12 +11,12 @@ namespace Episerver_React.Controllers
     public class PresentationPageController : Controller
     {
         EPiServerDB _db = new EPiServerDB();
-        
+
         //[OutputCache(Duration = 60)]
         // GET: AboutPage
         public ActionResult Index()
         {
-            using (var context = new EPiServerDB() )
+            using (var context = new EPiServerDB())
             {
                 if (Request["mycookie"] != null)
                 {
@@ -50,10 +50,8 @@ namespace Episerver_React.Controllers
 
                 }
 
-
-
             }
-                
+
         }
 
         public ActionResult Search(string SearchString, int pageIndex)
@@ -90,7 +88,7 @@ namespace Episerver_React.Controllers
             return RedirectToAction("Index", "Products");
         }
 
-        
+
         // GET: AboutPage
         public ActionResult About()
         {
@@ -98,11 +96,49 @@ namespace Episerver_React.Controllers
         }
 
 
-       /* public ActionResult Search()
+        public ActionResult Menu()
         {
-            return RedirectToAction("Index","");
-        }*/
+            using (var context = new EPiServerDB())
+            {
+                var menu = new List<MenuViewModel>();
+                
+                var categories = context.Categories.ToList();
 
+                foreach (var category in categories)
+                {
+                    var menuNode = new MenuViewModel();
+                    menuNode.Action = "Category";
+                    menuNode.Controller = "Products";
+                    menuNode.IsAction = true;
+                    menuNode.Title = category.Name;
+                    var submenuList = new List<MenuViewModel>();
 
+                    foreach (var subCategory in category.SubCategories)
+                    {
+                        
+
+                        submenuList.Add(new MenuViewModel()
+                        {
+                            Action = "Subcategory",
+                            Controller = "Products",
+                            IsAction = true,
+                            Title = subCategory.Name
+                        });
+
+                    }
+                    menuNode.SubMenu = submenuList;
+                    menu.Add(menuNode);
+                }
+                return PartialView("~/Views/Shared/Partial/_MenuV2.cshtml", menu);
+            }
+
+           
+
+        }
     }
 }
+        /* public ActionResult Search()
+         {
+             return RedirectToAction("Index","");
+         }*/
+

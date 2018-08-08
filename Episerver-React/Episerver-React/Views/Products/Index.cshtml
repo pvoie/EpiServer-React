@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Episerver_React.Models.Product>
+﻿@*@model IEnumerable<Episerver_React.Models.Product>*@
+@model Episerver_React.Models.ViewModels.GeneralViewModel
 
 @{
     ViewBag.Title = "Products";
@@ -6,40 +7,52 @@
 }
 
 
-
+<div class="m-4">
+    @{Html.RenderPartial("~/Views/Shared/Partial/_SearchFiltersBlock.cshtml",new Episerver_React.Models.SearchModel()); }
+</div>
 
 <div class="products-container">
-    @{Html.RenderPartial("~/Views/Shared/Partial/_PageIndex.cshtml");}
-    @{
-        if (Model.Count() > 3)
+    @{if (Model.Items.Count() > 0)
         {
-            for (int i = 0; i < ViewBag.ItemsOnPage - 1; i += 3)
 
+            Html.RenderPartial("~/Views/Shared/Partial/_PageIndex.cshtml", Model.PageInfo);
+
+            if (Model.Items.Count() >= Model.PageInfo.ItemsOnPage)
+            {
+                for (int i = 0; i < Model.PageInfo.ItemsOnPage - 1; i += 3)
+
+                {
+                    <div class="row align-content-around">
+                        @{
+                            int j = 0;
+
+                            for (; j < 3 && i + j < Model.PageInfo.ItemsOnPage; j++)
+                            {
+
+                                Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.Items.ToArray()[i + j]);
+                            }
+                        }
+                    </div>
+                }
+            }
+            else
             {
                 <div class="row align-content-around">
-                    @{
-                        int j = 0;
-
-                        for (; j < 3 && i + j < ViewBag.ItemsOnPage; j++)
-                        {
-
-                            Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.ToArray()[i + j]);
-                        }
-                    }
-                </div>
-            }
-        }
-        else
-        {
-                <div class="row align-content-around">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Items)
                     {
-                    Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", item);
+                        Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", item);
                     }
                 </div>
-        }
-
+                                }
+                            }
+                            else
+                            {
+                                Html.RenderPartial("~/Views/Shared/Partial/_RedMessage.cshtml", (object)"No products were found matching your selection.");
+                            }
     }
+
+
+
 
 
 </div>

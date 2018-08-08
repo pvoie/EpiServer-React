@@ -1,4 +1,5 @@
-﻿@using System.Web.Optimization
+﻿
+@using System.Web.Optimization
 @{
     Layout = null;
 }
@@ -10,31 +11,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/bootstrapCss")
+    @Scripts.Render("~/Content/MenuV2css")
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    @Html.Action("Menu", "PresentationPage")
+    @*<div class="topnav" id="myTopnav">
+                @Html.ActionLink("Home", "Index", "PresentationPage", null, new { @class = "active" })
+                @Html.ActionLink("About", "About", "PresentationPage")
+                <a href="@Url.Action("Index","Products", new {pageIndex=0 })">Products</a>
+                    @Html.ActionLink("Admin", "Index", "Admin/AProducts/", null, new { @class = "admin" })
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    @using (Ajax.BeginForm("Search", "PresentationPage", new { pageIndex = 0 }, new AjaxOptions
+                    {
+                        HttpMethod = "get",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "products-table"
+                    }
+                   ))
+                    {
+                        <input type="search" name="SearchString" />
+                        <input type="submit" value="Search Products" />
+                    }
 
-    <div class="topnav" id="myTopnav">
-        @Html.ActionLink("Home", "Index", "PresentationPage", null, new { @class = "active" })
-        @Html.ActionLink("About", "About", "PresentationPage")
-        <a href="@Url.Action("Index","Products", new {pageIndex=0 })">Products</a>
-            @Html.ActionLink("Admin", "Index", "Admin/AProducts/", null, new { @class = "admin" })
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-            @using (Ajax.BeginForm("Search", "PresentationPage", new { pageIndex = 0 }, new AjaxOptions
-            {
-                HttpMethod = "get",
-                InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "products-table"
-            }
-           ))
-            {
-                <input type="search" name="SearchString" />
-                <input type="submit" value="Search Products" />
-            }
-
-</div>
+        </div>*@
 
     <div class="container">
         @RenderBody()
@@ -46,8 +48,10 @@
         <p>Episerver MVC</p>
     </div>
 
-    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/myscripts")
+    @Scripts.Render("~/bundles/menuV2scripts")
 
 </body>
 </html >
