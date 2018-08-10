@@ -31,6 +31,7 @@ namespace Episerver_React.Models
             if (itemsOnPage != 0)
             {
                 IEnumerable<Product> list = items.OrderBy(p => p.Id).Skip(pageIndex * itemsOnPage).Take(itemsOnPage).ToList();
+                
                 return list;
             }
             else
@@ -68,6 +69,31 @@ namespace Episerver_React.Models
 
 
             return currentURL;
+        }
+
+        public static int ToInt(this string word)
+        {
+            return Convert.ToInt32(word);
+        }
+
+
+        public static int PromoPrice(this Product product)
+        {
+            if (product.Promotion != null)
+            {
+                var percent = product.Promotion.PercentAmount
+                                               .Remove(product.Promotion.PercentAmount.IndexOf("%"), 1)
+                                               .ToInt();
+                var p1 = (((double)percent / 100.0) * (double)product.Price);
+                var price = (double)product.Price - p1 ;
+
+                return (int)Math.Round(price);
+            }
+            else
+            {
+                throw new Exception("No promo for this product");
+            }
+            
         }
 
     }

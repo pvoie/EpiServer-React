@@ -16,5 +16,6 @@ namespace Episerver_React.Models
         public int Price { get; set; }
         public string Image { get; set; }
         public SubCategory SubCategory { get; set; }
+        public Promotion Promotion { get; set; }
     }
 }

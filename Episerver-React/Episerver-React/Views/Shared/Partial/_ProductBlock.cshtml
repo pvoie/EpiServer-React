@@ -1,4 +1,5 @@
-﻿@model Episerver_React.Models.Product
+﻿@using Episerver_React.Models
+@model Episerver_React.Models.Product
 
 <div class="col-3 item-p">
 
@@ -12,7 +13,19 @@
     <div class="details">
         <a href="@Url.Action("Details", "Products", new { id = Model.Id })" style="text-decoration:none;">
             <img src="@Model.Image" class="card-img-bottom" />
-            <h2 class="figure-caption text-center price">@Html.DisplayFor(p => Model.Price) EUR</h2>
+            @if (Model.Promotion != null)
+            {
+                <div align="center">
+                    <del class="figure-caption text-center price font-weight-normal">@Html.DisplayFor(p => p.Price) EUR</del>
+                </div>
+                <h2 class="figure-caption text-center price text-danger">@Model.PromoPrice() EUR</h2>
+
+            }
+            else
+            {
+                <h2 class="figure-caption text-center price">@Html.DisplayFor(p => Model.Price) EUR</h2>
+            }
+            @*<h2 class="figure-caption text-center price">@Html.DisplayFor(p => Model.Price) EUR</h2>*@
         </a>
     </div>
 

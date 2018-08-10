@@ -276,6 +276,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FilterConstants.cs" />
+    <Compile Include="Models\GlobalOmitVaryStar.cs" />
+    <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\ViewModels\GeneralViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
