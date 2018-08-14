@@ -24,7 +24,11 @@ namespace Episerver_React.Controllers
                 IEnumerable<Product> items = context.Products.ToPage(12, pageIndex);
                 foreach (var item in items)
                 {
-                    item.Promotion = context.Promotions.Where(pr => pr.Id == context.Products.Where(p => p.Id == item.Id).FirstOrDefault().Promotion.Id).FirstOrDefault();
+                    item.Promotion = context.Promotions
+                                            .Where(pr => pr.Id == context.Products
+                                                                         .Where(p => p.Id == item.Id)
+                                                                         .FirstOrDefault().Promotion.Id)
+                                                                         .FirstOrDefault();
                 }
 
                 var model = new GeneralViewModel
@@ -37,10 +41,7 @@ namespace Episerver_React.Controllers
                         ItemsOnPage = 12
                     }
 
-                };
-                //ViewBag.Pages = context.Products.Count().NumberOfPages(12);
-                //ViewBag.CurrentPage = pageIndex;
-                //ViewBag.ItemsOnPage = 12;
+                };              
                Response.Cache.SetOmitVaryStar(true);
                 return View(model);
             }
@@ -128,21 +129,22 @@ namespace Episerver_React.Controllers
                 return View("~/Views/Products/Index.cshtml", model);
 
             }
-
-
-
+                        
         }
-
-
+        
 
         public ActionResult AdvancedSearch(SearchModel searchModel, int pageIndex = 0)
         {
             using (var context = new EPiServerDB())
             {
-                var products = context.Products.Where(p => p.SubCategory.Category.Name.Contains(searchModel.Category)).Where(p=>p.Description.Contains(searchModel.Size)).ToList();
+                var products = context.Products.Where(p => p.SubCategory.Category.Name.Contains(searchModel.Category)).Where(p => p.Description.Contains(searchModel.Size)).ToList();
+
                 foreach (var item in products)
                 {
-                    item.Promotion = context.Promotions.Where(pr => pr.Id == context.Products.Where(p => p.Id == item.Id).FirstOrDefault().Promotion.Id).FirstOrDefault();
+                    item.Promotion = context.Promotions.Where(pr => pr.Id == context.Products
+                                                                                    .Where(p => p.Id == item.Id)
+                                                                                    .FirstOrDefault().Promotion.Id)
+                                                                                    .FirstOrDefault();
                 }
 
                 var model = new GeneralViewModel
@@ -157,16 +159,12 @@ namespace Episerver_React.Controllers
                     }
 
                 };
-
-                //ViewBag.Pages = products.Count.NumberOfPages(12);
-                //ViewBag.CurrentPage = pageIndex;
-                //ViewBag.ItemsOnPage = 12;
+                
                 return View("~/Views/Products/Index.cshtml", model);
 
             }
 
-
-
+            
         }
 
     }

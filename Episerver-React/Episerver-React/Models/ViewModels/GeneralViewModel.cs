@@ -11,6 +11,12 @@ namespace Episerver_React.Models.ViewModels
         public PaginationViewModel PageInfo { get; set; }
         
         public IEnumerable<Object> Items { get; set; }
+
+        public IEnumerable<Product> Recommended { get; set; }
+
+        
+
+
         
     }
 }

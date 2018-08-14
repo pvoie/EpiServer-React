@@ -215,4 +215,8 @@ input{
 #selectCategory, #selectSizeMen, #selectSizeWomen, #selectSizeKids{
     width: 50% !important;
 }
-   
+
+.carousel-item div a:hover{
+    opacity:0.6;
+}
+

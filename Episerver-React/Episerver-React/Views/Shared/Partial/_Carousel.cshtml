@@ -1,0 +1,98 @@
+﻿@using Episerver_React.Models
+@model IEnumerable<Episerver_React.Models.Product>
+
+@*Displays the newest 5 product*@
+
+<div id="carouselExampleControls" class="carousel slide mt-4" data-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active bg-white">
+            <div style=" vertical-align:middle; text-align:center;">
+                <a href="@Url.Action("Details","Products",new {Id=Model.FirstOrDefault().Id })">
+                    @{Html.RenderPartial("~/Views/Shared/Partial/_Picture.cshtml", Model.FirstOrDefault().Picture); }
+
+                </a>
+                @if (Model.FirstOrDefault().Promotion != null)
+                {
+                <div class="d-md-inline text-dark mt-4">
+                    <h4 class="text-center text-dark">@Model.FirstOrDefault().Name</h4>
+                    <h4 class="text-center text-danger">@Model.FirstOrDefault().Promotion.Name</h4>
+                    <h6 class="text-center text-danger font-weight-bold">@Model.FirstOrDefault().Promotion.PercentAmount DISCOUNT</h6>
+                    <del class="text-center text-dark font-weight-bold">@Model.FirstOrDefault().Price EUR</del>
+                    <p class="text-center text-danger font-weight-bold">@Model.FirstOrDefault().PromoPrice() EUR</p>
+                </div>
+
+                }
+                else
+                {
+                    <div class="d-md-inline text-dark mt-4">
+                        <h5 class="text-center text-dark">@Model.FirstOrDefault().Name</h5>
+                        <p class="text-center text-dark font-weight-bold">@Model.FirstOrDefault().Price EUR</p>
+                    </div>
+                }
+
+            </div>
+        </div>
+        @foreach (Product item in Model)
+        {
+            if (item == Model.FirstOrDefault())
+            {
+                continue;
+            }
+            else
+            {
+                <div class="carousel-item bg-white">
+                    <div style=" vertical-align:middle; text-align:center;">
+                        <a href="@Url.Action("Details","Products",new {Id=item.Id })">
+                            @{
+                                if (item.Picture != null)
+                                {
+                                    Html.RenderPartial("~/Views/Shared/Partial/_Picture.cshtml", item.Picture);
+                                }
+                                else
+                                {
+                                    <img class="d-block img-fluid w-50 " style="margin-left:25%" src="@item.Image">
+                                }
+                            }
+
+                        </a>
+
+                        @if (item.Promotion != null)
+                        {
+                         
+                        <div class="d-md-inline text-dark mt-4">
+                            <h4 class="text-center text-dark">@item.Name</h4>
+                            <h4 class="text-center text-danger">@item.Promotion.Name</h4>
+                            <h6 class="text-center text-danger font-weight-bold">@item.Promotion.PercentAmount DISCOUNT</h6>
+                            <del class="text-center text-dark font-weight-bold">@item.Price EUR</del>
+                            <p class="text-center text-danger font-weight-bold">@item.PromoPrice() EUR</p>
+                        </div>
+                        }
+                        else
+                        {
+                            <div class="d-md-inline text-dark mt-4">
+                                <h4 class="text-center text-dark">@item.Name</h4>
+                                <p class="text-center text-dark font-weight-bold">@item.Price EUR</p>
+                            </div>
+                        }
+
+                    </div>
+
+
+                </div>
+            }
+
+        }
+
+
+    </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon bg-primary" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon bg-primary" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Episerver_React.Models;
 using System.Data.Entity;
+using Episerver_React.Models.ViewModels;
 
 namespace Episerver_React.Controllers
 {
@@ -18,21 +19,47 @@ namespace Episerver_React.Controllers
         {
             using (var context = new EPiServerDB())
             {
+                var model = new GeneralViewModel();
+                model.PageInfo = new PaginationViewModel();
+                
+                //Get the newest 5 products
+                model.Items = context.Products.OrderBy(p=>p.Id).Skip(Math.Max(0, context.Products.Count() - 5)).ToList();
+                foreach (Product item in model.Items)
+                {
+                    //Get the promotion for each product
+                    item.Promotion = context.Promotions
+                                               .Where(pr => pr.Id == context.Products
+                                                                            .Where(p => p.Id == item.Id)
+                                                                            .FirstOrDefault().Promotion.Id)
+                                                                            .FirstOrDefault();
+                    //Get the Image for each product
+                    item.Picture = context.Pictures
+                                            .Where(pr => pr.Id == context.Products
+                                                                         .Where(p => p.Id == item.Id)
+                                                                         .FirstOrDefault().Picture.Id)
+                                                                         .FirstOrDefault();
+                }
+
+
+
+
+                //Cookie based recommendation
                 if (Request["mycookie"] != null)
                 {
+                   
                     if (String.IsNullOrWhiteSpace(Request.Cookies["mycookie"].Value))
                     {
-                        IEnumerable<Product> model = context.Products.ToPage(6, 0);
-                        ViewBag.CurrentPage = 0;
-                        ViewBag.ItemsOnPage = 6;
-
+                        model.Recommended = context.Products.ToPage(6, 0);
+                        model.PageInfo.CurrentPage = 0;
+                        model.PageInfo.ItemsOnPage = 6;
+                        
                         return View(model);
                     }
                     else
                     {
-                        IEnumerable<Product> model = context.Products.Search(Request.Cookies["mycookie"].Value).ToList();
-                        ViewBag.CurrentPage = 0;
-                        ViewBag.ItemsOnPage = 6;
+                        model.Recommended = context.Products.Search(Request.Cookies["mycookie"].Value).ToList();
+                        model.PageInfo.CurrentPage = 0;
+                        model.PageInfo.ItemsOnPage = 6;
                         ViewBag.Message = "Some recommend products for you: ";
 
                         return View(model);
@@ -42,13 +69,16 @@ namespace Episerver_React.Controllers
                 }
                 else
                 {
-                    IEnumerable<Product> model = context.Products.ToPage(6, 0);
-                    ViewBag.CurrentPage = 0;
-                    ViewBag.ItemsOnPage = 6;
+                    model.Recommended = context.Products.ToPage(6, 0);
+                    model.PageInfo.CurrentPage = 0;
+                    model.PageInfo.ItemsOnPage = 6;
 
                     return View(model);
 
                 }
+
+
+                
 
             }
 
@@ -62,14 +92,16 @@ namespace Episerver_React.Controllers
             }
             else
             {
+                var model = new GeneralViewModel();
+                model.PageInfo = new PaginationViewModel();
 
-                var model = _db.Products.Search(SearchString);
+                model.Items = _db.Products.Search(SearchString);
 
-                if (model.Count() > 0)
+                if (model.Items.Count() > 0)
                 {
 
-                    ViewBag.ItemsOnPage = 12;
-                    return View("~/Views/PresentationPage/Index.cshtml", model);
+                    model.PageInfo.ItemsOnPage = 12;
+                    return View("~/Views/Products/Index.cshtml", model);
                 }
                 else
                 {

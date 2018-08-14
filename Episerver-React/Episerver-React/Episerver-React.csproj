@@ -277,6 +277,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FilterConstants.cs" />
     <Compile Include="Models\GlobalOmitVaryStar.cs" />
+    <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\ViewModels\GeneralViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
@@ -406,6 +407,9 @@
     <Content Include="Views\Shared\Partial\_RedMessage.cshtml" />
     <Content Include="Views\Shared\Partial\_SearchFiltersBlock.cshtml" />
     <Content Include="Views\Shared\Partial\_MenuV2.cshtml" />
+    <Content Include="Views\Shared\Partial\SearchResults.cshtml" />
+    <Content Include="Views\Shared\Partial\_Carousel.cshtml" />
+    <Content Include="Views\Shared\Partial\_Picture.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

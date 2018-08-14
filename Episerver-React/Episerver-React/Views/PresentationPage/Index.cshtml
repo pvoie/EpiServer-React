@@ -1,4 +1,4 @@
-﻿@model IEnumerable < Episerver_React.Models.Product >
+﻿@model Episerver_React.Models.ViewModels.GeneralViewModel
 @{
     var message = TempData["EMPTY"];
     Layout = "~/Views/Shared/Layouts/_MyLayout.cshtml";
@@ -7,7 +7,12 @@
 
 <title>Episerver MVC</title>
 <div>
-    <h3>Welcome to our site</h3>
+    <h3 class="mt-3">Welcome to our site</h3>
+
+    @*Carousel for last products*@
+    @{Html.RenderPartial("~/Views/Shared/Partial/_Carousel.cshtml", Model.Items); }
+
+
     <p>
         Profundum credendum summopere sap lus inspiciam confirmet.
         An imbecillia labefactat co incidissem im. Exhibetur inscitiae concilium
@@ -16,30 +21,29 @@
         vereor ac. Ulla male suam sine ante uti meam
         nec sum. Foco ab ob im sane fore de nova tale.
     </p>
-
-    
     <h4 style="color:darkred">@message</h4>
 
     <div id="products-table">
-        <h4 style="color:darkred">@ViewBag.Message</h4>
+        <h4 style="color:darkred">Some recommended products for you:</h4>
         <div class="products-container">
 
             @{
-                if (Model.Count() > 3)
+                if (Model.Recommended.Count() > 3)
                 {
-                    if (Model.Count() >= ViewBag.ItemsOnPage)
+
+                    if (Model.Recommended.Count() >= Model.PageInfo.ItemsOnPage)
                     {
-                        for (int i = 0; i < ViewBag.ItemsOnPage - 1; i += 3)
+                        for (int i = 0; i < Model.PageInfo.ItemsOnPage - 1; i += 3)
 
                         {
                             <div class="row align-content-around">
                                 @{
                                     int j = 0;
 
-                                    for (; j < 3 && i + j < ViewBag.ItemsOnPage; j++)
+                                    for (; j < 3 && i + j < Model.PageInfo.ItemsOnPage; j++)
                                     {
 
-                                        Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.ToArray()[i + j]);
+                                        Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.Recommended.ToArray()[i + j]);
                                     }
                                 }
                             </div>
@@ -47,17 +51,17 @@
                     }
                     else
                     {
-                        for (int i = 0; i < Model.Count() - 1; i += 3)
+                        for (int i = 0; i < Model.Recommended.Count() - 1; i += 3)
 
                         {
                             <div class="row align-content-around">
                                 @{
                                     int j = 0;
 
-                                    for (; j < 3 && i + j < Model.Count(); j++)
+                                    for (; j < 3 && i + j < Model.Recommended.Count(); j++)
                                     {
 
-                                        Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.ToArray()[i + j]);
+                                        Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.Recommended.ToArray()[i + j]);
                                     }
                                 }
                             </div>
@@ -68,7 +72,7 @@
                 else
                 {
                     <div class="row align-content-around">
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.Recommended)
                         {
                             Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", item);
                         }
