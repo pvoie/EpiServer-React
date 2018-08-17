@@ -21,6 +21,9 @@ namespace Episerver_React
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                    .Include("~/Static/Scripts/jquery-3.3.1.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryUI")
+               .Include("~/Static/Scripts/jquery-ui.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
                    .Include("~/Static/Scripts/jquery-3.3.1.slim.min.js")
                    .Include("~/Scripts/umd/popper.min.js")

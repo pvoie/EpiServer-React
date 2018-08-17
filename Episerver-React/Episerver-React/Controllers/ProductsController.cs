@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 //using System.Web.Services.Description;
@@ -137,6 +138,16 @@ namespace Episerver_React.Controllers
         {
             using (var context = new EPiServerDB())
             {
+                //verify the unselected fields and set "" value for them
+                foreach (PropertyInfo prop in typeof(SearchModel).GetProperties() )
+                {
+                    if (prop.GetValue(searchModel).ToString().Contains("-"))
+                    {
+                        prop.SetValue(searchModel, "");
+                    }
+                }
+                
+                //get the products matching the search fields
                 var products = context.Products.Where(p => p.SubCategory.Category.Name.Contains(searchModel.Category)).Where(p => p.Description.Contains(searchModel.Size)).ToList();
 
                 foreach (var item in products)

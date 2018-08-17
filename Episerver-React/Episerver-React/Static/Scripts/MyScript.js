@@ -2,7 +2,7 @@
     var expires = "";
     if (days) {
         var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
@@ -89,6 +89,10 @@ function sendAjaxFilters(filters) {
 
 
 
+
+
+
+
 $(document).ready(function () {
     $("#create-product-button").click(function () {
         //e.preventDefault();
@@ -129,7 +133,7 @@ $(document).ready(function () {
     });
 
 
-    if ($("#selectCategory").find(":selected").text() == "Men") {
+    if ($("#selectCategory").find(":selected").text() === "Men") {
         $("#selectSizeWomen").prop("disabled", true).hide();
         $("#selectSizeKids").prop("disabled", true).hide();
     }
@@ -142,6 +146,98 @@ $(document).ready(function () {
     //            $("#selectSizeMen").prop("disabled", true).hide();
     //            $("#selectSizeWomen").prop("disabled", true).hide();
     //        }
+
+
+
+
+    //autocomplete for search input   
+
+
+    function and() {
+        var result;
+        $.ajax({
+            url: '/Search/Autocomplete',
+            type: 'get',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: { searchString: "Ni" },
+            succes: function (data) {
+
+               result = data;
+
+            },
+            error: function (xhr, status, error) {
+                console.log("Error");
+            }
+        });
+        return result;
+    }
+
+    var products = 
+        $.ajax({
+            url: '/Search/Autocomplete',
+            type: 'get',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: { searchString: 'Ni' },
+            succes: function (data) {
+
+                return data;
+
+            },
+            error: function (xhr, status, error) {
+                console.log("Error")
+            }
+        });
+    
+
+    console.log(products);
+    
+
+    var nike = ['nike', 'nike2'];
+
+
+
+    $("#searchInput").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '/Search/Autocomplete',
+                type: 'get',
+                dataType: 'json',
+                //contentType: "application/json; charset=utf-8",
+                data: { searchString: request.term },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.Name, value: item.Name };
+                    }))
+
+                }  
+                //error: function (xhr, status, error) {
+                //    console.log("Error");
+                //    console.log(error);
+                //}
+            });
+
+        },
+        minLength: 2,
+        
+    });
+
+
+
+    //var createAucotomplete = function () {
+    //    var $input = $(this);
+
+    //    var options = {
+    //        source: $input.attr("data-otf-autocomplete")
+    //    };
+
+    //    $input.autocomplete(options);
+    //}
+
+
+
+    //$("input[data-otf-autocomplete]").each(createAucotomplete);
 
 
 });

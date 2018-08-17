@@ -24,6 +24,8 @@ namespace Episerver_React.Controllers
                 
                 //Get the newest 5 products
                 model.Items = context.Products.OrderBy(p=>p.Id).Skip(Math.Max(0, context.Products.Count() - 5)).ToList();
+                
+                model.Items.Reverse();
                 foreach (Product item in model.Items)
                 {
                     //Get the promotion for each product
@@ -84,7 +86,7 @@ namespace Episerver_React.Controllers
 
         }
 
-        public ActionResult Search(string SearchString, int pageIndex)
+        public ActionResult Search(string SearchString, int pageIndex=0)
         {
             if (String.IsNullOrWhiteSpace(SearchString))
             {
@@ -106,7 +108,7 @@ namespace Episerver_React.Controllers
                 else
                 {
                     TempData["EMPTY"] = "No results have been found";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Products");
 
                 }
             }
