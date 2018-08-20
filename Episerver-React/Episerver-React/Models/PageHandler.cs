@@ -96,5 +96,16 @@ namespace Episerver_React.Models
             
         }
 
+
+        public static T FirstOr<T>(this IEnumerable<T> source, T defaultValue)
+        {
+            foreach (T t in source)
+                return t;
+            return defaultValue;
+        }
+
+
+
+
     }
 }

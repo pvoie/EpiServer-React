@@ -8,6 +8,7 @@ using System.Web.Mvc;
 //using System.Web.Services.Description;
 using Episerver_React.Models;
 using Episerver_React.Models.ViewModels;
+using Episerver_React.App_Start;
 
 
 namespace Episerver_React.Controllers
@@ -32,14 +33,21 @@ namespace Episerver_React.Controllers
                                                                          .FirstOrDefault();
                 }
 
+                //getting the number of items per page
+                var itemsOnPage = PaginationConfig.Rules.Where(p => p.PageName.Contains("Products/Index"))
+                                                            .FirstOr(PaginationConfig.Rules.First(x => x.PageName.Contains("Default")))
+                                                            .ItemsOnPage;
+
+
                 var model = new GeneralViewModel
                 {
                     Items = items,
                     PageInfo = new PaginationViewModel
                     {
-                        Pages = context.Products.Count().NumberOfPages(12),
-                        CurrentPage = pageIndex,
-                        ItemsOnPage = 12
+                        ItemsOnPage = itemsOnPage,
+                        Pages = context.Products.Count().NumberOfPages(itemsOnPage),
+                        CurrentPage = pageIndex
+                       
                     }
 
                 };              
@@ -93,14 +101,8 @@ namespace Episerver_React.Controllers
 
                 };
 
-                //ViewBag.Pages = products.Count.NumberOfPages(12);
-                //ViewBag.CurrentPage = pageIndex;
-                //ViewBag.ItemsOnPage = 12;
                 return View("~/Views/Products/Index.cshtml", model);
-
             }
-
-
 
         }
 
@@ -122,9 +124,7 @@ namespace Episerver_React.Controllers
                         Pages = products.Count.NumberOfPages(12),
                         CurrentPage = pageIndex,
                         ItemsOnPage = 12
-
                     }
-
                 };
                 
                 return View("~/Views/Products/Index.cshtml", model);
@@ -141,10 +141,22 @@ namespace Episerver_React.Controllers
                 //verify the unselected fields and set "" value for them
                 foreach (PropertyInfo prop in typeof(SearchModel).GetProperties() )
                 {
+                    if (prop.GetValue(searchModel)==null)
+                    {
+                        prop.SetValue(searchModel, "");
+                    }
+
+                    if (prop.GetValue(searchModel).ToString().Contains("Select"))
+                    {
+                        prop.SetValue(searchModel, "");
+                    }
+
                     if (prop.GetValue(searchModel).ToString().Contains("-"))
                     {
                         prop.SetValue(searchModel, "");
                     }
+
+                    
                 }
                 
                 //get the products matching the search fields

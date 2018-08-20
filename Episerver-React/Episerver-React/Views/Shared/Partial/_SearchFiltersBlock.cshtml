@@ -34,7 +34,7 @@
     @Html.LabelFor(model => model.Category)
     @Html.DropDownListFor(model => model.Category, new SelectList(FilterConstants.Categories), htmlAttributes: new { @class = "form-control mb-2", @id = "selectCategory" })
     @Html.LabelFor(model => model.Size)
-    @Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.MenSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSizeMen" })
+    @Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.MenSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSize" })
     @*@Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.WomenSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSizeWomen" })
     @Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.KidsSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSizeKids" })*@
     <button type="submit" class="btn btn-primary my-1" id="submitFilters">Submit</button>
