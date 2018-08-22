@@ -1,0 +1,58 @@
+﻿@*@model IEnumerable<Episerver_React.Models.Product>*@
+@model GeneralViewModel
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Areas/MVC/Views/Shared/Layouts/_MyLayout.cshtml";
+}
+
+
+<div class="m-4">
+    @{Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_SearchFiltersBlock.cshtml",new SearchModel()); }
+</div>
+
+<div class="products-container">
+    @{if (Model.Items.Count() > 0)
+        {
+
+            Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_PageIndex.cshtml", Model.PageInfo);
+
+            if (Model.Items.Count() >= Model.PageInfo.ItemsOnPage)
+            {
+                for (int i = 0; i < Model.PageInfo.ItemsOnPage - 1; i += 3)
+
+                {
+                    <div class="row align-content-around">
+                        @{
+                            int j = 0;
+
+                            for (; j < 3 && i + j < Model.PageInfo.ItemsOnPage; j++)
+                            {
+
+                                Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_ProductBlock.cshtml", Model.Items.ToArray()[i + j]);
+                            }
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="row align-content-around">
+                    @foreach (var item in Model.Items)
+                    {
+                        Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_ProductBlock.cshtml", item);
+                    }
+                </div>
+                                }
+                            }
+                            else
+                            {
+                                Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_RedMessage.cshtml", (object)"No products were found matching your selection.");
+                            }
+    }
+
+
+
+
+
+</div>

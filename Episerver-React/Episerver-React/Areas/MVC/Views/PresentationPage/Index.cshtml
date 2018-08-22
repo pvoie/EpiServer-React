@@ -1,0 +1,91 @@
+﻿@model GeneralViewModel
+@{
+    var message = TempData["EMPTY"];
+    Layout = "~/Areas/MVC/Views/Shared/Layouts/_MyLayout.cshtml";
+    ViewBag.Title = "Home";
+}
+
+<title>Episerver MVC</title>
+<div>
+    <h3 class="mt-3">Welcome to our site</h3>
+
+    @*Carousel for last products*@
+    @{Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_Carousel.cshtml", Model.Items); }
+
+
+    <p>
+        Profundum credendum summopere sap lus inspiciam confirmet.
+        An imbecillia labefactat co incidissem im. Exhibetur inscitiae concilium
+        ii at mo. Cupientem praeditis ii quocunque archimede procedere at ac.
+        Mem firmae exigui nondum rea contra tam hoc nomine. Ii ut vultum ausint
+        vereor ac. Ulla male suam sine ante uti meam
+        nec sum. Foco ab ob im sane fore de nova tale.
+    </p>
+    <h4 style="color:darkred">@message</h4>
+
+    <div id="products-table">
+        <h4 style="color:darkred">Some recommended products for you:</h4>
+        <div class="products-container">
+
+            @{
+                if (Model.Recommended.Count() > 3)
+                {
+
+                    if (Model.Recommended.Count() >= Model.PageInfo.ItemsOnPage)
+                    {
+                        for (int i = 0; i < Model.PageInfo.ItemsOnPage - 1; i += 3)
+
+                        {
+                            <div class="row align-content-around">
+                                @{
+                                    int j = 0;
+
+                                    for (; j < 3 && i + j < Model.PageInfo.ItemsOnPage; j++)
+                                    {
+
+                                        Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_ProductBlock.cshtml", Model.Recommended.ToArray()[i + j]);
+                                    }
+                                }
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < Model.Recommended.Count() - 1; i += 3)
+
+                        {
+                            <div class="row align-content-around">
+                                @{
+                                    int j = 0;
+
+                                    for (; j < 3 && i + j < Model.Recommended.Count(); j++)
+                                    {
+
+                                        Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_ProductBlock.cshtml", Model.Recommended.ToArray()[i + j]);
+                                    }
+                                }
+                            </div>
+                        }
+                    }
+
+                }
+                else
+                {
+                    <div class="row align-content-around">
+                        @foreach (var item in Model.Recommended)
+                        {
+                            Html.RenderPartial("~/Areas/MVC/Views/Shared/Partial/_ProductBlock.cshtml", item);
+                        }
+                    </div>
+                }
+
+            }
+
+
+        </div>
+    </div>
+
+</div>
+
+
+

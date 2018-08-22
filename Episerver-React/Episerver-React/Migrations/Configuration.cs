@@ -5,6 +5,8 @@ namespace Episerver_React.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Episerver_React.Models;
+    using System.Collections;
+    using System.Collections.Generic;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Episerver_React.Models.EPiServerDB>
     {
@@ -15,30 +17,34 @@ namespace Episerver_React.Migrations
 
         protected override void Seed(Episerver_React.Models.EPiServerDB context)
         {
-            //foreach (var c in "bcdr")
-            //{
-            //    foreach (var v in "aeiou")
-            //    {
-            //        foreach (var item in collection)
-            //        {
+            //var cat = new Category { Name = "Women", Description = "Women's shoes" };
+            
+            ////var catList = new List<Category>();
+            ////catList.Add(cat);
+            //var sub = new SubCategory { Name = "Fitness"};
 
-            //        }
-
-
-            //    }
-
-            //}
+            //cat.SubCategories.Add(sub);
+            //sub.Categories.Add(cat);
+            ////var subcatList = new List<SubCategory>();
+            ////subcatList.Add(sub);
 
 
-            ////for (int i = 0; i < 30; i++)
+
+
+
+
+            //context.SubCategories.AddOrUpdate(sub);
+            //context.Categories.AddOrUpdate(cat);
+
+            ////context.Categories.AddOrUpdate(new Category
             ////{
-            //    context.Products.AddOrUpdate(new Product { Name = "Tommy "+i.ToString(), Description = "size 43", Price = 110 },
-            //    new Product { Name = "Adidas Superstar " + i.ToString(), Description = "size 40", Price = 140 },
-            //    new Product { Name = "Reebook P10" + i.ToString(), Description = "size 43", Price = 120 });
-            ////}
-            context.Products.AddOrUpdate(new Product { Name = "Adidas Superstar Classic", Description = "The full grain leather upper makes these trainers comfortable and soft on your feet.", Size="43" ,Price = 110, Image="~/images/adidas1.JPG" });
-
-
+            ////    Name = "Men",
+            ////    Description = "Men's shoes",
+            ////    SubCategories = subcatList
+            ////    //Size = "43",
+            ////    //Price = 110,
+            ////    //Image = "~/images/adidas1.JPG"
+            ////});
 
         }
     }

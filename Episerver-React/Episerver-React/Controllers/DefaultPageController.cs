@@ -16,6 +16,7 @@ namespace Episerver_React.Controllers
     public class DefaultPageController : BasePageController<BasePageData>
     {
         public ViewResult Index(BasePageData currentPage)
+
         {
             //create the page view model with site settings
             var model = CreateModelWithSettings(currentPage);
@@ -23,7 +24,7 @@ namespace Episerver_React.Controllers
             myCookie["Fav_brand"] = "Nike";
             myCookie.Expires = DateTime.Now.AddDays(2d);
             Response.Cookies.Add(myCookie);
-
+           
 
             return View(string.Format("~/Views/Pages/{0}/Index.cshtml", currentPage.ViewName), model);
         }

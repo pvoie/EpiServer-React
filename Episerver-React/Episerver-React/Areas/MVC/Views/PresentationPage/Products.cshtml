@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/Layouts/_MyLayout.cshtml";
+}
+@model IEnumerable<Episerver_React.Models.Product>
+
+
+
+<h2>Products</h2>
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="product-view">
+            <h5>@item.Name</h5>
+            <p>@item.Description</p>
+            <p>@item.Price EUR</p>
+        </div>
+
+
+    }
+</div>
+

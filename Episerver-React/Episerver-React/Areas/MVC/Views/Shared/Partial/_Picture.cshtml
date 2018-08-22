@@ -1,0 +1,8 @@
+﻿@model Picture
+
+    <picture>
+        <source media="(min-width: 1200px)" srcset="@Model.LargeImage">
+        <source media="(min-width: 800px)" srcset="@Model.MediumImage">
+        <img src="@Model.SmallImage" style="width:auto">
+    </picture>
+

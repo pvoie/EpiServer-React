@@ -8,7 +8,10 @@
 </head>
 <div class="container mt-3">
     <p>This is the HomePage</p>
-    <a href="~/PresentationPage/Index">Click here</a>
+    @Html.ActionLink("Click here to access the site", "Index", "PresentationPage", new { Area = "" }, new { @class = "admin" })
+    <br />
+    <br />
+    @Html.ActionLink("Click here to access the MVC Area", "Index", "PresentationPage", new { Area = "MVC" }, new { @class = "admin" })
 
     @{
         Html.RenderPartial("~/Views/Shared/Partial/_CookieBanner.cshtml");

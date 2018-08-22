@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Episerver_React.Models;
+using Episerver_React.Areas.MVC.Models;
 using System.Data.Entity;
-using Episerver_React.Models.ViewModels;
-using Episerver_React.App_Start;
+using Episerver_React.Areas.MVC.Models.ViewModels;
 
-namespace Episerver_React.Controllers
+namespace Episerver_React.Areas.MVC.Controllers
 {
     public class PresentationPageController : Controller
     {
@@ -104,7 +102,7 @@ namespace Episerver_React.Controllers
                 {
 
                     model.PageInfo.ItemsOnPage = 12;
-                    return View("~/Views/Products/Index.cshtml", model);
+                    return View("~/Areas/MVC/Views/Products/Index.cshtml", model);
                 }
                 else
                 {
@@ -164,7 +162,7 @@ namespace Episerver_React.Controllers
                     menuNode.SubMenu = submenuList;
                     menu.Add(menuNode);
                 }
-                return PartialView("~/Views/Shared/Partial/_MenuV2.cshtml", menu);
+                return PartialView("~/Areas/MVC/Views/Shared/Partial/_MenuV2.cshtml", menu);
             }
 
            

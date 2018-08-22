@@ -1,0 +1,48 @@
+﻿
+@model Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/MVC/Views/Shared/Layouts/_MyLayout.cshtml";
+}
+
+
+@Html.ActionLink("Back to previous page", null, null, null, new { href = Request.UrlReferrer })
+<div class="container">
+    <div class="product-display">
+
+        <figure class="w-50 mr-4">
+            <img class="img-fluid figure-img float-left mt-5 mr-3" src="@Html.DisplayFor(p => p.Image)">
+        </figure>
+        <h1>@Html.DisplayFor(p => p.Name)</h1>
+        @if (Model.SubCategory != null)
+        {
+            Html.ActionLink(Model.SubCategory.ToString(), "SubCategory", new { category = Model.SubCategory.Category, subcategory = Model.SubCategory });
+        }
+
+        <section>
+
+            <p>@Html.DisplayFor(p => p.Description)</p>
+            @if (Model.Promotion != null)
+            {
+                <h5 class="text-danger h5 mb-4">@Model.Promotion.Name</h5>
+                <del>@Html.DisplayFor(p => p.Price) EUR</del>
+                <h3 class="text-danger">@Model.PromoPrice() EUR</h3>
+
+            }
+            else
+            {
+                <h3>@Html.DisplayFor(p => p.Price)</h3>
+            }
+
+            <br />
+            <button class="btn btn-default mt-4">Buy Now</button>
+
+        </section>
+
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+
+    </p>
+</div>

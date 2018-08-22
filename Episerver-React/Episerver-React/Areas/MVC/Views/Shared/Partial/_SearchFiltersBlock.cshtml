@@ -1,0 +1,41 @@
+﻿
+
+@model SearchModel
+
+<label class="my-1 mr-2" id="showFilters">Filter your results &#9660;</label>
+@*<form class="form" id="filtersForm">
+
+        <br />
+        <select class="custom-select my-0 mr-sm-0" id="selectCategory">
+            <option selected value="Default">Category</option>
+            <option value="Men">Male</option>
+            <option value="Women">Female</option>
+
+        </select>
+        <select class="custom-select my-0 mr-sm-0 mt-2" id="selectSize">
+            <option selected value="Default">Size</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+
+        </select>
+
+
+
+
+        <button type="button" class="btn btn-primary my-1" id="submitFilters">Submit</button>
+    </form>*@
+
+@using (Html.BeginForm("AdvancedSearch", "Products", new { pageIndex = 0 }, FormMethod.Get, htmlAttributes: new { @id = "filtersForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(model => model.Category)
+    @Html.DropDownListFor(model => model.Category, new SelectList(FilterConstants.Categories), htmlAttributes: new { @class = "form-control mb-2", @id = "selectCategory" })
+    @Html.LabelFor(model => model.Size)
+    @Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.MenSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSize" })
+    @*@Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.WomenSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSizeWomen" })
+    @Html.DropDownListFor(model => model.Size, new SelectList(FilterConstants.KidsSizes), htmlAttributes: new { @class = "form-control mb-2", @id = "selectSizeKids" })*@
+    <button type="submit" class="btn btn-primary my-1" id="submitFilters">Submit</button>
+}

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using Episerver_React.Models;
 
+
+
+
 namespace Episerver_React.App_Start
 {
     public class PaginationConfig        
@@ -13,7 +16,7 @@ namespace Episerver_React.App_Start
         public static void PaginationRegister(List<PaginationModel> paginations)
         {
             paginations.Add(new PaginationModel { ItemsOnPage = 12, PageName = "Default", Area = "" });
-            paginations.Add(new PaginationModel { ItemsOnPage = 9, PageName = "Products/Index" });
+            paginations.Add(new PaginationModel { ItemsOnPage = 12, PageName = "Products/Index" });
         }
     }
 }

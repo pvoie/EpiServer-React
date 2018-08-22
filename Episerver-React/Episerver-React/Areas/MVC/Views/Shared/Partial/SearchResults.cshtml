@@ -1,0 +1,67 @@
+﻿@model GeneralViewModel
+@{ 
+    var message = TempData["EMPTY"];
+}
+<h4 style="color:darkred">@message</h4>
+
+<div id="products-table">
+    <h4 style="color:darkred">Some recommended products for you:</h4>
+    <div class="products-container">
+
+        @{
+            if (Model.Items.Count() > 3)
+            {
+
+                if (Model.Items.Count() >= Model.PageInfo.ItemsOnPage)
+                {
+                    for (int i = 0; i < Model.PageInfo.ItemsOnPage - 1; i += 3)
+
+                    {
+                        <div class="row align-content-around">
+                            @{
+                                int j = 0;
+
+                                for (; j < 3 && i + j < Model.PageInfo.ItemsOnPage; j++)
+                                {
+
+                                    Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.Items.ToArray()[i + j]);
+                                }
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < Model.Items.Count() - 1; i += 3)
+
+                    {
+                        <div class="row align-content-around">
+                            @{
+                                int j = 0;
+
+                                for (; j < 3 && i + j < Model.Items.Count(); j++)
+                                {
+
+                                    Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", Model.Items.ToArray()[i + j]);
+                                }
+                            }
+                        </div>
+                    }
+                }
+
+            }
+            else
+            {
+                <div class="row align-content-around">
+                    @foreach (var item in Model.Items)
+                    {
+                        Html.RenderPartial("~/Views/Shared/Partial/_ProductBlock.cshtml", item);
+                    }
+                </div>
+            }
+
+        }
+
+
+    </div>
+</div>

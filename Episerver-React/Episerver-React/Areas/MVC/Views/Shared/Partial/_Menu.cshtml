@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MenuViewModel>
+<div class="topnav" id="myTopnav">
+    @Html.ActionLink("Home", "Index", "PresentationPage", null, new { @class = "active" })
+
+    @foreach (var menuLine in Model)
+    {
+        @*<a href="@Url.Action("Menu","Products", new {category= category.Name.ToString() })">@category.Name</a>*@
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @menuLine.Title
+            </button>
+            <div class="dropdown-menu btn-primary">
+                <a class="dropdown-item" href="@Url.Action(menuLine.Action, menuLine.Controller, new {category = menuLine.Title, pageIndex = 0 })">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </div>
+    }
+
+
+
+
+    <a href="@Url.Action("Index","Products", new {pageIndex=0 })">Products</a>
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+    @using (Ajax.BeginForm("Search", "PresentationPage", new { pageIndex = 0 }, new AjaxOptions
+    {
+        HttpMethod = "get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "products-table"
+    }
+   ))
+    {
+        <input type="search" name="SearchString" id="searchInput" />
+        <input type="submit" value="Search Products" />
+    }
+
+</div>

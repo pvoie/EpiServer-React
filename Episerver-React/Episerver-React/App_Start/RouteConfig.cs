@@ -13,7 +13,16 @@ namespace Episerver_React
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                );
+
+            //routes.MapRoute("Index", "Index/{startIndex}",
+            //           new
+            //           {
+            //               controller = "Products",
+            //               action = "Index",
+            //               startIndex = 0,
+            //               pageSize = 20
+            //           });
         }
     }
 }
