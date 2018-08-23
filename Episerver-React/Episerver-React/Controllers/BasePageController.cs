@@ -58,6 +58,7 @@ namespace Episerver_React.Controllers
                 return;
             }
         }
-        #endregion
+
+        #endregion Private Helpers
     }
 }

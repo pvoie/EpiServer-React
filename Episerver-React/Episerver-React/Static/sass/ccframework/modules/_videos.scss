@@ -1,0 +1,105 @@
+.ccContent {
+	.videoWrapper {
+		position: relative;
+		background-color: #444;
+		float:none;
+		&:after {
+			content: '';
+			display: block;
+			height: 0;
+			padding-bottom: 56% !important;
+		}
+
+		&:before {
+			content: "Loading video...";
+			display: block;
+			color: #fff;
+			font-size: 28px;
+			line-height: 30px;
+			height: 30px;
+			text-align: center;
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			margin-top: -10px;
+		}
+
+		.video-js,
+		video {
+			width: 100%; 
+			height: 100%; 
+			position: absolute; 
+			top: 0px; 
+			bottom: 0px; 
+			right: 0px; 
+			left: 0px;
+		}
+		.vjs-big-play-button {
+			top: 50% !important;
+			left: 50% !important;
+			margin: -52.5px 0 0 -78px;
+		}
+	
+		//Legacy player styles (player being used for IE)
+		.legacyPlayer div,
+		.legacyPlayer embed,
+		.legacyPlayer object,
+		.BrightcoveExperience {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+		}
+	}
+	
+	.videoThmb { 
+	    position: relative;
+		display: block;
+		width:100%;
+	
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 1;
+			cursor:pointer;
+			@include translate(-50%, -50%)
+		}
+		&:before {
+			background-color: rgba(255,255,255,.7);
+			border-radius: 50%;
+			width: 45px;
+			height: 45px;
+		}
+		&:after {
+			@extend %arrowR;
+			border-width: 12px 14px;
+			border-color: color(grey-dark);
+			margin-left: 2px;
+		}
+	}
+	
+	.nowPlaying {
+		position:relative; 
+		&:after {
+			display: none;
+			content: 'NOW PLAYING';
+			position: absolute;
+			top: 0; left: 0;
+			background: rgba(0,125,198,0.8);
+			color: #fff;
+			font-size: 15px;
+			font-family: MyriadProBold;
+			line-height: 1;
+			padding: 8px 10px 5px;
+			@include bp(medium){
+				display:block;
+			}
+		}
+	}
+}

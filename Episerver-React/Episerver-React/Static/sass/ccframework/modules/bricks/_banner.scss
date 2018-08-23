@@ -1,0 +1,134 @@
+//General tile styles
+&.banner {	
+	margin-bottom:20px;
+	padding:20px 20px 30px;
+	overflow:hidden;
+	@include background-image(linear-gradient(to bottom, #f7fcfc, #e0f3f4));
+	@include bp(medium) {
+		height:250px;
+	}
+	&.imageBanner {
+		.bannerImg {
+			display:none;
+			@include bp(medium) {
+				display:block;
+				float:right;
+				margin-left:20px;
+				height:100%;
+			}
+			@include bp(large) {
+				margin-right:200px;
+			}
+		}
+	}
+	&.videoBanner {
+		overflow:visible;
+		text-align:center;
+		@include bp(medium) { text-align:left; }
+		.videoThumb {
+			cursor:pointer;
+			display:inline-block;
+			position:relative;
+			z-index:2;
+			
+			@include bp(xsmall,small) { margin-bottom: 20px; }
+			@include bp(medium) { 
+				margin-left: 20px; 
+				float:right;
+				height:100%;
+			}
+
+			img {
+				max-height:100%;
+			}
+		}
+	}
+
+	.bannerText { 
+		font-family: MyriadProLight;
+		line-height: 1.1;
+		text-align:center;
+		&:first-child {
+			text-align:center;
+			margin:auto;
+			@include bp(large) {
+				padding-right: 200px;
+				width: 740px;
+				box-sizing: content-box;
+				float: right;
+			}
+		}
+		@include bp(medium) {
+			text-align:right;
+			font-size: 18px;
+			position:relative;
+			top:50%;
+			@include translateY(-50%);
+		}
+		h2 { 
+			font-size: 28px; 
+			margin-bottom:0; 
+			@include bp(medium) {
+				font-size: 33px; 
+			}
+			@include bp(large) {
+				font-size: 40px; 
+			}
+		}
+		.copy { display:block; }
+	}
+	.sponsor {
+		&, a {
+			font-size: 16px;
+			font-family:MyriadProRegular;
+		}
+		display:block;
+		margin-bottom:20px;
+		br { display:none; @include bp(large) { display: inline; }}
+		@include bp(large) {
+			position:absolute;
+			top: 50%; margin-top: -100px;
+			right:15px;
+			text-align: right;
+		}
+		img {
+		    display: inline-block;
+			margin-bottom: -9px;
+			margin-left: 5px;
+			max-height:30px;
+			@include bp(large) { 
+				margin-top:5px;
+			}
+		}
+	}
+	a.button {
+		font-size:16px;
+		@include bp(xsmall, small){ padding-right:45px; padding-left:45px; margin-top:15px; }
+		@include bp(medium) {
+			margin-top:10px;
+		}
+	}
+	&:after {
+		content:'';
+		display:block;
+		height:10px;
+		width:100%;
+		position:absolute;
+		bottom:0; left:0;
+		z-index:0;
+		@include hbhGradient();
+	}
+	
+	&.imageBanner,
+	& ~ .banner ~ .banner.imageBanner,
+	& ~ .banner ~ .banner ~ .banner ~ .banner.imageBanner {
+		*:not(.button) { color: color(turquoise) !important;  }
+		.button { background:color(turquoise); }
+	}
+	& ~ .banner.imageBanner,
+	& ~ .banner ~ .banner ~ .banner.imageBanner,
+	& ~ .banner ~ .banner ~ .banner  ~ .banner ~ .banner.imageBanner {
+		*:not(.button) { color: color(blue) !important; }
+		.button { background:color(blue); }
+	}
+}

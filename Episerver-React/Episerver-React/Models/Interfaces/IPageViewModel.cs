@@ -10,6 +10,10 @@ namespace Episerver_React.Models.Interfaces
     {
         T CurrentPage { get; }
 
-        //SiteSettingsBlock SiteSettings { get; set; }       
+        //SiteSettingsBlock SiteSettings { get; set; }
+
+        string HeaderHtml { get; set; }
+
+        string FooterHtml { get; set; }
     }
 }

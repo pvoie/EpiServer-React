@@ -1,0 +1,64 @@
+//General tile styles
+
+&.html {
+	padding:0 20px;
+
+	.sponsor {
+		margin: 20px 0 30px;
+		font-family:MyriadPro;
+		font-size:18px;
+		@include bp(medium) {
+			margin: 20px 0 50px;
+			font-size:23px;
+		}
+		img { 
+			display: inline-block;
+			max-height: 30px;
+			margin-bottom: -10px;
+			@include bp(medium) {
+				max-height: 50px;
+				margin-bottom: -20px;
+			}
+		}
+	}
+	.footnote {
+		font-family:MyriadProLight;
+		font-size:15px;
+		font-style:italic;
+		margin-bottom:30px;
+
+		@include bp(medium) {
+			font-size:16px;
+			margin-bottom:50px;
+		}
+	}
+
+	.logoLayout {
+		color:color(blue);
+		padding-top:20px;
+		font-family: MyriadPro;
+		font-size: 16px;
+		@include bp(medium) { font-size: 18px; }
+		a,span {
+			display:inline-block;
+			text-align:center; 
+			width:50%;
+			&:nth-child(1),
+			&:nth-child(2) { margin-top:15px; }
+			@include bp(medium) {
+				width:16.667%;
+				&:nth-child(1),
+				&:nth-child(2) { margin-top:0; }
+				&:nth-child(3) { width: 20.667%; }
+				&:nth-child(4) { width: 12.667%; }
+			}
+			img { 
+				display:inline-block;
+			}
+			&:nth-child(4) img { 
+				max-width: 67.337%;
+				@include bp(medium) { max-width:100%; }
+			}
+		}
+	}
+}

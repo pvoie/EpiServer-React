@@ -1,0 +1,82 @@
+// COLORS
+
+// HOW TO USE:
+//
+// For text:
+// a.blue {  @include color(blue,text); } 
+//		==> a.blue{color:#007dc6}
+// a.blue.fullSet { @include colorSet(blue,text); } 
+//		==>  a.blue.fullSet{color:#007dc6}
+//			 a.blue.fullSet:hover{color:#3da1e0}
+//			 a.blue.fullSet.active{color:#0070b2}
+//
+// For background color:
+// a.bgBlue {  @include color(blue,background); } 
+//		==> a.bgBlue{background-color:#007dc6}
+// a.bgBlue.fullSet { @include colorSet(blue,background); } 
+//		==>  a.bgBlue.fullSet{background-color:#007dc6}
+//			 a.bgBlue.fullSet:hover{background-color:#3da1e0}
+//			 a.bgBlue.fullSet.active{background-color:#0070b2}
+//
+// For border color:
+// a.borderBlue {  @include color(blue,border); } 
+//		==> a.blue{border-color:#007dc6}
+// a.borderBlue.fullSet { @include colorSet(blue,border); } 
+//		==>  a.borderBlue.fullSet{border-color:#007dc6}
+//			 a.borderBlue.fullSet:hover{border-color:#3da1e0}
+//			 a.borderBlue.fullSet.active{border-color:#0070b2}
+//
+// For variable value only:
+// (likely only for rare use cases as this will not group styles, but only output the color value):
+// a.outlineBlue {  outline-color: color(blue); } 
+//		==> a.outlineBlue{outline-color:#007dc6}
+//
+
+$colors: (
+	blue: #008ac3,
+	turquoise: #01a0be,
+	green: #3cc3b2,
+	gray: #a1a1a1,
+	gray_dark: #e6e3e3,
+	gray_light: #f7f7f7,
+	black: #181818,
+	white: #fff
+);
+@mixin hbhGradient() {
+	@include background-image(linear-gradient(to right, color(green), color(blue)));
+}
+
+//Returns just the color value (eg, #f47421)
+@function color($colorName){
+	@return map-get($colors, $colorName) 
+}
+$ccBaseColor: color(black);
+
+
+$color-placeholders: ();
+//Sets the color style (eg, *{color:#f47421;})
+@mixin color($colorName, $setType: text, $extend: true) {
+	$colorPH: map-get($color-placeholders, $colorName#{$setType});
+	@if $extend == true {
+		@if $colorPH == null {
+			$colorPH: unique-id();
+			$color-placeholders: map-merge($color-placeholders, ($colorName#{$setType}: $colorPH)) !global;
+			
+			@at-root %#{$colorPH} {
+				@include color($colorName, $setType, false);
+			}
+		}
+		@extend %#{$colorPH};
+	}
+	@else {
+		@if $setType == text {			
+			color: map-get($colors, $colorName);
+		}
+		@elseif $setType == background {			
+			background-color: map-get($colors, $colorName);
+		}
+		@elseif $setType == border {			
+			border-color: map-get($colors, $colorName);
+		}
+	}
+}

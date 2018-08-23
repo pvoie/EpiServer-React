@@ -1,0 +1,17 @@
+@media print {
+	header.head,
+	.footer_links.outter_div,
+	#footer_links,
+	.ccAd,
+	.ccBreadcrumb,
+	.ccLeftRail,
+	.ccContent main > .row > .columns > .row > aside,
+	.ccContent .mwts {
+		display: none !important;
+	}
+	.ccContent main { padding:0 !important;}
+	.ccContent main > .row > .columns > .row > section,
+	.ccContent .articleHero {
+		width:100% !important;
+	}
+}

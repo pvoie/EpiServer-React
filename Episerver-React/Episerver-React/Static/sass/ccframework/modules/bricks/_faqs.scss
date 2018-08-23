@@ -1,0 +1,366 @@
+//General tile styles
+
+&.faqs {
+	h2 { 
+		text-align:center;
+		font-size:43px;
+		@include bp(medium) {
+			font-size:58px;
+		}
+	}
+	.FAQTabs {
+		@extend %cf;
+		border-bottom: 2px solid #ccc;
+		margin: 40px 0 30px;
+		padding:0;
+		li {
+			cursor:pointer;
+			font-family:MyriadProBold;
+			font-size:18px;
+			display:block;
+			margin:0;
+			padding: 10px 12px;
+			border-bottom:3px solid transparent;
+			text-align:center;
+			width:25%;
+			float:left;
+			&:hover,
+			&.active { border-color:color(blue); }
+		}
+		
+		& ~ ul:not(.FAQTabs) {
+			display:none;
+			max-width:none;
+		}
+	}
+	ul:not(.FAQTabs) { 
+		&.active { display:block !important; }
+		padding:0 20px;
+		max-width: 500px;
+		margin: auto; 
+	
+		li {
+			list-style-type:none;
+			padding:0;
+			margin-bottom:5px;
+			@include bp(medium) {
+				margin-bottom:20px;
+			}
+
+			.question,
+			.answer {
+				display:block;
+				font-size:16px;
+				font-family:MyriadPro;
+				padding:10px 30px 30px 20px;
+				@include bp(medium) {
+					font-size: 21px;
+				}
+			}
+			.question {
+				cursor:pointer;
+				position:relative;
+				@include bp(xsmall,small) {
+					color:color(blue);
+					background:#f7f7f7;
+					&:after {
+						content: '\e032';
+						display:block;
+						position:absolute;
+						right:10px;
+						top:10px;
+						color:color(blue);
+						font-family: WalmartIcons;
+						@include rotate(-90deg);
+						@include single-transition(transform, .5s, ease);
+					}
+					&.open:after { @include rotate(90deg); }
+				}
+				@include bp(medium) {
+					padding:0;
+					padding-left:20px;
+					&:before {
+						content:'';
+						display:block;
+						position:absolute;
+						left:0; top:4px;
+						border:8px solid color(turquoise);
+						border-top-color:transparent;
+						border-bottom-color:transparent;
+						border-right:none;
+					}
+				}
+			}
+			.answer {
+				max-height:0;
+				overflow-y:hidden;
+				color: #555;
+				@include single-transition(max-height, .5s, ease-out);
+				@include transition-property(max-height,padding);
+				padding-top: 0;
+				padding-bottom: 0;
+				@include bp(xsmall,small) { background:#e6e3e3; }
+				@include bp(medium) {
+					font-size:17px;
+					padding-left: 30px;
+					padding-right: 10px;
+				}
+				h1,
+				h2,
+				h3,
+				h4 {
+					font-weight:normal;
+					font-family:MyriadProBold;
+					color:color(blue);
+				}
+				.buttonWrapper { text-align: center; }
+				a.hbhButton {
+					width: auto;
+					max-width:none;
+					display: inline-block;
+					margin: 10px auto 30px auto;
+					min-width: 445px;
+					border-width: 2px;
+					background-color: #fff;
+					padding: 15px 25px;
+					@include bp(medium) {
+						border-color: #bbb;
+					}
+					&:hover {
+						background: #f47b20;
+						border-color: #f47b20;
+					}
+
+					&.centered {
+						position: relative;
+						left: 50%;
+						-webkit-transform: translateX(-50%);
+						-ms-transform: translateX(-50%);
+						transform: translateX(-50%);
+					}
+				}
+
+				ul, li { 
+					list-style-type: disc;
+					max-width:none;
+				}
+				ul.indent {
+					margin-left:20px;
+					margin-bottom: 16px;
+				}
+				h4:not(.noBorder) { border-bottom: 1px solid #ccc; }
+			}
+			.question.open + .answer {
+				@include bp(xsmall,small) {
+					padding:10px 30px 30px 20px;
+				}
+				@include bp(medium) {
+					padding: 10px 10px 0 30px;
+				}
+				max-height:500px;
+				@include transition-timing-function(ease-in);
+			}
+			.question.open + .answer.long { max-height:1500px; }
+			.question.open + .answer.xlong { max-height:10000px; }
+		}
+	}
+	.blueBold {
+		color: #1a75cf;
+		font-family: MyriadProBold;
+	}
+	.smallTxt {
+		ul { margin-bottom: 20px; }
+		li { margin-bottom: 0 !important; }
+	}
+
+	//CONTENT SPECIFIC STYLES
+	.coverageGap td { padding:0 20px; }
+	.get-info {
+		margin-bottom: 30px;
+		font-size: 90%;
+	}
+	.answer .amys-story {
+		.subheader {
+			font-family: MyriadProBold;
+			font-size: 20px;
+			margin: 20px 0 5px;
+			display: block;
+		}
+		li { margin-bottom:5px; }
+		.chart img { max-width:500px; margin-top:20px; }
+	}
+	.tableWrapper{
+		border-radius: 8px;
+		overflow: hidden;
+		margin-bottom: 20px;
+		border: 2px solid #d9d9da;
+
+		tr:nth-child(1) td,
+		tr:nth-child(even) td,
+		&.whichMedicare .cell:nth-child(odd),
+		&.components .title,
+		&.components .cell { background: #fff; }
+		tr:nth-child(odd) td,
+		.coverageGap tr td:nth-child(odd),
+		&.whichMedicare,
+		&.components { background: #f2f2f2; }
+		.coverageGap tr td:nth-child(even) {
+			background: #0e7cc2;
+			&,strong { color: #fff; }
+		}
+		tr, td, &.components .title, &.components .cell { border-style: solid; border-color:#d9d9da; }
+
+		.row { @extend %cf; }
+		&.components {
+			text-align: center;
+			& + .or {
+				background: #f47a1f;
+				border-radius: 8px;
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+				color: #fff;
+				margin: auto;
+			}
+			& ~ .components { margin-top: 20px; }
+			@include bp(medium) {
+				width: 43%;
+				float: left;
+				& + .or { 
+					position: relative;
+					top: 160px;
+				}
+				& ~ .components {
+					float: right;
+					margin-top: -60px;
+				}
+			}
+			.row {
+				margin: 15px;
+				&.title { border-bottom-width:2px; margin:0; }
+				.cell { padding: 10px; border-width:2px; }
+				&.twoCell .cell {
+					box-sizing: border-box;
+					width: 45%;
+					float: right;
+					&:first-child { float: left; }
+				}
+			}
+		}
+		&.whichMedicare .column {
+			width: 50%;
+			float: right;
+			&:first-child { float:left; }
+			.headers {
+				text-align: center;
+				padding: 10px 20px;
+			}
+			.cell {
+			    border-style: solid;
+			    border-color: #d9d9da;
+				border-width: 2px 0 0 0;
+				padding: 10px;
+			}
+			&:first-child .cell {
+				border-width: 2px 2px 0 0;
+			}
+		}
+
+		.title { 
+			text-align: center;
+			padding: 10px 20px; 
+			h4 {
+				border: none !important;
+				padding: 0 !important;
+				margin: 0;
+			}
+		}
+		table {
+			font-size: 12px;
+			padding-left: 20px;
+			letter-spacing: normal;
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+			margin:0;
+			@include bp(medium) { font-size:14px; }
+
+			tr {
+				border-width: 2px 0 0 0;
+				&:first-child { border-width: 0; }
+				td { 
+					border-width: 0 0 0 2px; 
+					&:first-child { border-width: 0; }
+				}
+				
+				&.headers,
+				&.results { 
+					font-family: 'MyriadProBold';
+					font-size: 14px;
+					@include bp(medium) { font-size:16px; }
+					color: #0e7dc2;
+					td {
+						padding: 20px;
+					}
+				}
+				td {
+					vertical-align: middle;
+					padding: 5px 20px;
+					line-height: 1;
+				}
+			}
+			&.calculator {
+				td {
+					width: 50%;
+					& + td { text-align: right; }
+				}
+				input {
+					border: none;
+					background: none;
+					color: #f47a1f;
+					font-family: MyriadProBold;
+					float: right;
+					border-bottom: 2px dotted #f47a1f;
+					width: 130px;
+					text-align: right;
+					font-size: 16px;
+					@include bp(medium) { font-size:18px; }
+					&.faded { opacity: 0.5; }
+				}
+				.results td + td {
+					&, span { vertical-align: top; }
+					font-size: 10px;
+					.dollars {
+						font-size: 20px;
+						line-height: 16px;
+					}
+				}
+			}
+			&.planLevels {
+				td {
+					width: 33%;
+					text-align: center;
+					line-height: 1.5;
+					span {
+						display: inline-block;
+						width: 95px;
+						margin-left: 20px;
+						text-align: left;
+						background: url(/static/images/hbh/planLevels.png) no-repeat 0 1px;
+						padding-left: 30px;
+					}
+				}
+				tr:nth-child(3) td span { background-position: 0 -37px; }
+				tr:nth-child(4) td span { background-position: 0 -76px; }
+				tr:nth-child(5) td span { background-position: 0 -115px; }
+			}
+			&.coverageGap td {
+				text-align: center;
+				padding: 20px;
+				font-size:16px;
+				p { margin:0;}
+			}
+		}
+	}
+}

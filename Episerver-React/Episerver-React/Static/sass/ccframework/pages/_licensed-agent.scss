@@ -1,0 +1,13 @@
+.Licensed-Agent {
+	@include info-page();
+		
+    .info-table {
+        max-width: 315px;
+        position: relative;
+    }
+
+	.direct-health-container { 
+		@include bp(xsmall,small) { margin-top:40px; }
+		@include bp(medium) { top:initial; }
+	}
+}

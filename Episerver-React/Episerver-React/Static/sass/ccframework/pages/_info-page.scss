@@ -1,0 +1,73 @@
+// =============================================================================
+//   Used by Direct Health interstitial page and Licensed Agent page
+// =============================================================================
+@mixin info-page {
+    font: 16px normal 'MyriadProRegular';
+    color: #808285;
+    p,
+    ul,
+    ul li {
+        margin-bottom: 10px;
+    }
+
+	.bigCheckBox input {
+		display:none;
+		& + label {
+			background: #fff url(/static/images/hbh-unchecked.jpg) no-repeat;
+			font-size: 16px;
+			height: 40px;
+			max-width: 280px;
+			display: inline-block;
+			padding: 10px 0 0 50px;
+		}
+		&:checked + label { background: #fff url(/static/images/hbh-checked.jpg) no-repeat; }
+	}
+
+    .infoSection {
+        max-width: 664px;
+		margin: 20px 10px;
+        @include bp(small) { margin:20px 30px; }
+        @include bp(medium) { margin:20px 50px; }
+    }
+    .more-info {
+        font: normal 22px 'MyriadProRegular';
+        margin-bottom: 35px;
+    }
+    .callouts-container {
+		@extend %cf;
+        position: relative;
+    }
+    .callout {
+        font-size: 22px;
+        color: #0e7dc2;
+    }
+    .callout.marginTop {
+        margin-top:35px;
+    }
+
+
+    .direct-health-container {
+		position: initial;
+		display: block;
+		margin-bottom: 15px;
+		text-align: center;
+
+        .helper {
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        img {
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+		@include bp (medium) {
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			text-align: right;
+		}
+	}
+}

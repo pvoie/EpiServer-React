@@ -1,0 +1,17 @@
+.Direct-Health {
+	@include info-page();
+
+	.infoSection { margin-bottom:100px; padding: 0 20px; }
+
+    .callouts-container {
+        padding-bottom: 14px;
+    }
+    .continue-container {
+        padding-bottom: 36px;
+    }
+    .hbhButton {
+        font-size: 23px;
+        margin: 18px auto;
+        display: block;
+    }
+}

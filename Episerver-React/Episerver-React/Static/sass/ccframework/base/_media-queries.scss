@@ -1,0 +1,11 @@
+// Content Center Media Queries - Mobile First
+// (breakpoints set in variables partial)
+@mixin bp($minScreenSize,$maxScreenSize:none) {
+	$minBP: ccBreakpointMin($minScreenSize);
+	$query: "(min-width: " + $minBP + ")";
+	@if $maxScreenSize != none {
+		$maxBP: ccBreakpointMax($maxScreenSize);
+		$query: "(min-width: " + $minBP + ") and (max-width: " + $maxBP + ")";
+	}
+	@media #{$query} { @content; }
+}

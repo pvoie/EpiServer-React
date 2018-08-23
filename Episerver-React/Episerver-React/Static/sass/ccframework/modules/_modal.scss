@@ -1,0 +1,28 @@
+.ccContent .modal-module {
+	display:none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+	&.playing {
+		&,.modal,.modal-backdrop {
+			display: block;
+		}
+	}
+	.modal {
+		display: block;
+		padding: 10px;
+		width: 95%;	
+		max-width: 900px;
+		left: 50%;
+		top:50%;
+		margin: 0;
+		@include translate(-50%,-50%);
+
+		@include bp(medium) {
+			width: 90%;
+		}
+	}
+}

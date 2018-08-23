@@ -1,0 +1,104 @@
+//General tile styles
+
+.hbhTile {
+	border: 10px solid #fff;	
+	padding:25px 30px;
+	color:#fff;
+	font-family:MyriadProLight;
+	font-size:20px;
+	background:color(green) url(/Static/images/tile-spark.png);
+	&:nth-child(3n+2) { background-color:color(blue); }
+	&:nth-child(3n+3) { background-color:color(turquoise); }
+	width:100%;
+
+	@include bp(xsmall,small) { text-align:center; height:auto !important; }
+	@include bp(medium) { float:left; }
+
+	h3 { color:#fff; font-size:25px; }
+	ul {
+		padding-left:20px;
+		li {
+			font-family:MyriadPro;
+			font-size: 18px;
+			text-align:left;
+			@include bp(xsmall,small){
+				font-size: 16px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+	a.text {
+	    font-family: MyriadProBold;
+		font-size: 22px;
+		color: #fff;
+		margin-top: 20px;
+		display: block;
+		&:after{
+			content:'';
+			display:inline-block;
+			border:8px solid white;
+			border-top-color:transparent;
+			border-bottom-color:transparent;
+			border-right:none;
+			margin-left: 10px;
+		}
+	}
+	a.button { 
+		color: #01a0be;
+		background-color: #fff;
+	}
+
+	img { margin-bottom:20px; }
+
+	//Page specific styles
+	.Why-Get-Screened &,
+	.Medicine-Cabinet & { text-align:center; img { display:inline-block; } }
+	.Why-Get-Screened & { h3 { margin-bottom:10px; } h3 + div { font-size:18px; } }
+}
+
+@include bp(medium) {
+	&.tiles-2 .hbhTile { width: 50%; }
+	&.tiles-3 .hbhTile { width: 33.33%; }
+	&.tiles-4 .hbhTile { width: 25%; }
+	&.tiles-5 .hbhTile { width: 25%; }
+}
+
+&.tiles-5 .hbhTile { 
+	height:auto !important;
+	width: 100%;
+	max-width:740px; 
+	border-top:none;
+	border-bottom:none;
+	//background-image:none;
+	float:none;
+	margin:0 auto 20px;
+	position:relative;
+
+	h3 { text-align:center; }
+	h3 + div { @extend %cf; }
+	@include bp(medium){
+		h3 {
+			text-align:left;
+			float:left;
+			position:absolute;
+			top:50%;
+			@include translateY(-50%);
+		}
+		h3 + div { 
+			margin:0 0 -10px 150px;
+		}
+		ul { margin:0; }
+		li { 
+			margin-right: 15px;
+			list-style-position: inside;
+			display:block;
+			float:left;
+			margin-right:15px;
+			&:before {
+				content:"\2022";
+				display:inline;
+				margin-right:5px;
+			}
+		}
+	}
+}

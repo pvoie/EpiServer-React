@@ -1,0 +1,26 @@
+﻿@media (min-width: 768px) {
+    .hbhBrick.html .logoLayout a, .hbhBrick.html .logoLayout span {
+        vertical-align: top;
+        margin: 0 9px;
+		width: 15.667%;
+    }
+    .hbhBrick.html .logoLayout a:nth-child(4), .hbhBrick.html .logoLayout span:nth-child(4) {
+        width: 14%;
+    }
+    .hbhBrick.html .logoLayout a:nth-child(5), .hbhBrick.html .logoLayout span:nth-child(5) {
+        width: 24%;
+    }
+}
+.paragraph-font-size, .logoDescription p {
+    font-size: 13px;
+    color: rgb(153, 153, 153);
+}
+
+.div-text-align-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-width {
+    width: 208px;
+}

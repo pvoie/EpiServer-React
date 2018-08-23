@@ -1,0 +1,14 @@
+.ccAd {
+	display:none;
+	margin: auto;
+	text-align: center;
+	@include bp(large) {
+		display:block;
+	}
+}
+
+.ccAd > * {
+	position: relative;
+	left: 50%;
+	@include translateX(-50%);
+}

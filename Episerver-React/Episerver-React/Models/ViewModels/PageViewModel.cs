@@ -5,7 +5,9 @@ namespace Episerver_React.Models.ViewModels
 {
     public class PageViewModel<T> : IPageViewModel<T> where T : BasePageData
     {
-        public PageViewModel() { }
+        public PageViewModel()
+        {
+        }
 
         public PageViewModel(T currentPage)
         {
@@ -16,6 +18,10 @@ namespace Episerver_React.Models.ViewModels
         /// Page that needs to be rendered
         /// </summary>
         public T CurrentPage { get; protected set; }
+
+        public string HeaderHtml { get; set; }
+
+        public string FooterHtml { get; set; }
     }
 
     public static class PageViewModel

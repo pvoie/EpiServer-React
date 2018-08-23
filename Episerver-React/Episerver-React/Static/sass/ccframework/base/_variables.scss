@@ -1,0 +1,67 @@
+// BREAKPOINTS ////////////////////////////////////////////
+$ccBreakpoints: (
+	xsmall: 0 479px,
+	small: 480px 767px,
+	medium: 768px 1023px,
+	large: 1024px 1363px,
+	xlarge: 1364px,
+);
+@function ccBreakpointMin($screenSize){ @return nth(map-get($ccBreakpoints, $screenSize),1); }
+@function ccBreakpointMax($screenSize){ @return nth(map-get($ccBreakpoints, $screenSize),2); }
+
+
+// CONTENT MARGINS ////////////////////////////////////////////
+$ccContentMargins: (	
+	xsmall: 8px,
+	small: 16px,
+	medium: 16px,
+	large: 20px,
+	xlarge: 32px
+);
+@function ccContentMargin($screenSize){ @return map-get($ccContentMargins, $screenSize); }
+
+
+// GRID GUTTERS ////////////////////////////////////////////
+$ccGridGutters: (
+	xsmall: 8px,
+	small: 8px,
+	medium: 8px,
+	large: 12px,
+	xlarge: 20px,
+);
+@function ccGridGutter($screenSize){ @return map-get($ccGridGutters, $screenSize); }
+
+
+// BRICK PADDING ////////////////////////////////////////////
+$ccBrickPadding: (
+	xsmall: 20px 8px,
+	small: 20px 8px,
+	medium: 20px 8px,
+	large: 20px 12px,
+	xlarge: 32px 20px,
+);
+@function ccBrickPadding($screenSize,$axis:both){
+	@if $axis == both {
+		@return map-get($ccBrickPadding, $screenSize) 
+	}
+	@elseif $axis == y {
+		@return nth(map-get($ccBrickPadding, $screenSize),1); 
+	}
+	@elseif $axis == x {
+		@return nth(map-get($ccBrickPadding, $screenSize),2); 
+	}
+}
+
+
+// LEFT RAIL ////////////////////////////////////////////
+$leftRail_contentWidth:193px;
+$leftRail_padding:20px;
+$leftRail_paddingL_xl:26px;
+@function ccLeftRailW($screenSize){
+	@if $screenSize == xlarge {
+		@return $leftRail_contentWidth + $leftRail_paddingL_xl;
+	}
+	@else {
+		@return $leftRail_contentWidth + map-get($ccContentMargins, $screenSize);
+	}
+}

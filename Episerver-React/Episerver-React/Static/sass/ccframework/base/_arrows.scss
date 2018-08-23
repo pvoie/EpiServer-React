@@ -1,0 +1,48 @@
+// Arrows
+%arrow {
+	content:'';
+	height:0; width:0;
+	border-style:solid;
+}
+%arrowR{
+	@extend %arrow;
+	border-right-width:0 !important;
+	border-bottom-color:transparent !important;
+	border-top-color:transparent !important;
+}
+%arrowL{	
+	@extend %arrow;
+	border-left-width:0 !important;
+	border-bottom-color:transparent !important;
+	border-top-color:transparent !important;
+}
+%arrowD{
+	@extend %arrow;
+	border-bottom-width:0 !important;
+	border-left-color:transparent !important;
+	border-right-color:transparent !important;
+}
+%arrowToggle{
+	@extend %arrowD;
+	@include single-transition(border-width, .5s);
+
+	.open & {
+		border-top-width:0 !important;
+	}
+}
+%absolutePosArrow {
+	position:absolute;
+	top:50%;
+	@include translateY(-50%);
+}
+
+$arrowWidth:6px;
+
+// Black arrow (desktop nav - subcats)
+//%blackArrow {
+//	@extend %arrowR;
+//	@extend %absolutePosArrow;
+//	border-width: 4px;
+//	border-color: color(black);
+//	right:0;
+//}

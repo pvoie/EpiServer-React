@@ -1,0 +1,22 @@
+﻿.footnote {
+    EditMenuName: Footnote;
+}
+a.hbhButton {
+    EditMenuName: Button Link;
+}
+
+.centered {
+    EditMenuName: Centered;
+}
+
+.smallTxt {
+    EditMenuName: Small Text;
+}
+
+.indent {
+    EditMenuName: Indent;
+}
+
+.noBorder {
+    EditMenuName: No Border;
+}

@@ -1,0 +1,22 @@
+$expandedClass: expanded;
+$expanderBorder:1px solid color(grey-very-light);
+
+.ccContent {
+
+	//Expanders
+	.expander:first-child { border-top:$expanderBorder; }
+	.expander:last-child { border-bottom:$expanderBorder; }
+	.expander.expanded>.expander-content { padding-bottom:0; }
+	
+	//Expander content transitions
+	.expander-content {
+		display:block;
+		max-height:0;
+		overflow-y:hidden;
+		@include single-transition(max-height, .5s, ease-out);
+	}
+	.#{$expandedClass} .expander-content {
+		max-height:1000px;
+		@include transition-timing-function(ease-in);
+	}
+}

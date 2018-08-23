@@ -1,0 +1,55 @@
+// Nav styles
+
+.ccContent {
+	.menuOpener {
+		display: block;
+		padding: 10px;
+		margin-left: 10px;
+		@include bp(large) { display:none; }
+		
+		color: #f47b20;	
+	}
+	.menuOpener.open + nav {
+		max-height:800px;
+		@include transition-timing-function(ease-in);
+	}
+	nav {
+		margin: 20px auto;
+		text-align:center;
+		ul, li {
+			display: inline;
+			margin: 0;
+			padding:0;
+			list-style-type: none;
+		}
+		a {
+			&,
+			&:link,
+			&:visited { color: color(black); font-family:MyriadPro; }
+			&:hover { color: lighten(color(black), 50%); }
+
+			font-size: 15px;
+			text-decoration: none;
+			display: inline-block;
+			line-height: 30px;
+			padding:0 25px;
+		}
+	}
+	header nav { 
+		@include bp(xsmall,medium){
+			margin:0; 
+			max-height:0;
+			overflow-y:hidden;
+			@include single-transition(max-height, .5s, ease-out);
+			background:#fff;
+			ul, li { display:block; }
+			li {
+				text-align:left;
+				padding:10px;
+				& {
+					border-top: 1px solid rgba(0,0,0,0.2);
+				}
+			}
+		}
+	}
+}

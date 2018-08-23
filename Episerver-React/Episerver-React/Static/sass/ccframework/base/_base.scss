@@ -1,0 +1,29 @@
+// IMPORTS
+@import 
+	"variables",
+	"colors",
+	"media-queries",
+	"helpers",
+	"arrows",
+	"fonts",
+	"typography",
+	"buttons",
+	"expanders";
+
+// GENERAL BASE STYLES
+html,body {
+	@extend %cf;
+	max-width: 100%;
+}
+.ccContent {
+	@extend %cf;
+	width:100%;
+	max-width:1140px;
+	margin:auto;
+	img { display:block; }
+	button, a { cursor:pointer; }
+
+	main {
+		margin-bottom:30px;
+	}
+}

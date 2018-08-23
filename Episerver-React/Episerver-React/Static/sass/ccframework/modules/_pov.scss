@@ -1,0 +1,148 @@
+header { @extend %cf; }
+.hbhPOV {
+	position:relative;
+	padding:40px 20px;
+	text-align:center;
+	@include hbhGradient();
+
+	@include bp(medium){
+		height:390px;
+		padding:30px;
+	}
+	@include bp(large){
+		text-align:left;
+		padding:45px 100px 45px 115px;
+	}
+	
+	.povAllCopy {
+		@include bp(medium,medium){
+			position:relative;
+			top:50%;
+			@include translateY(-50%);
+		}
+		@include bp(large){
+			height:100%;
+		}
+	}
+
+	.povImage {  
+		display:none;
+		@include bp(medium){
+			display:block;
+			position:absolute;
+			bottom:0;
+			left:200px;
+			@include translateX(-50%);
+		}
+		@include bp(large){
+			left:275px;
+		}
+	}
+	h1 { color:#fff; margin-bottom:0; }
+	.pageTitleWrapper {
+		@include bp(large) {
+			float:left;
+			width: 40%;
+			height: 100%;
+			padding-right: 35px;
+			border-right: 1px solid #fff;
+			
+			h1 {
+				text-align:right;
+				margin: 0;
+				position: relative;
+				top: 50%;
+				@include translateY(-50%);
+			}
+		}
+	}
+	.povContent {
+		@include bp(medium){
+		}
+		@include bp(large){
+			display:block;
+			float:left;
+			padding-left:275px;
+			max-width:575px;
+			box-sizing:border-box;
+			max-height:100%;
+			width:60%;
+			position:relative;
+			padding:0;
+			padding-left:35px;
+			@include bp(medium) {
+				top:50%;
+				@include translateY(-50%);
+				
+			}
+		}
+		.povText {
+			padding:10px;
+			font-family:MyriadProLight;
+			font-size: 18px;
+			&,* { color:#fff; }
+			@include bp(medium){
+				font-size: 20px;
+			}
+			@include bp(large){
+				font-size: 20px;
+			}
+		}
+		.finder {
+			padding: 12px;
+			border-radius: 5px;
+			border: none;
+			font-size: 18px;
+		}
+		.button { 
+			color: #01a0be;
+			background-color: #fff;
+			font-size: 20px;
+		}
+	}
+	.povImage + .povAllCopy .povContent { 
+		text-align:center;
+		@include bp(medium){
+			padding-left:320px;
+		}
+		@include bp(large){
+			box-sizing:content-box;
+			padding-left:350px;
+			h1 {
+				border-bottom: 1px solid #fff;
+				max-width: 525px;
+				margin: auto;
+				padding-bottom: 25px;
+				margin-bottom: 25px;
+			}
+		}
+	}
+
+	
+	.Licensed-Agent &,
+	.Direct-Health & {
+		text-align:left;
+		height:auto;
+		padding:40px 20px 15px;
+		@include bp(medium) { padding:65px 40px 20px; }
+		h1 { 
+			@include bp(medium) { font-size:38px; }
+			@include bp(large) { font-size:43px; }
+		}
+
+		.povAllCopy { top:0; height:auto; }
+		.pageTitleWrapper {
+			float:none;
+			width: auto;
+			height: auto;
+			padding: 0;
+			border-right: none;
+			h1 { 
+				text-align:left; 
+				top: 0;
+				transform: none;
+			}
+		}
+		.povContent { display:none; }
+	}
+}
