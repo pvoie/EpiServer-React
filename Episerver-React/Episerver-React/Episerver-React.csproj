@@ -266,6 +266,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
+    <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
@@ -435,6 +436,7 @@
     <Content Include="Static\sass\hbh.scss" />
     <Content Include="Views\_viewstart.cshtml" />
     <Content Include="Views\Shared\_globalNavigationItems.cshtml" />
+    <Content Include="Views\Pages\ContentPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

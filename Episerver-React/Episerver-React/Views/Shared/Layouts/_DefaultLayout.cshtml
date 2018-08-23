@@ -31,10 +31,10 @@
         </main>
         <footer>
             @Html.Partial("_globalNavigationItems")
-            @*@if (Model.SiteSettings != null)
+            @if (Model.SiteSettings != null)
                 {
                     @Html.PropertyFor(x => x.SiteSettings.FooterDisclaimer, "Div", new { CssClass = "hbhDisclaimer" })
-                }*@
+                }
         </footer>
     </div>
     @Html.Raw(Model.FooterHtml)

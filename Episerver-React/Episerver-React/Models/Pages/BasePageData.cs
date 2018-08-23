@@ -39,6 +39,11 @@ namespace Episerver_React.Models.Pages
             GroupName = ContentEditorTabs.SeoDetails)]
         [UIHint(UIHint.Textarea)]
         public virtual string SeoKeywords { get; set; }
+
+
+
+
+
         #endregion
 
         #region Helpers

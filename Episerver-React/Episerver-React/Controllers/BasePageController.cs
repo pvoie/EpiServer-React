@@ -1,5 +1,9 @@
 ﻿using EPiServer;
+using EPiServer.Core;
+using EPiServer.Logging;
+using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc;
+using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Interfaces;
 using Episerver_React.Models.Pages;
 using Episerver_React.Models.ViewModels;
@@ -9,6 +13,12 @@ namespace Episerver_React.Controllers
 {
     public abstract class BasePageController<T> : PageController<T> where T : BasePageData
     {
+
+
+        internal Injected<IContentRepository> _contentRepo;
+        private readonly ILogger _logger = LogManager.GetLogger();
+
+
         /// <summary>
         /// Creates the simple page view mode
         /// </summary>
@@ -57,7 +67,61 @@ namespace Episerver_React.Controllers
             {
                 return;
             }
+
+            var homePage = GetHomePage(model.CurrentPage);
+            var siteSettings = GetSiteSettings(homePage);
+
+            if (siteSettings == null)
+            {
+                return;
+            }
+
+            model.SiteSettings = siteSettings;
+
         }
+
+
+        private HomePage GetHomePage(BasePageData page)
+        {
+            if (page == null || _contentRepo.Service == null)
+            {
+                return null;
+            }
+
+
+            //check if this is the home poage
+            var home = page as HomePage;
+            if (home != null)
+            {
+                return home;
+            }
+
+            //get the home page
+            _contentRepo.Service.TryGet(ContentReference.StartPage, out home);
+            return home;
+
+
+        }
+
+
+        private SiteSettingsBlock GetSiteSettings(HomePage page)
+        {
+            if (page == null || _contentRepo.Service == null)
+            {
+                return null;
+            }
+
+            if (ContentReference.IsNullOrEmpty(page.SiteSettings))
+            {
+                return null;
+            }
+
+            SiteSettingsBlock block = null;
+            _contentRepo.Service.TryGet(page.SiteSettings, out block);
+            return block;
+
+        }
+
 
         #endregion Private Helpers
     }

@@ -2,6 +2,7 @@
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using Episerver_React.Models.Blocks;
 
 namespace Episerver_React.Models.Pages
 {
@@ -15,5 +16,12 @@ namespace Episerver_React.Models.Pages
             Order = 1,
             GroupName = SystemTabNames.Content)]
         public virtual ContentArea MainContent { get; set; }
+
+        [Display(
+           Name = "Site Settings",
+           Order = 100,
+           GroupName = SystemTabNames.Settings)]
+        [AllowedTypes(typeof(SiteSettingsBlock))]
+        public virtual ContentReference SiteSettings { get; set; }
     }
 }
