@@ -12,8 +12,7 @@ using System;
 namespace Episerver_React.Controllers
 {
     public abstract class BasePageController<T> : PageController<T> where T : BasePageData
-    {
-
+    {     
 
         internal Injected<IContentRepository> _contentRepo;
         private readonly ILogger _logger = LogManager.GetLogger();

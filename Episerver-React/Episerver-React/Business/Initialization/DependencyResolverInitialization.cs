@@ -10,6 +10,7 @@ using EPiServer.Web.Mvc;
 using Episerver_React.Business.Rendering;
 using Episerver_React.Business.Rendering.Services;
 using Episerver_React.Models.Blocks;
+using Episerver_React.Models.Media;
 using StructureMap;
 
 namespace Episerver_React.Business.Initialization
@@ -41,7 +42,11 @@ namespace Episerver_React.Business.Initialization
             // rendering services
 
             container.For<IContentRenderingService<CallToActionCard>>().Use<CallToActionCardRenderingService>();
-            //container.For<IContentRenderingService<LinkItem>>().Use<LinkItemRenderingService>();
+
+            container.For<IContentRenderingService<LinkItem>>().Use<LinkItemRenderingService>();
+
+            container.For<IContentRenderingService<SiteImage>>().Use<SiteImageRenderingService>();
         }
+
     }
 }

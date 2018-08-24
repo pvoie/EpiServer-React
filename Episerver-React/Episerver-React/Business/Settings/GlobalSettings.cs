@@ -9,5 +9,15 @@
         {
             public const string HeroCta = "herocta";
         }
+
+
+        /// <summary>
+        /// Custom rendering tags used by developers
+        /// </summary>
+        public static class RenderingTags
+        {
+            public const string GlobalNavigationItem = "globalNavigationItem";
+            public const string LogoCollectionItem = "logoCollectionItem";
+        }
     }
 }

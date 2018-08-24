@@ -1,0 +1,14 @@
+﻿@using EPiServer
+@model LinkItem
+
+
+@if (Model != null)
+{
+    SiteImage image;
+    if (DataFactory.Instance.TryGet<SiteImage>(Model.Image, out image) && image != null && Model.Link != null)
+    {
+        <a href="@Model.Link" title="@(string.IsNullOrWhiteSpace(Model.Title) ? Model.Text : Model.Title)">
+            <img src="@Url.ContentUrl(Model.Image)" alt="@image.AltText" />
+        </a>
+    }
+}

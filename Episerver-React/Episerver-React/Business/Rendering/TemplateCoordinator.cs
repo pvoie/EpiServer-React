@@ -6,6 +6,7 @@ using Episerver_React.Business.Rendering.Services;
 using Episerver_React.Controllers;
 using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Interfaces;
+using Episerver_React.Models.Media;
 
 namespace Episerver_React.Business.Rendering
 {
@@ -15,8 +16,8 @@ namespace Episerver_React.Business.Rendering
         #region Services
 
         internal static Injected<IContentRenderingService<CallToActionCard>> _ctaRenderingService;
-        //internal static Injected<IContentRenderingService<LinkItem>> _linkItemRenderingService;
-
+        internal static Injected<IContentRenderingService<LinkItem>> _linkItemRenderingService;
+        internal static Injected<IContentRenderingService<SiteImage>> _siteImageRenderingService;
         #endregion Services
 
         #region Paths
@@ -54,6 +55,12 @@ namespace Episerver_React.Business.Rendering
             // Add BasePage templates
             viewTemplateModelRegistrator.Add(typeof(CallToActionCard),
                _ctaRenderingService.Service.GetAvailableTemplates().ToArray());
+
+            viewTemplateModelRegistrator.Add(typeof(LinkItem),
+               _linkItemRenderingService.Service.GetAvailableTemplates().ToArray());
+
+            viewTemplateModelRegistrator.Add(typeof(SiteImage),
+                _siteImageRenderingService.Service.GetAvailableTemplates().ToArray());
         }
 
         public static string ViewPath(string folder, string fileName)

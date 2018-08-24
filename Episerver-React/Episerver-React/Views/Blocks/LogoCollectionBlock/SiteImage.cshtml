@@ -1,0 +1,6 @@
+﻿@model SiteImage
+
+@if (Model != null )
+{
+    <img scr="@Url.ContentUrl(Model.ContentLink)" alt="@Model.AltText" />
+}

@@ -266,7 +266,9 @@
     <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\LinkItemRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\SiteImageRenderingService.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\Settings\ContentEditorTabs.cs" />
@@ -279,9 +281,11 @@
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
     <Compile Include="Models\Blocks\CallToActionCard.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
+    <Compile Include="Models\Blocks\LogoCollectionBlock.cs" />
     <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />
     <Compile Include="Models\Interfaces\IContainerPage.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
+    <Compile Include="Models\Media\SiteImage.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
@@ -291,7 +295,6 @@
   <ItemGroup>
     <Folder Include="Business\Components\" />
     <Folder Include="Business\EditorDescriptors\" />
-    <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -450,6 +453,10 @@
     <Content Include="Views\Shared\DisplayTemplates\LinkItem.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\CallToActionCard.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HeadingOne.cshtml" />
+    <Content Include="Views\Blocks\LogoCollectionBlock\LinkItem.cshtml" />
+    <Content Include="Views\Blocks\LogoCollectionBlock\SiteImage.cshtml" />
+    <Content Include="Views\Blocks\LogoCollectionBlock.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Paragraph.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
