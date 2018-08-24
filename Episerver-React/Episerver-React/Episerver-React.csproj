@@ -259,30 +259,40 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Business\Factories\LinkStyleSelectionFactory.cs" />
+    <Compile Include="Business\Factories\LinkTargetSelectionFactory.cs" />
+    <Compile Include="Business\Initialization\BundleInitialization.cs" />
+    <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
+    <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
+    <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
+    <Compile Include="Business\Rendering\Services\CallToActionCardRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
+    <Compile Include="Business\Rendering\SiteViewEngine.cs" />
+    <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\Settings\ContentEditorTabs.cs" />
+    <Compile Include="Business\Settings\GlobalSettings.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
+    <Compile Include="Models\Blocks\CallToActionCard.cs" />
+    <Compile Include="Models\Blocks\LinkItem.cs" />
     <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />
+    <Compile Include="Models\Interfaces\IContainerPage.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
+    <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\Components\" />
     <Folder Include="Business\EditorDescriptors\" />
-    <Folder Include="Business\Factories\" />
-    <Folder Include="Business\Initialization\" />
-    <Folder Include="Business\Rendering\Services\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
-    <Folder Include="Views\Blocks\" />
-    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Static\css\Editor.css" />
@@ -437,6 +447,9 @@
     <Content Include="Views\_viewstart.cshtml" />
     <Content Include="Views\Shared\_globalNavigationItems.cshtml" />
     <Content Include="Views\Pages\ContentPage\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LinkItem.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\CallToActionCard.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\HeadingOne.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

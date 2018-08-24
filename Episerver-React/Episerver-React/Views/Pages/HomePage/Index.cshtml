@@ -1,4 +1,6 @@
 ﻿@model PageViewModel<HomePage>
 
-
 <p>This is the HomePage</p>
+<div class="Home">
+    @Html.PropertyFor(x => x.CurrentPage.MainContent)
+</div>

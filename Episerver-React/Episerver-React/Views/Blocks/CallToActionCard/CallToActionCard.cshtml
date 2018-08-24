@@ -1,0 +1,17 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model CallToActionCard
+
+<div class="hbhPOV">
+    <div class="povAllCopy">
+        <div class="pageTitleWrapper">
+            @Html.PropertyFor(x => x.Heading, "HeadingOne")
+        </div>
+        <div class="povContent">
+            <div class="povText">
+                @Html.PropertyFor(x => x.Description)
+            </div>
+            @Html.PropertyFor(x => x.CallToAction, "LinkItem")
+        </div>
+    </div>
+</div>

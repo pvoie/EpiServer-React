@@ -1,0 +1,6 @@
+﻿@model string
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    var cssClass = ViewData["CssClass"] as string ?? string.Empty;
+    <h1 class="@cssClass">@Model</h1>
+}
