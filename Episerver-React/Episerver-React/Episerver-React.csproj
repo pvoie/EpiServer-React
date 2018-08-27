@@ -258,10 +258,12 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\EditorDescriptors\TemplateModelEditorDescriptor.cs" />
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Business\Factories\LinkStyleSelectionFactory.cs" />
     <Compile Include="Business\Factories\LinkTargetSelectionFactory.cs" />
     <Compile Include="Business\Initialization\BundleInitialization.cs" />
+    <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
@@ -294,7 +296,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\Components\" />
-    <Folder Include="Business\EditorDescriptors\" />
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
