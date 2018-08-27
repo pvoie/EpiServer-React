@@ -1,15 +1,21 @@
 ﻿@using EPiServer.Web.Mvc.Html
 
 @model LogoCollectionBlock
-<p>test</p>
 <div class="hbhBrick html logoDescription">
     <br>
     @Html.PropertyFor(x => x.Description)
     <div class="logoLayout">
         @Html.PropertyFor(x => x.Heading)<br />
 
-    @Html.PropertyFor(x => x.Logos, new { Tag = GlobalSettings.RenderingTags.LogoCollectionItem })
 
-</div>
-@Html.PropertyFor(x => x.Disclaimer, "Paragraph", new { CssClass = "paragraph-font-size" })
+        @Html.PropertyFor(x => x.Logos,
+        new
+        {
+            Tag = GlobalSettings.RenderingTags.LogoCollectionItem,
+           
+
+        })
+
+    </div>
+    @Html.PropertyFor(x => x.Disclaimer, "Paragraph", new { CssClass = "paragraph-font-size" })
 </div>

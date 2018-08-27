@@ -6,6 +6,7 @@ using EPiServer.DataAnnotations;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Web;
 using Episerver_React.Business.Factories;
+using Episerver_React.Models.Media;
 
 namespace Episerver_React.Models.Blocks
 {
@@ -48,7 +49,7 @@ namespace Episerver_React.Models.Blocks
             Name = "Image",
             GroupName = SystemTabNames.Content,
             Order = 50)]
-        [UIHint(UIHint.Image)]
+        [AllowedTypes(typeof(SiteImage))]
         public virtual ContentReference Image { get; set; }
 
         [Display(

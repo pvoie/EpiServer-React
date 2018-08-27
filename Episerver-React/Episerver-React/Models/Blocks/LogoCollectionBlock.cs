@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.Web;
 using Episerver_React.Models.Media;
 
 namespace Episerver_React.Models.Blocks
@@ -32,9 +33,10 @@ namespace Episerver_React.Models.Blocks
            Name = "Disclaimer",
            GroupName = SystemTabNames.Content,
            Order = 30)]
-        public virtual XhtmlString Disclaimer { get; set; }
+        [UIHint(UIHint.Textarea)]
+        public virtual string Disclaimer { get; set; }
 
-        
+
         [CultureSpecific]
         [Display(
            Name = "Logos",

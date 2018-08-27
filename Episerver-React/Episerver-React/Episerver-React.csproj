@@ -259,6 +259,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Business\EditorDescriptors\TemplateModelEditorDescriptor.cs" />
+    <Compile Include="Business\Extensions\ContentAreaExtensions.cs" />
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Business\Factories\LinkStyleSelectionFactory.cs" />
     <Compile Include="Business\Factories\LinkTargetSelectionFactory.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
+    <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\LinkItemRenderingService.cs" />
@@ -458,6 +460,7 @@
     <Content Include="Views\Blocks\LogoCollectionBlock\SiteImage.cshtml" />
     <Content Include="Views\Blocks\LogoCollectionBlock.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Paragraph.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

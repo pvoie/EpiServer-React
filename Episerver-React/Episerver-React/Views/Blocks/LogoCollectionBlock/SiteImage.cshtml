@@ -1,6 +1,11 @@
 ﻿@model SiteImage
 
-@if (Model != null )
+@if (Model != null)
 {
-    <img scr="@Url.ContentUrl(Model.ContentLink)" alt="@Model.AltText" />
+<span>
+    @{
+        @Html.PropertyFor(x => x.ContentLink, "Image");
+      
+    }
+</span>
 }
