@@ -3,6 +3,7 @@ using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
 using EPiServer.Web;
+using EPiBootstrapArea;
 using Episerver_React.Business.Rendering;
 
 namespace Episerver_React.Business.Initialization
@@ -23,6 +24,15 @@ namespace Episerver_React.Business.Initialization
 
             context.Locate.TemplateResolver()
                 .TemplateResolved += TemplateCoordinator.OnTemplateResolved;
+
+            ConfigurationContext.Setup(ctx =>
+            {
+                ctx.RowSupportEnabled = false;
+                ctx.AutoAddRow = false;
+
+                ctx.CustomDisplayOptions.Clear();
+                ctx.DisableBuiltinDisplayOptions = false;
+            });
         }
 
         public void Uninitialize(InitializationEngine context)
