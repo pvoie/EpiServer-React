@@ -1,0 +1,12 @@
+﻿@model CallToActionCard
+
+@{ 
+    if (Model != null)
+    {
+       <div class="hbhTile">
+           @Html.PropertyFor(x => x.Heading, "HeadingThree")
+           @Html.PropertyFor(p => p.Description)
+           @Html.PropertyFor(a => a.CallToAction, "LinkItem")
+       </div>
+    }
+}

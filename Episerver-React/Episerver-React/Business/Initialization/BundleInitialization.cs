@@ -21,6 +21,7 @@ namespace Episerver_React.Business.Initialization
             bundles.Add(new StyleBundle("~/static/css/default-styles.css")
                 .Include("~/static/css/hbh.css")
                 .Include("~/static/css/hbh-new.css")
+                .Include("~/content/bootstrap.min.css")
             );
 
             bundles.Add(new ScriptBundle("~/static/scripts/js-top.js")

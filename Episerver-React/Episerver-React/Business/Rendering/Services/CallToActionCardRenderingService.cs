@@ -19,6 +19,24 @@ namespace Episerver_React.Business.Rendering.Services
                     Default = true,
                     Tags = new[] { GlobalSettings.ContentAreaTags.HeroCta },
                     Path = TemplateCoordinator.BlockPath("CallToActionCard/CallToActionCard")
+                },
+                 new TemplateModel
+                {
+                    Name = "GroupedTilesItem",
+                    Inherit = true,
+                    AvailableWithoutTag = true,
+                    Default = true,
+                    Tags = new[] { GlobalSettings.RenderingTags.GroupedTilesItem },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/GroupedTilesItem")
+                },
+                 new TemplateModel
+                {
+                    Name = "CenteredTextBannerItem",
+                    Inherit = true,
+                    AvailableWithoutTag = true,
+                    Default = true,
+                    Tags = new[] { GlobalSettings.RenderingTags.CenteredTextBannerItem },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/CenteredTextBanner")
                 }
             };
         }

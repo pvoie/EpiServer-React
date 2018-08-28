@@ -2,5 +2,8 @@
 
 <p>This is the HomePage</p>
 <div class="Home">
-    @Html.PropertyFor(x => x.CurrentPage.MainContent)
+    @Html.PropertyFor(x => x.CurrentPage.MainContent,new {
+    HasContainer = false,
+    
+})
 </div>

@@ -24,3 +24,17 @@
 .image-width {
     width: 208px;
 }
+
+.displaymode-half{
+    float:left;
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+
+.hbhBrick .displaymode-half:nth-child(2) .hbhTile {
+    background-color: #008ac3;
+}
+
+.hbhTile{
+    height:inherit;
+}

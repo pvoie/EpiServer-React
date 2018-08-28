@@ -1,0 +1,14 @@
+﻿@model GroupedTilesBlock
+
+@{ 
+    if (Model != null)
+    {
+        <div class="hbhBrick tiles equalHeights">
+            @Html.PropertyFor(x => x.Tiles, new
+       {
+           Tag = GlobalSettings.RenderingTags.GroupedTilesItem,
+           
+       })
+        </div>
+    }
+}

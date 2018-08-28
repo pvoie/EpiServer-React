@@ -11,6 +11,8 @@
         new
         {
             Tag = GlobalSettings.RenderingTags.LogoCollectionItem,
+            HasContainer = false,
+            HasItemContainer = false
         })
     </div>
     @Html.PropertyFor(x => x.Disclaimer, "Paragraph", new { CssClass = "paragraph-font-size" })

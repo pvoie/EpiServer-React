@@ -5,6 +5,7 @@ using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiBootstrapArea;
 using Episerver_React.Business.Rendering;
+using Episerver_React.Business.Settings;
 
 namespace Episerver_React.Business.Initialization
 {
@@ -28,10 +29,19 @@ namespace Episerver_React.Business.Initialization
             ConfigurationContext.Setup(ctx =>
             {
                 ctx.RowSupportEnabled = false;
-                ctx.AutoAddRow = false;
-
-                ctx.CustomDisplayOptions.Clear();
+                ctx.AutoAddRow = false;                
                 ctx.DisableBuiltinDisplayOptions = false;
+                ctx.CustomDisplayOptions.AddRange(new[] {
+                    new DisplayModeFallback
+                    {
+                        Name = "Centered Text",
+                        Tag = GlobalSettings.RenderingTags.CenteredTextBannerItem,
+                        LargeScreenWidth = 12,
+                        MediumScreenWidth = 8,
+                        SmallScreenWidth = 3,
+                        ExtraSmallScreenWidth = 1
+                    }
+                });
             });
         }
 

@@ -1,0 +1,16 @@
+﻿@model CallToActionCard
+
+@{
+    if (Model != null)
+    {
+        <div class="hbhBrick banner imageBanner">
+            <div class="bannerText">
+                @Html.PropertyFor(p => p.Heading, "HeadingTwo")
+                <p class="copy">@Html.PropertyFor(s => s.Description)</p>            
+                @Html.PropertyFor(x => x.CallToAction,"LinkItem")
+
+            </div>
+        </div>
+    }
+}
+
