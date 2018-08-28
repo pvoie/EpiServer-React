@@ -284,6 +284,7 @@
     </Compile>
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
     <Compile Include="Models\Blocks\CallToActionCard.cs" />
+    <Compile Include="Models\Blocks\HtmlInjectedBlock.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
     <Compile Include="Models\Blocks\LogoCollectionBlock.cs" />
     <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />

@@ -7,15 +7,11 @@
     <div class="logoLayout">
         @Html.PropertyFor(x => x.Heading)<br />
 
-
         @Html.PropertyFor(x => x.Logos,
         new
         {
             Tag = GlobalSettings.RenderingTags.LogoCollectionItem,
-           
-
         })
-
     </div>
     @Html.PropertyFor(x => x.Disclaimer, "Paragraph", new { CssClass = "paragraph-font-size" })
 </div>
