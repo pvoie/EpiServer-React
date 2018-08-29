@@ -29,19 +29,11 @@ namespace Episerver_React.Business.Initialization
             ConfigurationContext.Setup(ctx =>
             {
                 ctx.RowSupportEnabled = false;
-                ctx.AutoAddRow = false;                
+                ctx.AutoAddRow = false;
                 ctx.DisableBuiltinDisplayOptions = false;
-                ctx.CustomDisplayOptions.AddRange(new[] {
-                    new DisplayModeFallback
-                    {
-                        Name = "Centered Text",
-                        Tag = GlobalSettings.RenderingTags.CenteredTextBannerItem,
-                        LargeScreenWidth = 12,
-                        MediumScreenWidth = 8,
-                        SmallScreenWidth = 3,
-                        ExtraSmallScreenWidth = 1
-                    }
-                });
+                ctx.CustomDisplayOptions.Add<CenteredTextDisplayOption>();
+                ctx.CustomDisplayOptions.Add<HeroCTAOption>(); 
+                 ctx.CustomDisplayOptions.Add<CenteredTextImageDisplayOption>();
             });
         }
 
@@ -49,6 +41,47 @@ namespace Episerver_React.Business.Initialization
         {
             _templateResolver.Service
                 .TemplateResolved -= TemplateCoordinator.OnTemplateResolved;
+        }
+    }
+
+    public class CenteredTextDisplayOption : DisplayModeFallback
+    {
+        public CenteredTextDisplayOption()
+        {
+            Name = "Centered Text";
+            Tag = GlobalSettings.ContentAreaTags.CenteredTextBannerItem;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+    
+
+    public class HeroCTAOption : DisplayModeFallback
+    {
+        public HeroCTAOption()
+        {
+            Name = "Hero CTA";
+            Tag = GlobalSettings.ContentAreaTags.HeroCta;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+
+    public class CenteredTextImageDisplayOption : DisplayModeFallback
+    {
+        public CenteredTextImageDisplayOption()
+        {
+            Name = "Centered Text with image";
+            Tag = GlobalSettings.ContentAreaTags.CenteredTextImageBannerItem;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
         }
     }
 }

@@ -14,29 +14,38 @@ namespace Episerver_React.Business.Rendering.Services
                 new TemplateModel
                 {
                     Name = "CallToActionCardBlock",
-                    Inherit = true,
-                    AvailableWithoutTag = true,
-                    Default = true,
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
                     Tags = new[] { GlobalSettings.ContentAreaTags.HeroCta },
                     Path = TemplateCoordinator.BlockPath("CallToActionCard/CallToActionCard")
                 },
                  new TemplateModel
                 {
                     Name = "GroupedTilesItem",
-                    Inherit = true,
-                    AvailableWithoutTag = true,
-                    Default = true,
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
                     Tags = new[] { GlobalSettings.RenderingTags.GroupedTilesItem },
                     Path = TemplateCoordinator.BlockPath("CallToActionCard/GroupedTilesItem")
                 },
                  new TemplateModel
                 {
                     Name = "CenteredTextBannerItem",
+                    Inherit = false,
+                    AvailableWithoutTag = true,
+                    Default = false,
+                    Tags = new[] { GlobalSettings.ContentAreaTags.CenteredTextBannerItem },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/CenteredTextBannerItem")
+                },
+                 new TemplateModel
+                {
+                    Name = "CenteredTextImageBannerItem",
                     Inherit = true,
                     AvailableWithoutTag = true,
                     Default = true,
-                    Tags = new[] { GlobalSettings.RenderingTags.CenteredTextBannerItem },
-                    Path = TemplateCoordinator.BlockPath("CallToActionCard/CenteredTextBanner")
+                    Tags = new[] { GlobalSettings.ContentAreaTags.CenteredTextImageBannerItem },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/CenteredTextImageBannerItem")
                 }
             };
         }

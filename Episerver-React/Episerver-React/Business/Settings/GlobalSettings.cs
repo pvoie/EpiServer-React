@@ -15,8 +15,9 @@
         /// </summary>
         public static class ContentAreaTags
         {
-            public const string HeroCta = "herocta";            
-            //public const string CenteredTextBannerIte = "centeredTextBannerItem";
+            public const string HeroCta = "herocta";
+            public const string CenteredTextBannerItem = "centeredtextbanneritem"; 
+            public const string CenteredTextImageBannerItem = "centeredtextimagebanneritem";
         }
 
         /// <summary>
@@ -27,7 +28,7 @@
             public const string GlobalNavigationItem = "globalNavigationItem";
             public const string LogoCollectionItem = "logoCollectionItem";
             public const string GroupedTilesItem = "groupedTilesItem";
-            public const string CenteredTextBannerItem = "centeredTextBannerItem";
+            
         }
     }
 }

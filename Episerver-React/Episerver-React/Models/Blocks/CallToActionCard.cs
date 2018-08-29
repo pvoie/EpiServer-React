@@ -4,12 +4,15 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Web;
+using EPiBootstrapArea;
+using Episerver_React.Models.Media;
 
 namespace Episerver_React.Models.Blocks
 {
     [ContentType(DisplayName = "Call To Action Card",
         GUID = "a1943638-4222-489f-b203-0ff325e76ff8",
         Description = "Alows you to create a CTA card.")]
+   
     public class CallToActionCard : BaseBlockData
     {
         [CultureSpecific]
@@ -38,7 +41,7 @@ namespace Episerver_React.Models.Blocks
             Name = "Image",
             GroupName = SystemTabNames.Content,
             Order = 40)]
-        [UIHint(UIHint.Image)]
+        [AllowedTypes(typeof(SiteImage))]
         public virtual ContentReference Image { get; set; }
 
         [CultureSpecific]
@@ -55,4 +58,7 @@ namespace Episerver_React.Models.Blocks
             Order = 30)]
         public virtual string VideoId { get; set; }
     }
+
+
+   
 }

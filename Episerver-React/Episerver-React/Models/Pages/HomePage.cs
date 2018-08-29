@@ -3,6 +3,8 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using Episerver_React.Models.Blocks;
+using EPiBootstrapArea;
+using Episerver_React.Business.Settings;
 
 namespace Episerver_React.Models.Pages
 {
@@ -15,6 +17,7 @@ namespace Episerver_React.Models.Pages
             Name = "Main Content",
             Order = 1,
             GroupName = SystemTabNames.Content)]
+        
         public virtual ContentArea MainContent { get; set; }
 
         [Display(

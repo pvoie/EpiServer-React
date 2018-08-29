@@ -527,9 +527,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Blocks\CallToActionCard\CenteredTextBanner.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\CenteredTextBannerItem.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HeadingTwo.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Span.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\CenteredTextImageBannerItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

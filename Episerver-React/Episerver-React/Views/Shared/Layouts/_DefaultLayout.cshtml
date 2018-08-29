@@ -30,11 +30,13 @@
             @RenderBody()
         </main>
         <footer>
-            @Html.Partial("_globalNavigationItems")
-            @if (Model.SiteSettings != null)
+            <div class="hbhDisclaimer">
+                @Html.Partial("_globalNavigationItems")
+                @if (Model.SiteSettings != null)
                 {
                     @Html.PropertyFor(x => x.SiteSettings.FooterDisclaimer, "Div", new { CssClass = "hbhDisclaimer" })
                 }
+            </div>
         </footer>
     </div>
     @Html.Raw(Model.FooterHtml)
