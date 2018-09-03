@@ -77,5 +77,10 @@ namespace Episerver_React.Business.Rendering
         {
             return string.Format("{0}{1}.cshtml", PagePartialsFolder, fileName);
         }
+
+        public static string SharedPath(string fileName)
+        {
+            return string.Format("{0}{1}.cshtml", SharedFolder, fileName);
+        }
     }
 }

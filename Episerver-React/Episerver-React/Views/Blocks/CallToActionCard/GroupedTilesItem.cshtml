@@ -3,10 +3,15 @@
 @{ 
     if (Model != null)
     {
-       <div class="hbhTile">
-           @Html.PropertyFor(x => x.Heading, "HeadingThree")
-           @Html.PropertyFor(p => p.Description)
-           @Html.PropertyFor(a => a.CallToAction, "LinkItem")
-       </div>
+<div class="hbhTile">
+    @if (Model.Image != null)
+    {
+        @Html.PropertyFor(m => m.Image, "Image", new { CssClass = "bannerImg" })
+
+    }
+    @Html.PropertyFor(x => x.Heading, "HeadingThree")
+    @Html.PropertyFor(p => p.Description)
+    @Html.PropertyFor(a => a.CallToAction, "LinkItem")
+</div>
     }
 }

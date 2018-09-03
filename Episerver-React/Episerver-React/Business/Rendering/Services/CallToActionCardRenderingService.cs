@@ -11,6 +11,7 @@ namespace Episerver_React.Business.Rendering.Services
         {
             return new List<TemplateModel>
             {
+
                 new TemplateModel
                 {
                     Name = "CallToActionCardBlock",

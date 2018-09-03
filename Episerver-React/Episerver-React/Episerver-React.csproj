@@ -293,6 +293,8 @@
     </Compile>
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
     <Compile Include="Models\Blocks\CallToActionCard.cs" />
+    <Compile Include="Models\Blocks\CheckBoxListBlock.cs" />
+    <Compile Include="Models\Blocks\GroupedCheckBoxListBlock.cs" />
     <Compile Include="Models\Blocks\GroupedTilesBlock.cs" />
     <Compile Include="Models\Blocks\HtmlInjectedBlock.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
@@ -302,6 +304,7 @@
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\Media\SiteImage.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
+    <Compile Include="Models\Pages\ContentPage.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
@@ -531,6 +534,10 @@
     <Content Include="Views\Shared\DisplayTemplates\HeadingTwo.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Span.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\CenteredTextImageBannerItem.cshtml" />
+    <Content Include="Views\Blocks\CheckBoxListBlock.cshtml" />
+    <Content Include="Views\Blocks\CheckBoxListBlock\CheckBoxListItem.cshtml" />
+    <Content Include="Views\Blocks\GroupedCheckBoxListBlock.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\SimpleCenteredText.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

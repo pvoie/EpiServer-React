@@ -1,0 +1,17 @@
+﻿@model GroupedCheckBoxListBlock
+
+<div class="hbhBrick checklist">
+    @Html.PropertyFor(x => x.Heading, "HeadingTwo")
+    @Html.PropertyFor(x=>x.Description,"Paragraph", new { CssClass = "subtitle"})
+    <div class="lists equalHeights">
+        @Html.PropertyFor(x=>x.CheckboxList)
+
+
+    </div>
+    <div class="buttons">
+       @Html.PropertyFor(x=>x.Links, new { Tag = GlobalSettings.RenderingTags.RegularLinkItem ,
+       HasContainer = false,
+       HasItemContainer = false
+   })
+    </div>
+</div>

@@ -55,7 +55,7 @@ namespace Episerver_React.Models.Blocks
         [Display(
             Name = "Brightcove Video Id",
             GroupName = SystemTabNames.Content,
-            Order = 30)]
+            Order = 60)]
         public virtual string VideoId { get; set; }
     }
 

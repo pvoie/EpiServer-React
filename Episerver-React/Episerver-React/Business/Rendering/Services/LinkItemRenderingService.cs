@@ -19,6 +19,24 @@ namespace Episerver_React.Business.Rendering.Services
                     Default = true,
                     Tags = new[] { GlobalSettings.RenderingTags.LogoCollectionItem },
                     Path = TemplateCoordinator.BlockPath("LogoCollectionBlock/LinkItem")
+                },
+                new TemplateModel
+                {
+                    Name = "Checkbox Link Item",
+                    Inherit = true,
+                    AvailableWithoutTag = true,
+                    Default = true,
+                    Tags = new[] { GlobalSettings.RenderingTags.CheckboxLinkItem },
+                    Path = TemplateCoordinator.BlockPath("CheckBoxListBlock/CheckBoxListItem")
+                },
+                new TemplateModel
+                {
+                    Name = "Regular Link Item",
+                    Inherit = true,
+                    AvailableWithoutTag = true,
+                    Default = true,
+                    Tags = new[] { GlobalSettings.RenderingTags.RegularLinkItem },
+                    Path = TemplateCoordinator.SharedPath("DisplayTemplates/LinkItem")
                 }
             };
         }

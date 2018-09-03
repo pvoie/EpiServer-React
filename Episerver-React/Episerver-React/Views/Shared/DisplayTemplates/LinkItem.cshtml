@@ -1,9 +1,12 @@
 ﻿@model LinkItem
 
-@if (Model.Link != null && !Model.Link.IsEmpty())
+@if (Model != null)
 {
-    var cssClass = ViewData["CssClass"] as string ?? string.Empty;
-    <a class="@Model.LinkStyle @cssClass" href="@Url.ContentUrl(Model.Link)" target="@Model.Target" title="@(string.IsNullOrWhiteSpace(Model.Title) ? Model.Text : Model.Title)">
-        @Model.Text
-    </a>
+    if (Model.Link != null && !Model.Link.IsEmpty())
+    {
+        var cssClass = ViewData["CssClass"] as string ?? string.Empty;
+        <a class="@Model.LinkStyle @cssClass" href="@Url.ContentUrl(Model.Link)" target="@Model.Target" title="@(string.IsNullOrWhiteSpace(Model.Title) ? Model.Text : Model.Title)">
+            @Model.Text
+        </a>
+    }
 }

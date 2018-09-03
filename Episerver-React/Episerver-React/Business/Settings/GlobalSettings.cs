@@ -28,7 +28,9 @@
             public const string GlobalNavigationItem = "globalNavigationItem";
             public const string LogoCollectionItem = "logoCollectionItem";
             public const string GroupedTilesItem = "groupedTilesItem";
-            
+            public const string CheckboxLinkItem = "checkBoxListItem";
+            public const string RegularLinkItem = "regularLinkItem";
+
         }
     }
 }

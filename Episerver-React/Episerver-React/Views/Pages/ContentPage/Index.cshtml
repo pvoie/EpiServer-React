@@ -1,1 +1,13 @@
-﻿
+﻿@model PageViewModel<ContentPage>
+<br />
+
+@{ var CssClass = Model.CurrentPage.Name.Replace(' ','-');
+
+<div class="@CssClass">
+    @Html.PropertyFor(x => x.CurrentPage.MainContent, new
+{
+    HasContainer = false,
+
+})
+</div>
+    }

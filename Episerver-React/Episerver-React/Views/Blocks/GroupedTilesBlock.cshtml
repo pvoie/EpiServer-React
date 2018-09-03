@@ -1,16 +1,17 @@
-﻿@model GroupedTilesBlock
+﻿@using EPiServer.Web.Mvc.Html
+@model GroupedTilesBlock
 
-@{ 
-    if (Model != null)
+
+    @if (Model != null)
     {
         <div class="hbhBrick tiles equalHeights">
             @Html.PropertyFor(x => x.Tiles, new
        {
            Tag = GlobalSettings.RenderingTags.GroupedTilesItem,
-           
+
        })
         </div>
-        
+
 
     }
-}
+

@@ -1,0 +1,11 @@
+﻿@model CheckBoxListBlock
+
+<div class="list">
+    @Html.PropertyFor(m => m.Heading, "HeadingThree")
+    <ul>
+         
+        @Html.PropertyFor(m => m.CheckboxList, new { Tag = GlobalSettings.RenderingTags.CheckboxLinkItem })
+             
+        
+    </ul>
+</div>

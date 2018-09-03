@@ -5,12 +5,14 @@ using EPiServer.DataAnnotations;
 using Episerver_React.Models.Blocks;
 using EPiBootstrapArea;
 using Episerver_React.Business.Settings;
+using EPiServer.Framework.DataAnnotations;
 
 namespace Episerver_React.Models.Pages
 {
     [ContentType(DisplayName = "Home Page",
         GUID = "de042715-343b-47c6-bedf-58810a8b8669",
         Description = "Website's Home page")]
+    //[TemplateDescriptor(Inherited = true)]
     public class HomePage : BasePageData
     {
         [Display(
