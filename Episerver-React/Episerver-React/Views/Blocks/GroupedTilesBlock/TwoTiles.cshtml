@@ -4,12 +4,14 @@
 
     @if (Model != null)
     {
-        <div class="hbhBrick tiles equalHeights">
+        <div class="hbhBrick tiles tiles-2 equalHeights">
             @Html.PropertyFor(x => x.Tiles, new
        {
            Tag = GlobalSettings.RenderingTags.GroupedTilesItem,
+           HasContainer = false,
+           HasItemContainer = false
 
-       })
+            })
         </div>
 
 

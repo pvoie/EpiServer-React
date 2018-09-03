@@ -37,6 +37,7 @@ namespace Episerver_React.Business.Initialization
                 ctx.CustomDisplayOptions.Add<SimpleCenteredTextDisplayOption>();
                 ctx.CustomDisplayOptions.Add<FooterCenteredTextDisplayOption>();
                 ctx.CustomDisplayOptions.Add<FiveTiles>();
+                ctx.CustomDisplayOptions.Add<TwoTiles>();
             });
         }
 
@@ -121,6 +122,19 @@ namespace Episerver_React.Business.Initialization
         {
             Name = "5 Tiles";
             Tag = GlobalSettings.ContentAreaTags.FiveTiles;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+    public class TwoTiles : DisplayModeFallback
+    {
+        public TwoTiles()
+        {
+            Name = "2 Tiles";
+            Tag = GlobalSettings.ContentAreaTags.TwoTiles;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
             SmallScreenWidth = 3;

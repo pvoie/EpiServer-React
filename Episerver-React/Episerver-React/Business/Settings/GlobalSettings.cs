@@ -21,6 +21,7 @@
             public const string SimpleCenteredText = "simplecenteredtext";
             public const string FooterCenteredText = "footercenteredtext";
             public const string FiveTiles = "tiles-5";
+            public const string TwoTiles = "tiles-2";
         }
 
         /// <summary>

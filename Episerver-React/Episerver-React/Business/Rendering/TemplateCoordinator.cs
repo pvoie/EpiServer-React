@@ -18,6 +18,7 @@ namespace Episerver_React.Business.Rendering
         internal static Injected<IContentRenderingService<CallToActionCard>> _ctaRenderingService;
         internal static Injected<IContentRenderingService<LinkItem>> _linkItemRenderingService;
         internal static Injected<IContentRenderingService<SiteImage>> _siteImageRenderingService;
+        internal static Injected<IContentRenderingService<GroupedTilesBlock>> _groupedTilesRenderingService;
         #endregion Services
 
         #region Paths
@@ -61,6 +62,9 @@ namespace Episerver_React.Business.Rendering
 
             viewTemplateModelRegistrator.Add(typeof(SiteImage),
                 _siteImageRenderingService.Service.GetAvailableTemplates().ToArray());
+
+            viewTemplateModelRegistrator.Add(typeof(GroupedTilesBlock), 
+                _groupedTilesRenderingService.Service.GetAvailableTemplates().ToArray());
         }
 
         public static string ViewPath(string folder, string fileName)

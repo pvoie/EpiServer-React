@@ -279,6 +279,7 @@
     <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\GroupedTilesRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\LinkItemRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\SiteImageRenderingService.cs" />
@@ -517,7 +518,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Paragraph.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\GroupedTilesItem.cshtml" />
-    <Content Include="Views\Blocks\GroupedTilesBlock.cshtml" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\TwoTiles.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HeadingThree.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -539,6 +540,7 @@
     <Content Include="Views\Blocks\GroupedCheckBoxListBlock.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\SimpleCenteredText.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\FooterCenteredText.cshtml" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\FiveTiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

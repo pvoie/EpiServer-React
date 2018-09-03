@@ -46,6 +46,7 @@ namespace Episerver_React.Business.Initialization
             container.For<IContentRenderingService<LinkItem>>().Use<LinkItemRenderingService>();
 
             container.For<IContentRenderingService<SiteImage>>().Use<SiteImageRenderingService>();
+            container.For<IContentRenderingService<GroupedTilesBlock>>().Use<GroupedTilesRenderingService>();
         }
 
     }
