@@ -33,7 +33,10 @@ namespace Episerver_React.Business.Initialization
                 ctx.DisableBuiltinDisplayOptions = false;
                 ctx.CustomDisplayOptions.Add<CenteredTextDisplayOption>();
                 ctx.CustomDisplayOptions.Add<HeroCTAOption>(); 
-                 ctx.CustomDisplayOptions.Add<CenteredTextImageDisplayOption>();
+                ctx.CustomDisplayOptions.Add<CenteredTextImageDisplayOption>();
+                ctx.CustomDisplayOptions.Add<SimpleCenteredTextDisplayOption>();
+                ctx.CustomDisplayOptions.Add<FooterCenteredTextDisplayOption>();
+                ctx.CustomDisplayOptions.Add<FiveTiles>();
             });
         }
 
@@ -48,7 +51,7 @@ namespace Episerver_React.Business.Initialization
     {
         public CenteredTextDisplayOption()
         {
-            Name = "Centered Text";
+            Name = "Banner - Centered Text";
             Tag = GlobalSettings.ContentAreaTags.CenteredTextBannerItem;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
@@ -76,8 +79,48 @@ namespace Episerver_React.Business.Initialization
     {
         public CenteredTextImageDisplayOption()
         {
-            Name = "Centered Text with image";
+            Name = "Banner - Text with image";
             Tag = GlobalSettings.ContentAreaTags.CenteredTextImageBannerItem;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+
+    public class SimpleCenteredTextDisplayOption : DisplayModeFallback
+    {
+        public SimpleCenteredTextDisplayOption()
+        {
+            Name = "Centered simple text";
+            Tag = GlobalSettings.ContentAreaTags.SimpleCenteredText;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+    public class FooterCenteredTextDisplayOption : DisplayModeFallback
+    {
+        public FooterCenteredTextDisplayOption()
+        {
+            Name = "Footer simple text";
+            Tag = GlobalSettings.ContentAreaTags.FooterCenteredText;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+    public class FiveTiles : DisplayModeFallback
+    {
+        public FiveTiles()
+        {
+            Name = "5 Tiles";
+            Tag = GlobalSettings.ContentAreaTags.FiveTiles;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
             SmallScreenWidth = 3;

@@ -18,6 +18,9 @@
             public const string HeroCta = "herocta";
             public const string CenteredTextBannerItem = "centeredtextbanneritem"; 
             public const string CenteredTextImageBannerItem = "centeredtextimagebanneritem";
+            public const string SimpleCenteredText = "simplecenteredtext";
+            public const string FooterCenteredText = "footercenteredtext";
+            public const string FiveTiles = "tiles-5";
         }
 
         /// <summary>

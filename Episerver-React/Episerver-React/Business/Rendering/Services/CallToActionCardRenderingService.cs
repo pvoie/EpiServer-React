@@ -47,6 +47,24 @@ namespace Episerver_React.Business.Rendering.Services
                     Default = true,
                     Tags = new[] { GlobalSettings.ContentAreaTags.CenteredTextImageBannerItem },
                     Path = TemplateCoordinator.BlockPath("CallToActionCard/CenteredTextImageBannerItem")
+                },
+                 new TemplateModel
+                {
+                    Name = "SimpleCenteredText",
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
+                    Tags = new[] { GlobalSettings.ContentAreaTags.SimpleCenteredText },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/SimpleCenteredText")
+                },
+                 new TemplateModel
+                {
+                    Name = "FooterCenteredText",
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
+                    Tags = new[] { GlobalSettings.ContentAreaTags.FooterCenteredText },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/FooterCenteredText")
                 }
             };
         }

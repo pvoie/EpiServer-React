@@ -538,6 +538,7 @@
     <Content Include="Views\Blocks\CheckBoxListBlock\CheckBoxListItem.cshtml" />
     <Content Include="Views\Blocks\GroupedCheckBoxListBlock.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\SimpleCenteredText.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\FooterCenteredText.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

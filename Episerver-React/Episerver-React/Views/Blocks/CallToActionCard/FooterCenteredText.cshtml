@@ -4,8 +4,9 @@
 {
     <div class="hbhBrick html">
         <div class="div-text-align-center">
-            @Html.PropertyFor(m => m.Heading, "HeadingTwo")
+            @Html.PropertyFor(m => m.Heading, "Paragraph", new { CssClass = "footnote" })
             <p><span>@Html.PropertyFor(m => m.Description)</span></p>
         </div>
     </div>
 }
+
