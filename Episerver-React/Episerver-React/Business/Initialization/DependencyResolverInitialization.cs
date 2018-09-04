@@ -11,6 +11,7 @@ using Episerver_React.Business.Rendering;
 using Episerver_React.Business.Rendering.Services;
 using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Media;
+using Episerver_React.Models.Pages;
 using StructureMap;
 
 namespace Episerver_React.Business.Initialization
@@ -46,7 +47,10 @@ namespace Episerver_React.Business.Initialization
             container.For<IContentRenderingService<LinkItem>>().Use<LinkItemRenderingService>();
 
             container.For<IContentRenderingService<SiteImage>>().Use<SiteImageRenderingService>();
+
             container.For<IContentRenderingService<GroupedTilesBlock>>().Use<GroupedTilesRenderingService>();
+
+            container.For<IContentRenderingService<BasePageData>>().Use<BasePageDataRenderingService>();
         }
 
     }

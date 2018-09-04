@@ -65,6 +65,15 @@ namespace Episerver_React.Business.Rendering.Services
                     Default = false,
                     Tags = new[] { GlobalSettings.ContentAreaTags.FooterCenteredText },
                     Path = TemplateCoordinator.BlockPath("CallToActionCard/FooterCenteredText")
+                },
+                 new TemplateModel
+                {
+                    Name = "Question",
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
+                    Tags = new[] { GlobalSettings.RenderingTags.QuestionItem },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/Question")
                 }
             };
         }

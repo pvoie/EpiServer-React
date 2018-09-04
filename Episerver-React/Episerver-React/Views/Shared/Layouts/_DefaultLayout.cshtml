@@ -24,14 +24,14 @@
     @Html.Raw(Model.HeaderHtml)
     <div class="ccContent">
         <header>
-            @Html.Partial("_globalNavigationItems")
+            @Html.Partial("_globalNavigationItems", Model)
         </header>
         <main>
             @RenderBody()
         </main>
         <footer>
             <div class="hbhDisclaimer">
-                @Html.Partial("_globalNavigationItems")
+                @Html.Partial("_globalNavigationItems", Model)
                 @if (Model.SiteSettings != null)
                 {
                     @Html.PropertyFor(x => x.SiteSettings.FooterDisclaimer, "Div", new { CssClass = "hbhDisclaimer" })

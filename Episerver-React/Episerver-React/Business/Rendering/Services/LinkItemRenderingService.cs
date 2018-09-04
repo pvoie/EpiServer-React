@@ -37,6 +37,15 @@ namespace Episerver_React.Business.Rendering.Services
                     Default = true,
                     Tags = new[] { GlobalSettings.RenderingTags.RegularLinkItem },
                     Path = TemplateCoordinator.SharedPath("DisplayTemplates/LinkItem")
+                },
+                new TemplateModel
+                {
+                    Name = "Global Navigation Item",
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
+                    Tags = new[] { GlobalSettings.RenderingTags.GlobalNavigationItem},
+                    Path = TemplateCoordinator.SharedPath("DisplayTemplates/LinkItem")
                 }
             };
         }

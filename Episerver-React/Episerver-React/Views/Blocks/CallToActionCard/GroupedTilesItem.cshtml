@@ -10,7 +10,9 @@
 
     }
     @Html.PropertyFor(x => x.Heading, "HeadingThree")
-    @Html.PropertyFor(p => p.Description)
+    <div>
+        @Html.PropertyFor(p => p.Description)
+    </div>
     @Html.PropertyFor(a => a.CallToAction, "LinkItem")
 </div>
     }

@@ -1,0 +1,20 @@
+﻿@using EPiServer.Web.Mvc.Html
+@model GroupedTilesBlock
+
+<div class="hbhBrick faqs">
+    <h2 class="">FAQ</h2>
+
+    <ul class="active" style="display: none;">
+
+        @Html.PropertyFor(m => m.Tiles, new { Tag = GlobalSettings.RenderingTags.QuestionItem })
+
+    </ul>
+</div>
+<script>
+    $(document).ready(function () {
+        var config = '/static/js/ccframework/config.js';
+        require([config], function () {
+            require(['faqs', 'calc']);
+        });
+    });
+</script>

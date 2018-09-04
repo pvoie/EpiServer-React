@@ -32,6 +32,16 @@ namespace Episerver_React.Business.Rendering.Services
                     Tags = new[] { GlobalSettings.ContentAreaTags.FiveTiles},
                     Path = TemplateCoordinator.BlockPath("GroupedTilesBlock/FiveTiles")
 
+                },
+                new TemplateModel
+                {
+                    Name = "Faq Tiles",
+                    Inherit = false,
+                    AvailableWithoutTag = false,
+                    Default = false,
+                    Tags = new[] { GlobalSettings.ContentAreaTags.FaqTiles},
+                    Path = TemplateCoordinator.BlockPath("GroupedTilesBlock/Faqs")
+
                 }
             };
         }

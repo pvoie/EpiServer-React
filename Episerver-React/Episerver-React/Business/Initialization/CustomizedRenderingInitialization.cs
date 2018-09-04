@@ -38,6 +38,7 @@ namespace Episerver_React.Business.Initialization
                 ctx.CustomDisplayOptions.Add<FooterCenteredTextDisplayOption>();
                 ctx.CustomDisplayOptions.Add<FiveTiles>();
                 ctx.CustomDisplayOptions.Add<TwoTiles>();
+                ctx.CustomDisplayOptions.Add<FaqTiles>();
             });
         }
 
@@ -135,6 +136,19 @@ namespace Episerver_React.Business.Initialization
         {
             Name = "2 Tiles";
             Tag = GlobalSettings.ContentAreaTags.TwoTiles;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+    public class FaqTiles : DisplayModeFallback
+    {
+        public FaqTiles()
+        {
+            Name = "FAQ Tiles";
+            Tag = GlobalSettings.ContentAreaTags.FaqTiles;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
             SmallScreenWidth = 3;

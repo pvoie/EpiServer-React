@@ -1,0 +1,37 @@
+﻿@model PageViewModel<RedirectLandingPage>
+<br />
+
+@{ var CssClass = Model.CurrentPage.Name.Replace(' ', '-');
+
+    <div class="@CssClass">
+        <div class="hbhPOV">
+            @Html.PropertyFor(x => x.CurrentPage.Heading, "HeadingOne")
+        </div>
+        <div>
+            <div class="infoSection goToDH">
+                @Html.PropertyFor(m => m.CurrentPage.Description, "Paragraph", new { CssClass = "more-info" })
+                <div class="callouts-container">
+                    <div class="direct-health-container">
+                        <span class="helper"></span>
+                        @Html.PropertyFor(m => m.CurrentPage.Logo, "Image", new { CssClass = "image-width" })
+
+                    </div>
+                    @Html.PropertyFor(m => m.CurrentPage.CallOutLabel, "Paragraph", new { CssClass = "callout" })
+                    <span class="bigCheckBox">
+                        <input type="checkbox" id="dontShowAgain"><label for="dontShowAgain">@Html.PropertyFor(m => m.CurrentPage.CheckBoxLabel)</label>
+                    </span>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+}

@@ -7,6 +7,7 @@ using Episerver_React.Controllers;
 using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Interfaces;
 using Episerver_React.Models.Media;
+using Episerver_React.Models.Pages;
 
 namespace Episerver_React.Business.Rendering
 {
@@ -19,6 +20,7 @@ namespace Episerver_React.Business.Rendering
         internal static Injected<IContentRenderingService<LinkItem>> _linkItemRenderingService;
         internal static Injected<IContentRenderingService<SiteImage>> _siteImageRenderingService;
         internal static Injected<IContentRenderingService<GroupedTilesBlock>> _groupedTilesRenderingService;
+        internal static Injected<IContentRenderingService<BasePageData>> _basePageDataRenderingService;
         #endregion Services
 
         #region Paths
@@ -27,6 +29,7 @@ namespace Episerver_React.Business.Rendering
         public const string BlockFolder = "~/Views/Blocks/";
         public const string SharedFolder = "~/Views/Shared/";
         public const string SharedDisplayTemplatesFolder = "~/Views/Shared/DisplayTemplates/";
+        
 
         #endregion Paths
 
@@ -65,6 +68,9 @@ namespace Episerver_React.Business.Rendering
 
             viewTemplateModelRegistrator.Add(typeof(GroupedTilesBlock), 
                 _groupedTilesRenderingService.Service.GetAvailableTemplates().ToArray());
+
+            viewTemplateModelRegistrator.Add(typeof(BasePageData),
+                _basePageDataRenderingService.Service.GetAvailableTemplates().ToArray());
         }
 
         public static string ViewPath(string folder, string fileName)

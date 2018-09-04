@@ -1,17 +1,25 @@
-﻿
-@{
-    Layout = null;
+﻿@model IPageViewModel<BasePageData>
+
+@if (Model.SiteSettings != null)
+{
+
+
+    <nav @Html.EditAttributes(m => m.SiteSettings.GlobalNavigationItems)>
+        <ul>
+            @foreach (var current in Model.SiteSettings.GlobalNavigationItems.FilteredItemsOfType<IContentData>())
+            {
+                <li>
+                    @{Html.RenderContentData(current, true, GlobalSettings.RenderingTags.GlobalNavigationItem);}
+                </li>
+            }
+        </ul>
+    </nav>
+    <script>
+        $(document).ready(function () {
+            var config = '/static/js/ccframework/config.js';
+            require([config], function () {
+                require(['nav']);
+            });
+        });
+    </script>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_globalNavigationItems</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>

@@ -1,0 +1,8 @@
+﻿@model BasePageData
+
+@{
+    var cssClass = ViewData["CssClass"] as string ?? string.Empty;
+}
+<a class="@cssClass" href="@Url.ContentUrl(Model.ContentLink)" title="@Model.SeoTitle">
+    @Model.Name
+</a>

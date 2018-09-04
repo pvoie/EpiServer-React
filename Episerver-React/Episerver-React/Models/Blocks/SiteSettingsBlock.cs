@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using Episerver_React.Business.Settings;
+using Episerver_React.Models.Pages;
 
 namespace Episerver_React.Models.Blocks
 {
@@ -29,5 +31,12 @@ namespace Episerver_React.Models.Blocks
             Order = 30,
             GroupName = ContentEditorTabs.Footer)]
         public virtual HtmlInjectedBlock FooterBlock { get; set; }
+
+        [Display(
+            Name = "Global Navigation Items",
+            Order = 10,
+            GroupName = SystemTabNames.Content)]
+        [AllowedTypes(typeof(BasePageData), typeof(LinkItem))]
+        public virtual ContentArea GlobalNavigationItems { get; set; }
     }
 }

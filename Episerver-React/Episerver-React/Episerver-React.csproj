@@ -278,6 +278,7 @@
     <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
+    <Compile Include="Business\Rendering\Services\BasePageDataRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\GroupedTilesRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\LinkItemRenderingService.cs" />
@@ -289,6 +290,7 @@
     <Compile Include="Business\Settings\GlobalSettings.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\RedirectLandingPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -307,6 +309,7 @@
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\ContentPage.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
+    <Compile Include="Models\Pages\RedirectLandingPage.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -433,6 +436,9 @@
     <Content Include="Static\js\ccframework\vendor\requirejs\domReady.js" />
     <Content Include="Static\js\ccframework\vendor\requirejs\require.js" />
     <Content Include="Static\js\ektronScripts.js" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\Faqs.cshtml" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\FiveTiles.cshtml" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\TwoTiles.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -518,7 +524,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Paragraph.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\GroupedTilesItem.cshtml" />
-    <Content Include="Views\Blocks\GroupedTilesBlock\TwoTiles.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HeadingThree.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -540,7 +545,10 @@
     <Content Include="Views\Blocks\GroupedCheckBoxListBlock.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\SimpleCenteredText.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\FooterCenteredText.cshtml" />
-    <Content Include="Views\Blocks\GroupedTilesBlock\FiveTiles.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\Question.cshtml" />
+    <Content Include="Views\PagePartials\BasePagePartialLink.cshtml" />
+    <Content Include="Views\PagePartials\test.cshtml" />
+    <Content Include="Views\Pages\RedirectLandingPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
