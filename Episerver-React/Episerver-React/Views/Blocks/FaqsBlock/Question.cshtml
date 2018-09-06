@@ -1,0 +1,10 @@
+﻿@model QuestionBlock
+
+@if (Model != null)
+{
+    <li class="faqItem">
+        <span class="question">@Html.PropertyFor(m => m.Question)</span>
+
+        <span class="answer long" style="">@Html.PropertyFor(m => m.Answer)</span>
+    </li>
+}

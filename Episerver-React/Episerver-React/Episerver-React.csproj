@@ -267,6 +267,7 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Components\QueryStringUrlListProperty.cs" />
     <Compile Include="Business\EditorDescriptors\TemplateModelEditorDescriptor.cs" />
     <Compile Include="Business\Extensions\ContentAreaExtensions.cs" />
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
@@ -283,11 +284,13 @@
     <Compile Include="Business\Rendering\Services\GroupedTilesRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\LinkItemRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\QuestionBlockRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\SiteImageRenderingService.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\Settings\ContentEditorTabs.cs" />
     <Compile Include="Business\Settings\GlobalSettings.cs" />
+    <Compile Include="Business\Settings\RegexUrl.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\RedirectLandingPageController.cs" />
@@ -297,11 +300,14 @@
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
     <Compile Include="Models\Blocks\CallToActionCard.cs" />
     <Compile Include="Models\Blocks\CheckBoxListBlock.cs" />
+    <Compile Include="Models\Blocks\FaqsBlock.cs" />
+    <Compile Include="Models\Blocks\FaqTabs.cs" />
     <Compile Include="Models\Blocks\GroupedCheckBoxListBlock.cs" />
     <Compile Include="Models\Blocks\GroupedTilesBlock.cs" />
     <Compile Include="Models\Blocks\HtmlInjectedBlock.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
     <Compile Include="Models\Blocks\LogoCollectionBlock.cs" />
+    <Compile Include="Models\Blocks\QuestionBlock.cs" />
     <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />
     <Compile Include="Models\Interfaces\IContainerPage.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
@@ -310,14 +316,13 @@
     <Compile Include="Models\Pages\ContentPage.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\RedirectLandingPage.cs" />
+    <Compile Include="Models\Properties\PropertyListBase.cs" />
+    <Compile Include="Models\Properties\QueryStringUrl.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\Components\" />
-    <Folder Include="Models\Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -549,6 +554,9 @@
     <Content Include="Views\PagePartials\BasePagePartialLink.cshtml" />
     <Content Include="Views\PagePartials\test.cshtml" />
     <Content Include="Views\Pages\RedirectLandingPage\Index.cshtml" />
+    <Content Include="Views\Blocks\FaqsBlock\Question.cshtml" />
+    <Content Include="Views\Blocks\FaqsBlock.cshtml" />
+    <Content Include="Views\Blocks\FaqTabs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

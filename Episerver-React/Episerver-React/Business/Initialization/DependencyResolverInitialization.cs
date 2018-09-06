@@ -51,6 +51,8 @@ namespace Episerver_React.Business.Initialization
             container.For<IContentRenderingService<GroupedTilesBlock>>().Use<GroupedTilesRenderingService>();
 
             container.For<IContentRenderingService<BasePageData>>().Use<BasePageDataRenderingService>();
+
+            container.For<IContentRenderingService<QuestionBlock>>().Use<QuestionBlockRenderingService>();
         }
 
     }

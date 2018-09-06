@@ -1,0 +1,17 @@
+﻿@model FaqsBlock
+<div class="hbhBrick faqs">
+    @Html.PropertyFor(m => m.Heading, "HeadingTwo")
+<ul class="active" style="display: none;">
+
+    @Html.PropertyFor(m=>m.Questions, new { Tag = GlobalSettings.RenderingTags.QuestionItem})  
+
+</ul>
+</div>
+<script>
+    $(document).ready(function () {
+        var config = '/static/js/ccframework/config.js';
+        require([config], function () {
+            require(['faqs', 'calc']);
+        });
+    });
+</script>

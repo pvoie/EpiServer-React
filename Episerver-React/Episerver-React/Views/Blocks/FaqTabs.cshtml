@@ -1,0 +1,16 @@
+﻿@model FaqTabs
+
+<div class="hbhBrick faqs">
+    <ul class="FAQTabs equalHeights">
+        @if (Model.Faqs.Any())
+        {
+            foreach (var tab in Model.Faqs.FilteredItemsOfType<FaqsBlock>())
+            {
+                var head = tab.Heading ?? string.Empty;
+                <li class="">@head</li>
+            }
+        }
+
+
+    </ul>
+</div>
