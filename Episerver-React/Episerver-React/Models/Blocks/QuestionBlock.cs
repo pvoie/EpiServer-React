@@ -24,8 +24,9 @@ namespace Episerver_React.Models.Blocks
             Name = "Answer",
             GroupName = SystemTabNames.Content,
             Order = 20)]
-        [UIHint(UIHint.Textarea)]
-        public virtual string Answer { get; set; }
+        public virtual XhtmlString Answer { get; set; }
+
+        
 
     }
 }

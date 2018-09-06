@@ -10,7 +10,19 @@
                 <li class="">@head</li>
             }
         }
-
-
     </ul>
+
+    @foreach (var item in Model.Faqs.FilteredItemsOfType<FaqsBlock>())
+    {
+        Html.RenderContentData(item, true, GlobalSettings.RenderingTags.FaqTabsItem);
+    }
+
 </div>
+<script>
+    $(document).ready(function () {
+        var config = '/static/js/ccframework/config.js';
+        require([config], function () {
+            require(['faqs', 'calc']);
+        });
+    });
+</script>

@@ -53,6 +53,8 @@ namespace Episerver_React.Business.Initialization
             container.For<IContentRenderingService<BasePageData>>().Use<BasePageDataRenderingService>();
 
             container.For<IContentRenderingService<QuestionBlock>>().Use<QuestionBlockRenderingService>();
+
+            container.For<IContentRenderingService<FaqsBlock>>().Use<FaqsBlockRenderingService>();
         }
 
     }

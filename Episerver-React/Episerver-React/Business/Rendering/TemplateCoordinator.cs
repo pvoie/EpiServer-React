@@ -22,6 +22,7 @@ namespace Episerver_React.Business.Rendering
         internal static Injected<IContentRenderingService<GroupedTilesBlock>> _groupedTilesRenderingService;
         internal static Injected<IContentRenderingService<BasePageData>> _basePageDataRenderingService;
         internal static Injected<IContentRenderingService<QuestionBlock>> _questionBlockRenderingService;
+        internal static Injected<IContentRenderingService<FaqsBlock>> _faqsBlockRenderingService;
         #endregion Services
 
         #region Paths
@@ -75,6 +76,9 @@ namespace Episerver_React.Business.Rendering
 
             viewTemplateModelRegistrator.Add(typeof(QuestionBlock), 
                 _questionBlockRenderingService.Service.GetAvailableTemplates().ToArray());
+
+            viewTemplateModelRegistrator.Add(typeof(FaqsBlock),
+                _faqsBlockRenderingService.Service.GetAvailableTemplates().ToArray());
         }
 
         public static string ViewPath(string folder, string fileName)

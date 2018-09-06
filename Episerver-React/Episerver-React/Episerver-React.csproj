@@ -281,6 +281,7 @@
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
     <Compile Include="Business\Rendering\Services\BasePageDataRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\FaqsBlockRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\GroupedTilesRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\LinkItemRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
@@ -557,6 +558,7 @@
     <Content Include="Views\Blocks\FaqsBlock\Question.cshtml" />
     <Content Include="Views\Blocks\FaqsBlock.cshtml" />
     <Content Include="Views\Blocks\FaqTabs.cshtml" />
+    <Content Include="Views\Blocks\FaqsBlock\FaqTabsItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

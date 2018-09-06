@@ -36,6 +36,7 @@
             public const string CheckboxLinkItem = "checkBoxListItem";
             public const string RegularLinkItem = "regularLinkItem";
             public const string QuestionItem = "questionItem";
+            public const string FaqTabsItem = "faqtabsitem";
 
         }
     }

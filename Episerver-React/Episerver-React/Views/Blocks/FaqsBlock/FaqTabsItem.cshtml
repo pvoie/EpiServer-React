@@ -1,0 +1,5 @@
+﻿@model FaqsBlock
+
+<ul class="active" style="display: none;">
+    @Html.PropertyFor(m => m.Questions, new { Tag = GlobalSettings.RenderingTags.QuestionItem })
+</ul>
