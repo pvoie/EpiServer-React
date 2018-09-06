@@ -3,10 +3,14 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-
-using EPiServer.SpecializedProperties;
+using Episerver_React.Models.Blocks;
 using EPiServer.Web;
 using Episerver_React.Models.Media;
+using System.Collections.Generic;
+using Episerver_React.Models.Properties;
+using EPiServer.Shell.ObjectEditing;
+using EPiServer.Cms.Shell.UI.ObjectEditing.EditorDescriptors;
+using EPiServer;
 
 namespace Episerver_React.Models.Pages
 {
@@ -31,14 +35,14 @@ namespace Episerver_React.Models.Pages
 
         [CultureSpecific]
         [Display(
-        Name = "CallOutLabel",
+        Name = "CallOut Label",
         GroupName = SystemTabNames.Content,
         Order = 30)]
         public virtual string CallOutLabel { get; set; }
 
         [CultureSpecific]
         [Display(
-        Name = "CheckBoxLabel",
+        Name = "CheckBox Label",
         GroupName = SystemTabNames.Content,
         Order = 40)]
         public virtual string CheckBoxLabel { get; set; }
@@ -50,6 +54,39 @@ namespace Episerver_React.Models.Pages
         Order = 50)]
         [AllowedTypes(typeof(SiteImage))]
         public virtual ContentReference Logo { get; set; }
+
+        [CultureSpecific]
+        [Display(
+        Name = "Campaign Redirect",
+        GroupName = SystemTabNames.Content,
+        Order = 60)]
+        [EditorDescriptor(EditorDescriptorType = typeof(CollectionEditorDescriptor<QueryStringUrl>))]
+        public virtual IList<QueryStringUrl> QueryStringUrls { get; set; }
+
+        [CultureSpecific]
+        [Display(
+        Name = "Default Campaign Url",
+        GroupName = SystemTabNames.Content,
+        Order = 65)]
+        [Required]
+        public virtual Url DefaultCampaignUrl { get; set; }
+
+
+
+        [CultureSpecific]
+        [Display(
+        Name = "Info Label",
+        GroupName = SystemTabNames.Content,
+        Order = 70)]
+        public virtual string InfoLabel { get; set; }
+
+        
+        [Display(
+        Name = "Extra CTAs",
+        GroupName = SystemTabNames.Content,
+        Order = 80)]
+        [AllowedTypes(new[] { typeof(LinkItem) })]
+        public virtual ContentArea ExtraCtas { get; set; }
 
     }
 }

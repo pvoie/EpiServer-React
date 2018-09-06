@@ -36,7 +36,7 @@ namespace Episerver_React.Models.Blocks
             Name = "Global Navigation Items",
             Order = 10,
             GroupName = SystemTabNames.Content)]
-        [AllowedTypes(typeof(BasePageData), typeof(LinkItem))]
+        [AllowedTypes(new[] { typeof(BasePageData), typeof(LinkItem) })]
         public virtual ContentArea GlobalNavigationItems { get; set; }
     }
 }

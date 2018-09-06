@@ -21,17 +21,35 @@
                         <input type="checkbox" id="dontShowAgain"><label for="dontShowAgain">@Html.PropertyFor(m => m.CurrentPage.CheckBoxLabel)</label>
                     </span>
                 </div>
-
-
+                @Html.ActionLink("Yes", "SetCookie", null, new { Class = "hbhButton", Id = "directHeathLink" })
+                <a href="@ViewData["DirectHealthUrl"]" target="_new" id="directHeathHLink" style="display: none;"></a>
             </div>
-
-
-
+            <div class="infoSection goToWM">
+                <h4>@Html.PropertyFor(m => m.CurrentPage.InfoLabel)</h4>
+                @Html.PropertyFor(m => m.CurrentPage.ExtraCtas, new {
+               CssClass = "hbhButton",
+               Tag = GlobalSettings.RenderingTags.RegularLinkItem,
+               HasContainer = false,
+               HasItemContainer = false
+                })
+            </div>
         </div>
-
-
-
-
-
     </div>
+    <script>
+        $('#directHeathLink').click(function (e) {
+            e.preventDefault();
+            if ($('#dontShowAgain').is(":checked")) {
+                $.ajax({
+                    url: $(this).attr('href'),
+                    success: function () {
+                        var click_ev = document.createEvent("MouseEvents");
+                        click_ev.initEvent("click", true, true);
+                        document.getElementById("directHeathHLink").dispatchEvent(click_ev);
+                    }
+                });
+            } else {
+                document.getElementById('directHeathHLink').click();
+            }
+        });
+    </script>
 }

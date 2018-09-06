@@ -15,3 +15,11 @@
    })
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        var config = '/static/js/ccframework/config.js';
+        require([config], function () {
+            require(['equalHeights', 'checklist']);
+        });
+    });
+</script>
