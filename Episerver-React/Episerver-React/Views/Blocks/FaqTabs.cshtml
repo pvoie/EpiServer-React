@@ -4,18 +4,28 @@
     <ul class="FAQTabs equalHeights">
         @if (Model.Faqs.Any())
         {
+            var index = 0;
             foreach (var tab in Model.Faqs.FilteredItemsOfType<FaqsBlock>())
             {
-                var head = tab.Heading ?? string.Empty;
-                <li class="">@head</li>
+                Html.RenderPartial("li", tab.Heading, new ViewDataDictionary { new KeyValuePair<string, object>("CssClass", index.Equals(0) ? "active" : string.Empty) });
+                index++;
             }
         }
     </ul>
 
-    @foreach (var item in Model.Faqs.FilteredItemsOfType<FaqsBlock>())
-    {
-        Html.RenderContentData(item, true, GlobalSettings.RenderingTags.FaqTabsItem);
+    @{ 
+        if (Model.Faqs.Any())
+        {
+            var indexs = 0;
+            foreach (var item in Model.Faqs.FilteredItemsOfType<FaqsBlock>())
+            {
+                Html.RenderPartial("~/Views/Blocks/FaqsBlock/FaqTabsItem.cshtml", item, new ViewDataDictionary { new KeyValuePair<string, object>("CssClass", indexs.Equals(0) ? "active" : string.Empty) });
+                //Html.RenderContentData(item, true, GlobalSettings.RenderingTags.FaqTabsItem);
+                indexs++;
+            }
+        }
     }
+
 
 </div>
 <script>

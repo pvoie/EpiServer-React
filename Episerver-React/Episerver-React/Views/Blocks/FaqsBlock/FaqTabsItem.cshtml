@@ -1,5 +1,11 @@
 ﻿@model FaqsBlock
 
-<ul class="active" style="display: none;">
-    @Html.PropertyFor(m => m.Questions, new { Tag = GlobalSettings.RenderingTags.QuestionItem })
+@{ 
+    var CssClass = ViewData["CssClass"];
+}
+<ul class="@CssClass" style="display: none;">
+    @Html.PropertyFor(m => m.Questions, new {
+    Tag = GlobalSettings.RenderingTags.QuestionItem,
+    HasContainer = false,
+        HasItemContainer = false })
 </ul>

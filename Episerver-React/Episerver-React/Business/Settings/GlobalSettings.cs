@@ -22,7 +22,8 @@
             public const string FooterCenteredText = "footercenteredtext";
             public const string FiveTiles = "tiles-5";
             public const string TwoTiles = "tiles-2";
-            public const string FaqTiles = "tiles-faq";
+            public const string FourTiles = "tiles-4";
+            public const string ThreeTiles = "tiles-3";
         }
 
         /// <summary>
@@ -37,6 +38,7 @@
             public const string RegularLinkItem = "regularLinkItem";
             public const string QuestionItem = "questionItem";
             public const string FaqTabsItem = "faqtabsitem";
+            public const string RegularCta = "regularcta";
 
         }
     }

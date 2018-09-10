@@ -2,14 +2,13 @@
 
 @if (Model != null)
 {
-    if (Model.Link != null && !Model.Link.IsEmpty())
-    {
+
         var cssClass = ViewData["CssClass"] as string ?? string.Empty;
         var idValue = ViewData["IdValue"] as string ?? string.Empty;
         var styleD = ViewData["StyleD"] as string ?? string.Empty;
         <a id="@idValue" class="@Model.LinkStyle @cssClass" href="@Url.ContentUrl(Model.Link)" target="@Model.Target" title="@(string.IsNullOrWhiteSpace(Model.Title) ? Model.Text : Model.Title)" style="@styleD">
             @Model.Text
         </a>
-    }
+    
 
 }

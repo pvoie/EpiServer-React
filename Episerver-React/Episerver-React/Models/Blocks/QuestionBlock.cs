@@ -26,7 +26,14 @@ namespace Episerver_React.Models.Blocks
             Order = 20)]
         public virtual XhtmlString Answer { get; set; }
 
-        
+
+        [CultureSpecific]
+        [Display(
+            Name = "Call To Action Area",
+            GroupName = SystemTabNames.Content,
+            Order = 30)]
+        [AllowedTypes(new[] { typeof(CallToActionCard) })]
+        public virtual ContentArea CallToAction { get; set; }
 
     }
 }

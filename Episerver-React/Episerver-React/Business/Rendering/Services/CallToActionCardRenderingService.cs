@@ -72,8 +72,8 @@ namespace Episerver_React.Business.Rendering.Services
                     Inherit = false,
                     AvailableWithoutTag = false,
                     Default = false,
-                    Tags = new[] { GlobalSettings.RenderingTags.QuestionItem },
-                    Path = TemplateCoordinator.BlockPath("CallToActionCard/Question")
+                    Tags = new[] { GlobalSettings.RenderingTags.RegularCta },
+                    Path = TemplateCoordinator.BlockPath("CallToActionCard/QuestionCta")
                 }
             };
         }

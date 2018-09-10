@@ -1,0 +1,22 @@
+﻿@model CallToActionCard
+
+@if (Model != null)
+{
+    <h4 class="noBorder">
+        <span>@Html.PropertyFor(m => m.Heading)</span>
+    </h4>
+
+    
+        <span>@Html.PropertyFor(m => m.Description)</span>
+    
+
+    
+        @Html.PropertyFor(m => m.CallToAction,
+       new
+       {
+           Tag = GlobalSettings.RenderingTags.RegularLinkItem,
+           CssClass = "hbhButton"
+       })
+    
+
+}

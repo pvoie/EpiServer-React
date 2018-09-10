@@ -12,6 +12,9 @@ namespace Episerver_React.Business.Factories
                 new SelectItem() { Text = "Default", Value = "" },
                 new SelectItem() { Text = "Text Link", Value = "text" },
                 new SelectItem() { Text = "Button Link", Value = "button" },
+                new SelectItem() { Text = "Email Button Link", Value = "button email" },
+                new SelectItem() { Text = "Print Button Link", Value = "button print" },
+                new SelectItem() { Text = "Coupons Button Link", Value = "button coupons" },
                 new SelectItem() { Text = "hbh Button", Value = "hbhButton" }
 
             };

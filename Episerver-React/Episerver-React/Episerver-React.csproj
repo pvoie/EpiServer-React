@@ -275,6 +275,7 @@
     <Compile Include="Business\Factories\LinkTargetSelectionFactory.cs" />
     <Compile Include="Business\Initialization\BundleInitialization.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
+    <Compile Include="Business\Initialization\CustomizedTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
@@ -551,7 +552,7 @@
     <Content Include="Views\Blocks\GroupedCheckBoxListBlock.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\SimpleCenteredText.cshtml" />
     <Content Include="Views\Blocks\CallToActionCard\FooterCenteredText.cshtml" />
-    <Content Include="Views\Blocks\CallToActionCard\Question.cshtml" />
+    <Content Include="Views\Blocks\CallToActionCard\QuestionCta.cshtml" />
     <Content Include="Views\PagePartials\BasePagePartialLink.cshtml" />
     <Content Include="Views\PagePartials\test.cshtml" />
     <Content Include="Views\Pages\RedirectLandingPage\Index.cshtml" />
@@ -559,6 +560,9 @@
     <Content Include="Views\Blocks\FaqsBlock.cshtml" />
     <Content Include="Views\Blocks\FaqTabs.cshtml" />
     <Content Include="Views\Blocks\FaqsBlock\FaqTabsItem.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\li.cshtml" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\FourTiles.cshtml" />
+    <Content Include="Views\Blocks\GroupedTilesBlock\ThreeTiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

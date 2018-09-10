@@ -1,0 +1,22 @@
+﻿@using EPiServer.Web.Mvc.Html
+@model GroupedTilesBlock
+
+
+@if (Model != null)
+{
+    <div class="hbhBrick tiles tiles-3 equalHeights">
+        @Html.PropertyFor(x => x.Tiles, new
+   {
+       Tag = GlobalSettings.RenderingTags.GroupedTilesItem,
+       HasContainer = false,
+       HasItemContainer = false
+
+        })
+    </div>
+
+
+}
+
+
+
+

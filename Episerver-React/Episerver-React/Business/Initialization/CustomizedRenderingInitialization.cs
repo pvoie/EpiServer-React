@@ -35,10 +35,11 @@ namespace Episerver_React.Business.Initialization
                 ctx.CustomDisplayOptions.Add<HeroCTAOption>(); 
                 ctx.CustomDisplayOptions.Add<CenteredTextImageDisplayOption>();
                 ctx.CustomDisplayOptions.Add<SimpleCenteredTextDisplayOption>();
-                ctx.CustomDisplayOptions.Add<FooterCenteredTextDisplayOption>();
+                ctx.CustomDisplayOptions.Add<FooterCenteredTextDisplayOption>();                
+                ctx.CustomDisplayOptions.Add<TwoTiles>();                
+                ctx.CustomDisplayOptions.Add<ThreeTiles>();
+                ctx.CustomDisplayOptions.Add<FourTiles>();
                 ctx.CustomDisplayOptions.Add<FiveTiles>();
-                ctx.CustomDisplayOptions.Add<TwoTiles>();
-                ctx.CustomDisplayOptions.Add<FaqTiles>();
             });
         }
 
@@ -121,7 +122,7 @@ namespace Episerver_React.Business.Initialization
     {
         public FiveTiles()
         {
-            Name = "5 Tiles";
+            Name = "Five Tiles";
             Tag = GlobalSettings.ContentAreaTags.FiveTiles;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
@@ -134,7 +135,7 @@ namespace Episerver_React.Business.Initialization
     {
         public TwoTiles()
         {
-            Name = "2 Tiles";
+            Name = "Two Tiles";
             Tag = GlobalSettings.ContentAreaTags.TwoTiles;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
@@ -143,12 +144,25 @@ namespace Episerver_React.Business.Initialization
         }
     }
 
-    public class FaqTiles : DisplayModeFallback
+    public class FourTiles : DisplayModeFallback
     {
-        public FaqTiles()
+        public FourTiles()
         {
-            Name = "FAQ Tiles";
-            Tag = GlobalSettings.ContentAreaTags.FaqTiles;
+            Name = "Four Tiles";
+            Tag = GlobalSettings.ContentAreaTags.FourTiles;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 8;
+            SmallScreenWidth = 3;
+            ExtraSmallScreenWidth = 1;
+        }
+    }
+
+    public class ThreeTiles : DisplayModeFallback
+    {
+        public ThreeTiles()
+        {
+            Name = "Three Tiles";
+            Tag = GlobalSettings.ContentAreaTags.ThreeTiles;
             LargeScreenWidth = 12;
             MediumScreenWidth = 8;
             SmallScreenWidth = 3;
