@@ -57,9 +57,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Banner - Centered Text";
             Tag = GlobalSettings.ContentAreaTags.CenteredTextBannerItem;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
     
@@ -71,9 +71,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Hero CTA";
             Tag = GlobalSettings.ContentAreaTags.HeroCta;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -85,9 +85,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Banner - Text with image";
             Tag = GlobalSettings.ContentAreaTags.CenteredTextImageBannerItem;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -99,9 +99,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Centered simple text";
             Tag = GlobalSettings.ContentAreaTags.SimpleCenteredText;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -112,9 +112,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Footer simple text";
             Tag = GlobalSettings.ContentAreaTags.FooterCenteredText;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -125,9 +125,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Five Tiles";
             Tag = GlobalSettings.ContentAreaTags.FiveTiles;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -138,9 +138,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Two Tiles";
             Tag = GlobalSettings.ContentAreaTags.TwoTiles;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -151,9 +151,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Four Tiles";
             Tag = GlobalSettings.ContentAreaTags.FourTiles;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 
@@ -164,9 +164,9 @@ namespace Episerver_React.Business.Initialization
             Name = "Three Tiles";
             Tag = GlobalSettings.ContentAreaTags.ThreeTiles;
             LargeScreenWidth = 12;
-            MediumScreenWidth = 8;
-            SmallScreenWidth = 3;
-            ExtraSmallScreenWidth = 1;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
         }
     }
 }
