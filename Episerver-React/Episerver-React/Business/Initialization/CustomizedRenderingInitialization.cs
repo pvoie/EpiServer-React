@@ -31,8 +31,8 @@ namespace Episerver_React.Business.Initialization
                 ctx.RowSupportEnabled = false;
                 ctx.AutoAddRow = false;
                 ctx.DisableBuiltinDisplayOptions = false;
-                ctx.CustomDisplayOptions.Add<CenteredTextDisplayOption>();
-                ctx.CustomDisplayOptions.Add<HeroCTAOption>(); 
+                ctx.CustomDisplayOptions.Add<HeroCTAOption>();
+                ctx.CustomDisplayOptions.Add<CenteredTextDisplayOption>();                
                 ctx.CustomDisplayOptions.Add<CenteredTextImageDisplayOption>();
                 ctx.CustomDisplayOptions.Add<SimpleCenteredTextDisplayOption>();
                 ctx.CustomDisplayOptions.Add<FooterCenteredTextDisplayOption>();                
@@ -96,7 +96,7 @@ namespace Episerver_React.Business.Initialization
     {
         public SimpleCenteredTextDisplayOption()
         {
-            Name = "Centered simple text";
+            Name = "Simple text";
             Tag = GlobalSettings.ContentAreaTags.SimpleCenteredText;
             LargeScreenWidth = 12;
             MediumScreenWidth = 11;
@@ -109,7 +109,7 @@ namespace Episerver_React.Business.Initialization
     {
         public FooterCenteredTextDisplayOption()
         {
-            Name = "Footer simple text";
+            Name = "Simple text with footer";
             Tag = GlobalSettings.ContentAreaTags.FooterCenteredText;
             LargeScreenWidth = 12;
             MediumScreenWidth = 11;
