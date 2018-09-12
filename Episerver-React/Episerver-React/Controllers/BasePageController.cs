@@ -20,6 +20,7 @@ namespace Episerver_React.Controllers
     public abstract class BasePageController<T> : PageController<T> where T : BasePageData
     {
         internal Injected<IContentRepository> _contentRepo;
+        private readonly ILogger _logger = LogManager.GetLogger();
 
 
 
@@ -79,12 +80,56 @@ namespace Episerver_React.Controllers
             {
                 return;
             }
-            
-            
-            
+
+            model.SiteSettings = siteSettings;
+            model.HeaderHtml = GetHtmlToInjectForBlock(siteSettings.HeaderBlock, true);
+            model.FooterHtml = GetHtmlToInjectForBlock(siteSettings.FooterBlock);
+
+
 
         }
 
+        private string GetHtmlToInjectForBlock(HtmlInjectedBlock block, bool removeViewportMeta = false)
+        {
+            if (block == null || string.IsNullOrWhiteSpace(block.SourceUrl))
+            {
+                return string.Empty;
+            }
+
+            //try to get the result from cache
+            Cache cache = HttpRuntime.Cache;
+            var cacheKey = string.Format("HIB:{0}",
+                block.SourceUrl);
+
+            var result = string.Empty;
+
+            if (block.CacheDurationHours > 0)
+            {
+                var cachedHtml = cache.Get(cacheKey);
+                result = cachedHtml != null ? cachedHtml.ToString() : string.Empty;
+            }
+
+            if (!string.IsNullOrWhiteSpace(result))
+            {
+                return result;
+            }
+
+            result = DownloadExternalHtml(block.SourceUrl, block.RequestTimeoutSeconds);
+
+            //check if we want to add the result to cache
+            if (!string.IsNullOrWhiteSpace(result) && block.CacheDurationHours > 0)
+            {
+                cache.Add(cacheKey,
+                    result,
+                    null,
+                    DateTime.Now.AddHours(block.CacheDurationHours),
+                    Cache.NoSlidingExpiration,
+                    CacheItemPriority.Normal,
+                    null);
+            }
+
+            return result;
+        }
 
         private HomePage GetHomePage(BasePageData page)
         {
@@ -121,6 +166,48 @@ namespace Episerver_React.Controllers
             return settings;
         }
 
+
+        private string DownloadExternalHtml(string sourceUrl, int timeoutSeconds)
+        {
+            if (string.IsNullOrWhiteSpace(sourceUrl))
+            {
+                return string.Empty;
+            }
+
+            string result = string.Empty;
+
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create(sourceUrl);
+                request.Method = "GET";
+                request.Accept = @"text/html, application/xhtml+xml, */*";
+                request.Timeout = (timeoutSeconds > 0 ? timeoutSeconds : 15) * 1000;//fallback to 15 seconds timeout
+
+                using (var response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                {
+                    int iTotalBuff = 0;
+                    byte[] buffer = new byte[128];
+
+                    iTotalBuff = stream.Read(buffer, 0, 128);
+                    StringBuilder strRes = new StringBuilder();
+
+                    while (iTotalBuff != 0)
+                    {
+                        strRes.Append(Encoding.ASCII.GetString(buffer, 0, iTotalBuff));
+                        iTotalBuff = stream.Read(buffer, 0, 128);
+                    }
+                    result = strRes.ToString();
+                    strRes.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("[BasePageController.GetHtmlToInjectForBlock] Error getting external HTML", ex);
+            }
+
+            return result;
+        }
         #endregion
     }
 }
