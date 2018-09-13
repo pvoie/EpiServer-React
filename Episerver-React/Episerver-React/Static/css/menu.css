@@ -1,0 +1,194 @@
+#menuContainer{
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    background-color:#fbfaef;
+    height: 45px;
+    margin-top:10px;
+    z-index: 1;
+}
+.menu-tab-container{
+    position:relative;
+    display:inline-block;
+    z-index:10;
+    cursor:pointer;
+    top: -11px;
+}
+.tab-contents{
+    position: absolute;
+    top: 15px;
+    left: 12px;
+}
+.tab-item {
+    display: inline-block;
+}
+.hamburger{
+    height: 16px;
+    width: 16px;
+    background:url("../images/common/hamburger-menu.png") no-repeat;
+}
+.home-icon {    
+    height: 37px;
+    width: 37px;
+    margin: 0 12px;    
+    cursor:pointer;
+    background:url("../images/common/home-icon.png") no-repeat;
+    outline: 0;
+    outline: none;
+}
+.home-icon:hover,
+.home-icon:focus {
+    outline: 0;
+    outline: none;
+}
+.down-arrow{
+    height: 5px;
+    width: 9px;
+    position: relative;
+    top: -4px;
+    left: 5px;
+    background:url("../images/common/menu-arrow-down.png") no-repeat;
+}
+.up-arrow{
+    height: 5px;
+    width: 9px;
+    position: relative;
+    top: -4px;
+    left: 5px;
+    background:url("../images/common/menu-arrow-up.png") no-repeat;
+}
+.tab-copy{
+    color: #ffffff;
+    font-weight: 600;
+    position: relative;
+    left: 16px;
+    top: -2px;
+}
+.menu-search-container{
+    display:inline-block;
+    width:300px;
+    float:right;    
+    position: relative;
+    margin-top: 3px;
+    margin-right: 1%;
+}
+.menu-input{
+    color: rgba(34, 34, 34, 0.51);
+    border: 1px solid #ccc!important;
+    border-radius: 12px;
+    display: inline-block;
+    width: 100%;   
+    padding: 2px 12px 2px;
+    float: right;
+    margin-top: 1%;
+    height: 29px;
+}
+.menu-input::-webkit-input-placeholder {
+    color: rgba(34, 34, 34, 1);
+}
+.menu-input::-moz-placeholder {
+    color: rgba(34, 34, 34, 1);
+}
+.menu-input:-ms-input-placeholder {
+    color: rgba(34, 34, 34, 1);
+}
+.menu-input:-moz-placeholder {
+    color: rgba(34, 34, 34, 1);
+}
+input:focus {
+    outline:none;
+}
+.menu-submit{
+    position: absolute;
+    right: 0;
+    border-radius: 0 100px 100px 0;
+    border-style:none;
+    background: #ffc120;
+    color: #444;
+    font-size: 20px;
+    height: 28px;
+    width: 38px;
+    margin-top: 1%;
+    cursor:pointer;
+}
+
+.menu-submit .menu-search-btn {
+    border: none;
+    cursor: pointer;
+    background: url(/Static/widgets/Recetasysonrisas/images/common/search.png) no-repeat left top;
+    width: 38px;
+    height: 29px;
+}
+
+.drop-down-menu{
+    position: absolute;
+    z-index: 9;
+    overflow: hidden;
+    margin-top: -4px;
+    max-width: 340px;
+    width: 100%;
+    color: #ffffff;
+}
+.drop-target{
+    opacity: 0;
+    position: relative;
+    background: rgba(1, 123, 196, 0.9);
+    top: -212px;
+}
+.drop-down-menu ul{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 32px;
+    margin: 16px 30px 16px 20px;   
+    padding: 0;  
+    -webkit-padding-start: 0px;
+}
+.ul-second{
+    margin-left: 45px;
+}
+.drop-down-menu li{
+    list-style-type: none;
+    cursor:pointer;
+    font-family:Verdana,sans-serif;
+}
+
+.drop-down-menu li a,
+.drop-down-menu li a:hover,
+.drop-down-menu li a:focus {
+    color: #fff;
+    outline: 0;
+    outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+   .menu-search-container {
+       width:200px;
+        position:absolute;
+        right: 0;
+    }
+   .menu-input {
+        margin-right: 2%;
+   }
+   .menu-submit{       
+        margin-right: 2%;
+   }
+}
+
+@media only screen and (max-width: 460px) {
+   .menu-search-container {
+           width:150px;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+   .tab-copy{
+       display:none;
+   }
+   .menu-tab-container img{
+       width: 53px;
+       height: 45px;
+   }
+}

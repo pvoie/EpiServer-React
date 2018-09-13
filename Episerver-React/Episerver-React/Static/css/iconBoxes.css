@@ -1,0 +1,169 @@
+.boxIconsGroup {
+    width: 100%;
+    padding-top: 27px;
+    margin-bottom: 20px;
+    font-family: "Helvetica Neue",myriad-pro,myriad pro,Helvetica,Arial,sans-serif;
+}
+
+.boxIconsGroup__title, 
+.boxIconsGroup__description {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.boxIconsGroup__title {
+    padding-bottom: 20px;
+    font-size: 32px;
+}
+
+.boxIconsGroup__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-top: 40px;
+}
+
+.boxIconsGroup__list li {
+    display: block;
+    width: 25%;
+    text-align: center;
+    padding: 15px;
+    float: left;
+}
+
+.iconBox__top {
+    width: 100%;
+    max-height: 135px;
+}
+
+.iconBox__heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px 0 0 0;
+}
+
+.boxIconsGroup__disclaimer {
+    text-align: center;
+    font-size: 12px;
+    padding-top: 49px;
+    margin-top: 0;
+}
+
+@media screen and (max-width: 1010px) {
+    .boxIconsGroup {
+        padding-left: 25px;
+        padding-right: 25px;
+        border-bottom: 2px solid #c2cfd6;
+        padding-bottom: 18px;
+    }
+    
+    .boxIconsGroup__description {
+        width: 100%;
+        margin: 11px 0;
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .boxIconsGroup__title {
+        width: 100%;
+        font-size: 30px;
+    }
+
+    .boxIconsGroup__list li {
+        width: 100%;
+        text-align: left;
+        padding-bottom: 35px;
+    }
+
+    .boxIconsGroup__list li:after {
+        content: '';
+        height: 30px;
+        overflow: hidden;
+        border-bottom: solid 2px #c2cfd6;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        clear: both;
+    }
+
+    .boxIconsGroup__list li:last-child:after {
+        display: none;
+    }
+
+    .boxIconsGroup__list .iconBox {
+        width: 100%;
+        float: left;
+    }
+
+    .boxIconsGroup__list .iconBox__top {
+        width: 24%;
+        float: left;
+        padding: 0 13px;
+        max-height: 198px;
+    }
+
+    .boxIconsGroup__list .iconBox__top img {
+        width: 100%;
+    }
+
+    .boxIconsGroup__list .iconBox__content {
+        float: left;
+        width: 76%;
+        padding: 0 15px 0 13px;
+    }
+
+    .iconBox__heading {
+        margin-top: 0;
+        font-size: 21px;
+    }
+
+    .iconBox__description {
+        margin-top: 0;
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .boxIconsGroup__disclaimer {
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .boxIconsGroup__title {
+        line-height: 37px;
+    }
+
+    .boxIconsGroup__list li {
+        text-align: center;
+        float: none;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+    }
+
+    .boxIconsGroup__list .iconBox {
+        float: none;
+    }
+
+    .boxIconsGroup__list .iconBox__top {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+
+    .boxIconsGroup__list .iconBox__content {
+        width: 100%;
+        float: none;
+    }
+
+    .boxIconsGroup__list .iconBox__top img {
+        width: auto;
+        max-height: 110px;
+    }
+
+    .boxIconsGroup__list li:after {
+        width: 100%;
+    }
+}

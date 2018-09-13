@@ -1,0 +1,88 @@
+.linkImageCard,
+.cardGroup {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 12px;
+    vertical-align: top;
+}
+
+.cardGroup {
+    margin-bottom: 0;
+}
+
+.linkImageCard img {
+    width: 100%;
+    height: auto;
+}
+
+.cardGroup--halfWidth {
+    width: calc(50% - 3px);
+}
+
+.linkImageCard--halfWidth {
+    width: 50%;
+}
+
+.cardGroup .linkImageCard--halfWidth:nth-child(2n) {
+    padding-left: 10px;
+}
+
+.cardGroup .linkImageCard--halfWidth:nth-child(2n+1) {
+    padding-right: 10px;
+}
+
+.cardGroup--halfWidth:nth-child(2n) {
+    padding-right: 13px;
+}
+
+.cardGroup--halfWidth:nth-child(2n+1) {
+    padding-left: 13px;
+}
+
+.linkImageCard--square {
+    width: calc(25% - 6px);
+    margin-right: 8px;
+}
+
+.linkImageCard--square:nth-child(4n) {
+    margin-right: 0;
+}
+
+.linkImageCard .mobileLinkImage {
+    display: none;
+}
+
+@media (max-width: 767px) {
+
+    .linkImageCard .mobileLinkImage {
+        display: inline-block;
+    }
+
+    .linkImageCard .desktopLinkImage {
+        display: none;
+    }
+
+    .cardGroup--halfWidth {
+        width: 100%;
+    }
+
+    .cardGroup--halfWidth:nth-child(2n) {
+        padding-right: 0;
+    }
+
+    .cardGroup--halfWidth:nth-child(2n+1) {
+        padding-left: 0;
+    }
+
+    .linkImageCard--square {
+        width: calc(50% - 12px);
+        margin-left: 8px;
+        margin-right: 4px;
+    }
+
+    .linkImageCard--square:nth-child(2n) {
+        margin-right: 8px;
+        margin-left: 4px;
+    }
+}

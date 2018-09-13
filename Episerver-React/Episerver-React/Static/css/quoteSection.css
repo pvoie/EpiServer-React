@@ -1,0 +1,18 @@
+.quoteSection {
+    color: #000;
+}
+
+.quoteSection__text {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.quoteSection__author {
+    color: #1975ce;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+    font-style: italic;
+    line-height: 26px;
+}

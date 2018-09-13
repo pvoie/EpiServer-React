@@ -1,0 +1,64 @@
+.archive-container{
+    text-align:left;
+    margin: 10px auto;
+}
+.archive-bg-img{
+    height:200px;
+    background-repeat:no-repeat !important;
+    background-position:100% 50% !important;
+    background-size: cover !important;
+}
+.archive-copy-container{
+    font-family: "Bogle Black";
+    font-size: 60px;
+    line-height: 0;
+    width: 70%;
+    padding: 2%;
+}
+.archive-item{
+    margin: 10px auto;
+}
+.masthead{
+    text-align: center;
+    height: 200px;
+    margin-top: 0px !important;
+}
+.recetas-logo{
+    position:relative;
+    text-align: center !important;
+    top: 30px;
+    margin: 0 10px;
+}
+.background{
+    margin-top: 10px;
+    background-repeat:no-repeat !important;
+    background-position:50% 50% !important;
+    background-size: cover !important;
+}
+.header-title {
+    font-size: 90%;
+    line-height: 90%;
+}
+.header-sub-title {
+    font-size: 60%;
+    line-height: 125%;
+}
+@media only screen and (max-width: 800px) {
+    .archive-copy-container{
+        font-size: 50px;
+        line-height: 38px;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .archive-copy-container{
+        font-size: 45px;
+        line-height: 27px;
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 460px) {
+    .archive-copy-container{
+        text-shadow: 5px 3px 16px rgba(0, 0, 0, 1);
+        width: 90%;
+    }
+}

@@ -1,0 +1,46 @@
+.HispanicPortalAdUnit728 {
+    width: 806px;
+    height: 108px;
+    border: 1px solid #BBBDBF;
+    margin-bottom: 10px;
+}
+
+.AdUnit728BorderBox {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.HispanicPortalAdUnit728 .walmartAdSpark {
+    float: left;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.HispanicPortalAdUnit728 .table {
+    display: table;
+    height: 104px;
+    margin: 0;
+}
+
+.HispanicPortalAdUnit728 .tableCell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.HispanicPortalAdUnit728 .adUnitHolder {
+    margin: 8px;
+    position: absolute;
+    right: 0;
+}
+
+@media (max-width:1010px) {
+    .HispanicPortalAdUnit728 {
+        margin: 0 auto 10px auto;
+    }
+}
+
+@media (max-width:806px) {
+    .HispanicPortalAdUnit728 {
+        display: none;
+    }
+}
