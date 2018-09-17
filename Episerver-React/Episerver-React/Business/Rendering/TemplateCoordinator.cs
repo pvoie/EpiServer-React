@@ -1,9 +1,11 @@
-﻿using System.Linq;
-using EPiServer.ServiceLocation;
+﻿using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
+using Episerver_React.Business.Rendering.Services;
 using Episerver_React.Controllers;
+using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Interfaces;
+using System.Linq;
 
 
 namespace Episerver_React.Business.Rendering
@@ -12,8 +14,8 @@ namespace Episerver_React.Business.Rendering
     public class TemplateCoordinator : IViewTemplateModelRegistrator
     {
         #region Services
+        internal static Injected<IContentRenderingService<CallToActionCardA>> _ctaRenderingService;
 
-       
         #endregion Services
 
         #region Paths
@@ -50,6 +52,7 @@ namespace Episerver_React.Business.Rendering
         public void Register(TemplateModelCollection viewTemplateModelRegistrator)
         {
             // Add BasePage templates
+            viewTemplateModelRegistrator.Add(typeof(CallToActionCardA), _ctaRenderingService.Service.GetAvailableTemplates().ToArray());
             
         }
 

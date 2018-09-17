@@ -22,7 +22,15 @@ namespace Episerver_React.Business.Initialization
                 .IncludeDirectory("~/Static/css/","*.css", true)
             );
 
-          
+            bundles.Add(new ScriptBundle("~/static/js/default-scripts.js")
+               .Include("~/Scripts/jquery-3.3.1.min.js")
+           );
+
+            bundles.Add(new ScriptBundle("~/static/js/customscripts.js")
+               .IncludeDirectory("~/Static/js/","*.js", true)
+           );
+
+
         }
 
         public void Uninitialize(InitializationEngine context)

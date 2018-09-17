@@ -1,0 +1,14 @@
+﻿@model CallToActionCardA
+
+<a href="@Url.ContentUrl(Model.Link.Link)" title="Lo nuevo de  la temporada" class="cta-third-width" data-cta="third-width" style="height: 260px;" processed="true">
+    <div class="tier-three background left" style="background: url(@Url.ContentUrl(Model.BgImage));">
+        <div class="tier-copy tier-bottom-copy">
+            <div class="copy-copy">
+                <span class="bottom-line">
+                    @Html.PropertyFor(m => m.Heading, "Span", new { CssClass = "tier-copy-black tier-headline-mid " })
+                    <br>
+                </span>
+            </div>
+        </div>
+    </div>
+</a>

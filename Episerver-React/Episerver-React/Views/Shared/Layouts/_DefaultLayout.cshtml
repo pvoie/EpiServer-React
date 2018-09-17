@@ -16,54 +16,51 @@
     <meta name="keywords" content="@Model.CurrentPage.SeoKeywords" />
     <link href="http://www.walmart.com/favicon.ico" rel="Shortcut Icon" type="image/icon" />
     @Styles.Render("~/static/css/default-styles.css")
+    @Scripts.Render("~/static/js/default-scripts.js")
+
 </head>
 <body>
     @Html.Raw(Model.HeaderHtml)
     <div id="fullContainer">
-        <div class="masthead background" style="background: url(/globalassets/archive-ctas/marchhome/masthead.jpg); height: 200px;">
-            <div class="recetas-logo">
-                <img src="/contentassets/2732f565d5614fa1b10d1ade0fc01175/recetas-logo-white.png" class="">
-
-            </div>
-            <div class="copy-copy"></div>
-        </div>
-        <main>
+        
+        
             @RenderBody()
-        </main>
-       
+        
+
     </div>
     @Html.Raw(Model.FooterHtml)
 </body>
 </html>
-<script language="JavaScript" type="text/javascript">
-        var omni = {
-            "adid": s_omni.getQueryParam('adid'),
-            "fbref": s_omni.getQueryParam('fb_ref'),
-            "sourceid": s_omni.getQueryParam('sourceid'),
-            "povid": s_omni.getQueryParam('povid'),
-            "findingMethod": s_omni.getQueryParam('findingMethod'),
-            getCampaignId: function () {
-                if (this.adid) { return this.adid; }
-                else if (this.fbref) { return this.fbref.split('_')[1]; }
-                else if (this.sourceid) { return this.sourceid; }
-                else { return ''; }
-            }
-        };
-        s_omni.pageName = "";
-        s_omni.channel = "wm10.walmart.com";
-s_omni.prop1 = "";s_omni.prop2 = "";s_omni.prop3 = "";s_omni.prop4 = "";s_omni.prop8 = "";
-        var s_code = s_omni.t(); if (s_code) document.write(s_code);
-        function omniLinkClick(omniObject, linkType, omniLinkName) {
-            if (typeof (externalWindowLink) != 'undefined')
-                externalWindowLink = 'false';
-            var s_linkTrackVarsTemp = s_omni.linkTrackVars;
-            var s_linkTrackEventsTemp = s_omni.linkTrackEvents;
-            s_omni.linkTrackVars = 'prop54';
-            s_omni.linkTrackEvents = 'None';
-            s_omni.prop54 = s_omni.prop2 + ' | ' + omniLinkName;
-            s_omni.tl(omniObject, linkType, 'Link click');
-            s_omni.linkTrackVars = s_linkTrackVarsTemp;
-            s_omni.linkTrackEvents = s_linkTrackEventsTemp;
-            s_omni.prop54 = '';
+@Scripts.Render("~/static/js/customscripts.js")
+@*<script language="JavaScript" type="text/javascript">
+    var omni = {
+        "adid": s_omni.getQueryParam('adid'),
+        "fbref": s_omni.getQueryParam('fb_ref'),
+        "sourceid": s_omni.getQueryParam('sourceid'),
+        "povid": s_omni.getQueryParam('povid'),
+        "findingMethod": s_omni.getQueryParam('findingMethod'),
+        getCampaignId: function () {
+            if (this.adid) { return this.adid; }
+            else if (this.fbref) { return this.fbref.split('_')[1]; }
+            else if (this.sourceid) { return this.sourceid; }
+            else { return ''; }
         }
-</script>
+    };
+    s_omni.pageName = "";
+    s_omni.channel = "wm10.walmart.com";
+    s_omni.prop1 = ""; s_omni.prop2 = ""; s_omni.prop3 = ""; s_omni.prop4 = ""; s_omni.prop8 = "";
+    var s_code = s_omni.t(); if (s_code) document.write(s_code);
+    function omniLinkClick(omniObject, linkType, omniLinkName) {
+        if (typeof (externalWindowLink) != 'undefined')
+            externalWindowLink = 'false';
+        var s_linkTrackVarsTemp = s_omni.linkTrackVars;
+        var s_linkTrackEventsTemp = s_omni.linkTrackEvents;
+        s_omni.linkTrackVars = 'prop54';
+        s_omni.linkTrackEvents = 'None';
+        s_omni.prop54 = s_omni.prop2 + ' | ' + omniLinkName;
+        s_omni.tl(omniObject, linkType, 'Link click');
+        s_omni.linkTrackVars = s_linkTrackVarsTemp;
+        s_omni.linkTrackEvents = s_linkTrackEventsTemp;
+        s_omni.prop54 = '';
+    }
+</script>*@

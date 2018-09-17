@@ -29,5 +29,7 @@ namespace Episerver_React.Models.Blocks
             Order = 30,
             GroupName = ContentEditorTabs.Footer)]
         public virtual HtmlInjectedBlock FooterBlock { get; set; }
+
+       
     }
 }

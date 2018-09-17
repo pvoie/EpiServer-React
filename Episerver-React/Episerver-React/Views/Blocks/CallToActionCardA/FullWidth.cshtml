@@ -1,0 +1,16 @@
+﻿@model CallToActionCardA
+
+<a href="@Url.ContentUrl(Model.Link.Link)" data-cta="full-width" title="@(string.IsNullOrWhiteSpace(Model.Link.Title) ? string.Empty : Model.Link.Title)">
+    <div class="tier-one background " style="background: url(@Url.ContentUrl(Model.BgImage)); height: 400px;">
+        <div class="tier-copy tier-bottom-copy">
+            <div class="copy-copy">
+                <span class="masthead-copy shadow">
+                    <span class="white">@Html.PropertyFor(m => m.Heading)</span>
+                    
+                    <br>
+                    
+                </span>
+            </div>
+        </div>
+    </div>
+</a>
