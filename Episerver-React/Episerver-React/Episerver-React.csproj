@@ -275,6 +275,7 @@
     <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardARenderingService.cs" />
     <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
+    <Compile Include="Business\Rendering\Services\RecipeIngredientBlockRenderingService.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\Settings\ContentEditorTabs.cs" />
@@ -287,11 +288,13 @@
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
     <Compile Include="Models\Blocks\HtmlInjectedBlock.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
+    <Compile Include="Models\Blocks\RecipeIngredientBlock.cs" />
     <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />
     <Compile Include="Models\Blocks\CallToActionCardA.cs" />
     <Compile Include="Models\Interfaces\IContainerPage.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\Media\SiteImage.cs" />
+    <Compile Include="Models\Pages\ArticlePage.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
@@ -362,6 +365,7 @@
     <Content Include="Static\css\mapContainer.css" />
     <Content Include="Static\css\menu.css" />
     <Content Include="Static\css\quoteSection.css" />
+    <Content Include="Static\css\recipeSingle.css" />
     <Content Include="Static\css\richContent.css" />
     <Content Include="Static\css\stickyHeader.css" />
     <Content Include="Static\css\videoRichContent.css" />
@@ -404,6 +408,11 @@
     <Content Include="Views\Blocks\CallToActionCardA\HalfWidth.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Span.cshtml" />
     <Content Include="Views\Blocks\CallToActionCardA\OneThird.cshtml" />
+    <Content Include="Views\Blocks\RecipeIngredient\RecipeIngredientBlock.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Paragraph.cshtml" />
+    <Content Include="Views\Pages\ArticlePage\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SimpleDiv.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ImageDiv.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

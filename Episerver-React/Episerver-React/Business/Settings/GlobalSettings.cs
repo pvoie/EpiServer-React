@@ -13,6 +13,7 @@ namespace Episerver_React.Business.Settings
         public static class CustomUiHints
         {
             public const string TemplateModel = "TemplateModel";
+           
         }
 
         /// <summary>
@@ -25,6 +26,14 @@ namespace Episerver_React.Business.Settings
             public const string TierThree = "tier-3";
         }
 
+
+        /// <summary>
+        /// Custom rendering tags used by developers
+        /// </summary>
+        public static class RenderingTags
+        {
+            public const string RecipeIngredientTemplate = "RecipeTemplate";
+        }
 
     }
 }

@@ -1,0 +1,15 @@
+﻿@model ContentReference
+
+@if (!ContentReference.IsNullOrEmpty(Model))
+{
+    SiteImage image = null;
+    if (DataFactory.Instance.TryGet<SiteImage>(Model, out image) && image != null)
+    {
+        var cssClass = ViewData["CssClass"] as string ?? string.Empty;
+        var otherAttributes = ViewData["CustomAttributes"] as string ?? string.Empty;
+
+        <div class="@cssClass" style="background-image: url(@Url.ContentUrl(Model))" @otherAttributes></div>
+    }
+}
+
+

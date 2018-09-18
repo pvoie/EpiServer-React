@@ -15,6 +15,7 @@
     <meta name="description" content="@Model.CurrentPage.SeoDescription" />
     <meta name="keywords" content="@Model.CurrentPage.SeoKeywords" />
     <link href="http://www.walmart.com/favicon.ico" rel="Shortcut Icon" type="image/icon" />
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     @Styles.Render("~/static/css/default-styles.css")
     @Scripts.Render("~/static/js/default-scripts.js")
 
@@ -22,12 +23,13 @@
 <body>
     @Html.Raw(Model.HeaderHtml)
     <div id="fullContainer">
-        
-        
-            @RenderBody()
-        
+
+
+        @RenderBody()
+
 
     </div>
+    
     @Html.Raw(Model.FooterHtml)
 </body>
 </html>

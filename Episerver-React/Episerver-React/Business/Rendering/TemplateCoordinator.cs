@@ -15,6 +15,7 @@ namespace Episerver_React.Business.Rendering
     {
         #region Services
         internal static Injected<IContentRenderingService<CallToActionCardA>> _ctaRenderingService;
+        internal static Injected<IContentRenderingService<RecipeIngredientBlock>> _recipeIngredientRenderingService;
 
         #endregion Services
 
@@ -53,6 +54,7 @@ namespace Episerver_React.Business.Rendering
         {
             // Add BasePage templates
             viewTemplateModelRegistrator.Add(typeof(CallToActionCardA), _ctaRenderingService.Service.GetAvailableTemplates().ToArray());
+            viewTemplateModelRegistrator.Add(typeof(RecipeIngredientBlock), _recipeIngredientRenderingService.Service.GetAvailableTemplates().ToArray());
             
         }
 

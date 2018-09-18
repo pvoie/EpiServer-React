@@ -1,0 +1,31 @@
+﻿@model PageViewModel<ArticlePage>
+<div class="recipe-window-holder" style="display: block;">
+    <div class="recipe-window-container">
+        <div class="recipe-window-top">
+            @Html.PropertyFor(m => m.CurrentPage.Heading, "SimpleDiv", new { CssClass = "recipe-title" })
+            @Html.PropertyFor(m => m.CurrentPage.ShortDescription, "SimpleDiv", new { CssClass = "recipe-desc" })
+
+        </div>
+        <div class="recipe-ingredient-block">
+            @Html.PropertyFor(m => m.CurrentPage.Info,
+     new {
+         Tag = GlobalSettings.RenderingTags.RecipeIngredientTemplate,
+         HasItemContainer = false,
+         HasContainer = false
+     })
+
+        </div>
+        <div class="recipe-divider-block"></div>
+        <div class="recipe-img-block">           
+            <div class="recipe-display">
+                @Html.PropertyFor(m => m.CurrentPage.Image, "ImageDiv", new { CssClass = "recipe-display-image" })
+            </div>
+            <div class="recipe-measurements-box">
+                <div class="recipe-display-description">
+                    <span>@Html.PropertyFor(m => m.CurrentPage.ImageFooter)</span>                    
+                </div>               
+            </div>
+        </div>
+
+    </div>
+</div>

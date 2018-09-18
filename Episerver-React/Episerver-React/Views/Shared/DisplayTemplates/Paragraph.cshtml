@@ -1,0 +1,7 @@
+﻿@model string
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    var cssClass = ViewData["CssClass"];
+    <p class="@cssClass">@Model</p>
+}
