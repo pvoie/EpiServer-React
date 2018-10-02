@@ -22,10 +22,20 @@
             </div>
             <div class="recipe-measurements-box">
                 <div class="recipe-display-description">
-                    <span>@Html.PropertyFor(m => m.CurrentPage.ImageFooter)</span>                    
+                    @{
+                        if (Model.CurrentPage.ImageFooter != null)
+                        {
+                            string footer = string.IsNullOrEmpty(Model.CurrentPage.ImageFooter.ToString()) ? string.Empty : Model.CurrentPage.ImageFooter.ToString();
+                            @Html.Raw(footer)
+                        }
+                    }
+
                 </div>               
             </div>
         </div>
 
     </div>
+</div>
+<div class="go-back">
+    <div class="vert-align">Regresar</div>
 </div>

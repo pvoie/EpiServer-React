@@ -9,7 +9,7 @@ using EPiServer.Web;
 namespace Episerver_React.Models.Pages
 {
     [ContentType(DisplayName = "Results Page", GUID = "237f466e-ea40-4c1c-94de-02f7dbd2eb0b", Description = "")]
-    public class ResultsPage : PageData
+    public class ResultsPage : BasePageData
     {
 
         [CultureSpecific]

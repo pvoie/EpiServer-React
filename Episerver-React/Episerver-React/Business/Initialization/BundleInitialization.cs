@@ -19,17 +19,30 @@ namespace Episerver_React.Business.Initialization
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/static/css/default-styles.css")
-                .IncludeDirectory("~/Static/css/","*.css", true)
+                .IncludeDirectory("~/Static/css/", "*.css", true)
             );
+
+            bundles.Add(new StyleBundle("~/static/css/menu-styles.css")
+               .Include("~/Static/css/menu.css")
+            );
+
+            bundles.Add(new StyleBundle("~/static/css/all-recipes.css")
+              .Include("~/Static/css/recipeAll.css")
+           );
 
             bundles.Add(new ScriptBundle("~/static/js/default-scripts.js")
                .Include("~/Scripts/jquery-3.3.1.min.js")
            );
 
             bundles.Add(new ScriptBundle("~/static/js/customscripts.js")
-               .IncludeDirectory("~/Static/js/","*.js", true)
+               .IncludeDirectory("~/Static/js/", "*.js", true)
            );
 
+            bundles.Add(new ScriptBundle("~/static/js/menu-scripts.js")
+             .Include("~/Static/js/menu.js")
+             .Include("~/Static/js/TweenMax.min.js")
+           );
+          
 
         }
 

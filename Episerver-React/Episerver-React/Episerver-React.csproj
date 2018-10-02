@@ -267,6 +267,8 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Business\Extensions\PageDataExtensions.cs" />
     <Compile Include="Business\Initialization\BundleInitialization.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
@@ -282,6 +284,8 @@
     <Compile Include="Business\Settings\GlobalSettings.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\RecipeMenuBlockController.cs" />
+    <Compile Include="Controllers\ResultsPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -289,8 +293,10 @@
     <Compile Include="Models\Blocks\HtmlInjectedBlock.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
     <Compile Include="Models\Blocks\RecipeIngredientBlock.cs" />
+    <Compile Include="Models\Blocks\RecipeMenuBlock.cs" />
     <Compile Include="Models\Blocks\SiteSettingsBlock.cs" />
     <Compile Include="Models\Blocks\CallToActionCardA.cs" />
+    <Compile Include="Models\Interfaces\IBlockViewModel.cs" />
     <Compile Include="Models\Interfaces\IContainerPage.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\Media\SiteImage.cs" />
@@ -299,8 +305,10 @@
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\ResultsPage.cs" />
+    <Compile Include="Models\ViewModels\BlockViewModel.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\RecipeMenuBlockViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +381,12 @@
     <Content Include="Static\js\home.js" />
     <Content Include="Static\js\menu.js" />
     <Content Include="Static\js\MyScript.js" />
+    <Content Include="Static\js\TweenMax.min.js" />
+    <Content Include="Static\widgets\hamburger-menu.png" />
+    <Content Include="Static\widgets\home-icon.png" />
+    <Content Include="Static\widgets\menu-arrow-up.png" />
+    <Content Include="Static\widgets\menu-tab.png" />
+    <Content Include="Static\widgets\search.png" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -413,6 +427,10 @@
     <Content Include="Views\Pages\ArticlePage\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SimpleDiv.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ImageDiv.cshtml" />
+    <Content Include="Views\Blocks\RecipeMenuBlock.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuItem.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentReference.cshtml" />
+    <Content Include="Views\Pages\ResultsPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

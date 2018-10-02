@@ -30,6 +30,28 @@ namespace Episerver_React.Models.Blocks
             GroupName = ContentEditorTabs.Footer)]
         public virtual HtmlInjectedBlock FooterBlock { get; set; }
 
-       
+        [Display(
+         Name = "Menu",
+         Order = 40,
+         GroupName = SystemTabNames.Content)]
+        [AllowedTypes(typeof(RecipeMenuBlock))]       
+        public virtual ContentReference MenuItem { get; set; }
+
+
+        [Display(
+         Name = "Home Landing Page",
+         Order = 40,
+         GroupName = SystemTabNames.Content)]        
+        public virtual PageReference HomeLandingPage { get; set; }
+
+        [CultureSpecific]
+        [Display(
+         Name = "Search Page Link",
+         GroupName = SystemTabNames.Content,
+         Order = 40)]
+        [AllowedTypes(new[] { typeof(BasePageData), typeof(LinkItem) })]
+        public virtual ContentReference RecipeSearchPage { get; set; }
+
+
     }
 }

@@ -137,8 +137,13 @@ body {
     margin-right: 10px;    
     margin-bottom: 25px;
 }
+
+.recipe-display-description p {
+    margin: 0px 0 0;
+}
+
 @media only screen and (max-width: 796px) {
-     .recipe-title{
+    .recipe-title{
         font-size: 65px;        
         line-height: 61px;
     }

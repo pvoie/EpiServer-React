@@ -1,0 +1,18 @@
+﻿@model PageViewModel<ResultsPage>
+
+@Styles.Render("~/static/css/all-recipes.css")
+@Html.PropertyFor(x => x.SiteSettings.MenuItem)
+<div id="fullContainer">
+    <div class="top-header-container">
+        @Html.PropertyFor(x => x.CurrentPage.Heanding, "Paragraph", new { CssClass = "top-copy" })
+        @Html.PropertyFor(x => x.CurrentPage.Description, "Paragraph", new { CssClass = "bottom-copy" })
+    </div>
+</div>
+
+
+
+
+
+<div class="go-back">
+    <div class="vert-align">Regresar</div>
+</div>

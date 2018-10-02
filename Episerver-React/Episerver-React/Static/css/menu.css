@@ -26,14 +26,14 @@
 .hamburger{
     height: 16px;
     width: 16px;
-    background:url("../images/common/hamburger-menu.png") no-repeat;
+    background:url("../widgets/hamburger-menu.png") no-repeat;
 }
 .home-icon {    
     height: 37px;
     width: 37px;
     margin: 0 12px;    
     cursor:pointer;
-    background:url("../images/common/home-icon.png") no-repeat;
+    background:url("../widgets/home-icon.png") no-repeat;
     outline: 0;
     outline: none;
 }
@@ -48,7 +48,7 @@
     position: relative;
     top: -4px;
     left: 5px;
-    background:url("../images/common/menu-arrow-down.png") no-repeat;
+    background:url(/Static/widgets/menu-arrow-down.png) no-repeat;
 }
 .up-arrow{
     height: 5px;
@@ -56,7 +56,7 @@
     position: relative;
     top: -4px;
     left: 5px;
-    background:url("../images/common/menu-arrow-up.png") no-repeat;
+    background:url(/Static/widgets/menu-arrow-up.png) no-repeat;
 }
 .tab-copy{
     color: #ffffff;
@@ -116,7 +116,7 @@ input:focus {
 .menu-submit .menu-search-btn {
     border: none;
     cursor: pointer;
-    background: url(/Static/widgets/Recetasysonrisas/images/common/search.png) no-repeat left top;
+    background: url(/Static/widgets/search.png) no-repeat left top;
     width: 38px;
     height: 29px;
 }

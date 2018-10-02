@@ -32,4 +32,4 @@ var isOpen = false;
     $(document).ready(function () {
         startMenu();
     });
-}($wm));
+});

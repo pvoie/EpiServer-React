@@ -1,0 +1,18 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+
+@model ContentReference
+
+@{
+    if (Model != null)
+    {
+        string tag = String.Empty;
+        object temp;
+        if (ViewData.TryGetValue("Tag", out temp))
+        {
+            tag = temp as string;
+        }
+
+        Html.RenderContentData(Model, false, tag, PageEditing.PageIsInEditMode);
+    }
+}

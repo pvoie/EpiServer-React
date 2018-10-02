@@ -1,4 +1,4 @@
-(function ($) {
+
     function startCommon() {
         $(".go-back").click(function () {
             window.history.back();
@@ -9,4 +9,3 @@
     $(document).ready(function () {
         startCommon();
     });
-}($wm));

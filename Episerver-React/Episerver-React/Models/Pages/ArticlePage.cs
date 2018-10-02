@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
+using Episerver_React.Business.Extensions;
 using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Media;
 
@@ -50,6 +52,18 @@ namespace Episerver_React.Models.Pages
         [AllowedTypes(typeof(RecipeIngredientBlock))]
         public virtual ContentArea Info { get; set; }
 
+        public string Categories
+        {
+            get
+            {
+                return string.Join(",", this.GetTextForCategories());
+            }
+        }
+
+        public IEnumerable<string> CategoryMenu
+        {
+            get { return this.GetTextForCategories(); }
+        }
 
 
     }
