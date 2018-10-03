@@ -1,5 +1,6 @@
 ﻿using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Pages;
+using System.Collections.Generic;
 
 namespace Episerver_React.Models.Interfaces
 {
@@ -16,5 +17,7 @@ namespace Episerver_React.Models.Interfaces
         string HeaderHtml { get; set; }
 
         string FooterHtml { get; set; }
+
+        IEnumerable<string> Results { get; set; }
     }
 }

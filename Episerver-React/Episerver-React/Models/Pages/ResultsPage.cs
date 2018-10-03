@@ -27,5 +27,7 @@ namespace Episerver_React.Models.Pages
         [UIHint(UIHint.Textarea)]
         public virtual String Description { get; set; }
 
+
+
     }
 }

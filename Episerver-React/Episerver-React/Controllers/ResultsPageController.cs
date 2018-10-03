@@ -17,15 +17,24 @@ namespace Episerver_React.Controllers
         public ActionResult Index(ResultsPage currentPage)
         {
 
+            //Searching 
 
-            var searchTerm = Request.QueryString["filters"]; /*?? Request.QueryString["q"];*/
+            var searchTerm = Request.QueryString["filters"] ?? Request.QueryString["q"];
 
-            var searchResult = SearchClient.Instance.Search<ArticlePage>();
-            searchResult = searchResult.For(searchTerm).FilterForVisitor();
+            var searchPages = SearchClient.Instance.Search<ArticlePage>()                
+                .For(searchTerm)
+                .InField(x => x.Categories)
+                .FilterForVisitor()
+                .GetContentResult();
 
-            var results = searchResult.TermsFacetFor(x => x.ViewName).GetContentResult();
+            var resultsPage = searchPages.TotalMatching.ToString();
+
+            //var result = resultsPage.GetContentResult();
+
+            //var res = result.TermsFacetFor(x => x.ViewName).Terms;
 
             var model = CreateModelWithSettings(currentPage);
+            model.Results = resultsPage.Split(',');
             
             return View(string.Format("~/Views/Pages/{0}/Index.cshtml",currentPage.ViewName),model);
         }

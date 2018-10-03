@@ -1,6 +1,7 @@
 ﻿using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Interfaces;
 using Episerver_React.Models.Pages;
+using System.Collections.Generic;
 
 namespace Episerver_React.Models.ViewModels
 {
@@ -23,6 +24,8 @@ namespace Episerver_React.Models.ViewModels
         public string FooterHtml { get; set; }
 
         public SiteSettingsBlock SiteSettings { get; set; }
+
+        public IEnumerable<string> Results { get; set; }
     }
 
     public static class PageViewModel
