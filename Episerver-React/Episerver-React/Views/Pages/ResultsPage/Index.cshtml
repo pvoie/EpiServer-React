@@ -1,4 +1,4 @@
-﻿@model PageViewModel<ResultsPage>
+﻿@model RecipeSearchResultViewModel<ResultsPage>
 
 @Styles.Render("~/static/css/all-recipes.css")
 @Html.PropertyFor(x => x.SiteSettings.MenuItem)
@@ -7,21 +7,19 @@
         @Html.PropertyFor(x => x.CurrentPage.Heanding, "Paragraph", new { CssClass = "top-copy" })
         @Html.PropertyFor(x => x.CurrentPage.Description, "Paragraph", new { CssClass = "bottom-copy" })
     </div>
-</div>
 
-<div>
-    <ul>
-        <li>
-            @foreach (var item in Model.Results)
+    <div id="allRecipeItems" class="recipe-item-all">
+        <div class="recipe-item-holder clearfix" data-search="itemsHolder">
+            @if (Model.ResultPage.Items.Count > 0)
             {
-                <p>@item</p>
+                foreach (var item in Model.ResultPage.Items)
+                {
+                    Html.RenderPartial("/Views/Shared/_recipeSearchItem.cshtml", item);
+                }
             }
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>
-
-
-
 <div class="go-back">
     <div class="vert-align">Regresar</div>
 </div>

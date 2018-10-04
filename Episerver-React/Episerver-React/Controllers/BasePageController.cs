@@ -13,6 +13,7 @@ using EPiServer.Web.Mvc;
 using Episerver_React.Models.Blocks;
 using Episerver_React.Models.Interfaces;
 using Episerver_React.Models.Pages;
+using Episerver_React.Models.RecipeSearchViewModels;
 using Episerver_React.Models.ViewModels;
 
 namespace Episerver_React.Controllers
@@ -35,6 +36,19 @@ namespace Episerver_React.Controllers
             return Activator.CreateInstance(type, page) as IPageViewModel<T>;
         }
 
+
+        /// <summary>
+        /// Creates a simple Recipe Search Model
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        protected IPageViewModel<T> CreateRecipeSearchModel(T page)
+        {
+            var type = typeof(RecipeSearchResultViewModel<>).MakeGenericType(page.GetOriginalType());
+            return Activator.CreateInstance(type, page) as IPageViewModel<T>;
+        }
+
+
         /// <summary>
         /// Creates the page view model with additional settings
         /// </summary>
@@ -48,6 +62,21 @@ namespace Episerver_React.Controllers
 
             return model;
         }
+
+        /// <summary>
+        /// Creates the recipe search view model with additional settings
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        protected IPageViewModel<T> CreateRecipeSearchModelWithSettings(T page)
+        {
+            var model = CreateRecipeSearchModel(page);
+
+            AddSettingsToModel(model);
+
+            return model;
+        }
+
 
         /// <summary>
         /// Creates the view model with additional settings

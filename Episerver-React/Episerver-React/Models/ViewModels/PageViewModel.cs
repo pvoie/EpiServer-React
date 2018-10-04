@@ -24,8 +24,7 @@ namespace Episerver_React.Models.ViewModels
         public string FooterHtml { get; set; }
 
         public SiteSettingsBlock SiteSettings { get; set; }
-
-        public IEnumerable<string> Results { get; set; }
+       
     }
 
     public static class PageViewModel

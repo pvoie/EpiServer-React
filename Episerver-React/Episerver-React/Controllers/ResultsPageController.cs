@@ -8,35 +8,76 @@ using EPiServer.Find.Cms;
 using EPiServer.Find.Framework;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web.Mvc;
+using Episerver_React.Models.Interfaces;
 using Episerver_React.Models.Pages;
+using Episerver_React.Models.ViewModels;
+using Episerver_React.Models.Blocks;
+using System;
+using Episerver_React.Models.RecipeSearchModel;
+using Episerver_React.Models.RecipeSearchViewModels;
 
 namespace Episerver_React.Controllers
 {
+    [TemplateDescriptor(Name = "Recipe Search Controller", Inherited = true, AvailableWithoutTag = true, Default = true)]
     public class ResultsPageController : BasePageController<ResultsPage>
     {
-        public ActionResult Index(ResultsPage currentPage)
+        private readonly IClient _searchClient = SearchClient.Instance;
+
+        public ActionResult Index(ResultsPage currentPage, string filters = "", string q = "")
         {
+            var model = CreateRecipeSearchModelWithSettings(currentPage) as RecipeSearchResultViewModel<ResultsPage>;
 
-            //Searching 
+            model.ResultPage = RecipeSearch(filters, q);
 
-            var searchTerm = Request.QueryString["filters"] ?? Request.QueryString["q"];
-
-            var searchPages = SearchClient.Instance.Search<ArticlePage>()                
-                .For(searchTerm)
-                .InField(x => x.Categories)
-                .FilterForVisitor()
-                .GetContentResult();
-
-            var resultsPage = searchPages.TotalMatching.ToString();
-
-            //var result = resultsPage.GetContentResult();
-
-            //var res = result.TermsFacetFor(x => x.ViewName).Terms;
-
-            var model = CreateModelWithSettings(currentPage);
-            model.Results = resultsPage.Split(',');
-            
-            return View(string.Format("~/Views/Pages/{0}/Index.cshtml",currentPage.ViewName),model);
+            return View(string.Format("~/Views/Pages/{0}/Index.cshtml", currentPage.ViewName), model);
         }
+
+
+        #region Search
+
+        private RecipeSearchResult RecipeSearch(string filters = "", string kwd = "")
+        {
+            RecipeSearchResult resultPage = new RecipeSearchResult();
+
+            var searchQuery = _searchClient.Search<ArticlePage>();
+
+            if (!string.IsNullOrWhiteSpace(kwd))
+            {
+                searchQuery = searchQuery.For(kwd)
+                    .InFields(x => x.Heading, x => x.ShortDescription, x => x.Categories, x => x.SearchText());
+            }
+
+            if (!string.IsNullOrWhiteSpace(filters))
+            {
+                searchQuery = searchQuery.For(filters)
+                    .InField(x => x.CategoryMenu);
+            }
+
+            var queryResults = searchQuery.GetContentResult();
+            var totalResults = queryResults.TotalMatching;
+
+            if (totalResults > 0)
+            {
+                resultPage.Items = queryResults.Select(x => new RecipeSearchItem
+                {
+                    Heading = x.Heading,
+                    PageLink = x.ContentLink,
+                    ImageLink = x.Image
+                }).ToList();
+            }
+            else
+            {
+
+            }
+
+            return resultPage;
+
+        }
+
+        #endregion
+
+
+
+
     }
 }
