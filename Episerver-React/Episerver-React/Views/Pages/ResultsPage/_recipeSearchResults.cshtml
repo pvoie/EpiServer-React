@@ -1,0 +1,9 @@
+﻿@model RecipeSearchResultViewModel<ResultsPage>
+
+@if (Model.ResultPage.PaginationViewModel.TotalItems > 0)
+{
+    foreach (var item in Model.ResultPage.Items)
+    {
+        Html.RenderPartial("/Views/Pages/ResultsPage/_recipeSearchItem.cshtml", item);
+    }
+}

@@ -308,6 +308,7 @@
     <Compile Include="Models\Pages\ResultsPage.cs" />
     <Compile Include="Models\RecipeSearchModel\RecipeSearchItem.cs" />
     <Compile Include="Models\RecipeSearchModel\RecipeSearchResult.cs" />
+    <Compile Include="Models\RecipeSearchViewModels\PaginationViewModel.cs" />
     <Compile Include="Models\RecipeSearchViewModels\RecipeSearchResultViewModel.cs" />
     <Compile Include="Models\ViewModels\BlockViewModel.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
@@ -437,7 +438,9 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuItem.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContentReference.cshtml" />
     <Content Include="Views\Pages\ResultsPage\Index.cshtml" />
-    <Content Include="Views\Shared\_recipeSearchItem.cshtml" />
+    <Content Include="Views\Pages\ResultsPage\_recipeSearchItem.cshtml" />
+    <Content Include="Views\Pages\ResultsPage\_recipeSearchResults.cshtml" />
+    <Content Include="Views\Pages\ResultsPage\_recipeNotFoundMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -100,8 +100,11 @@ div#TDM_flagpole{
     color: white;
 }
 
-@media only screen and (max-width: 1010px){
+.js-content.js-header {
+    height: 9%;
+}
 
+@media only screen and (max-width: 1010px) {
     #footer-link-one, .clearfix, .js-footer, .page-wrapper {
         display: none;
     }

@@ -42,6 +42,9 @@ namespace Episerver_React.Business.Initialization
              .Include("~/Static/js/menu.js")
              .Include("~/Static/js/TweenMax.min.js")
            );
+
+            bundles.Add(new ScriptBundle("~/static/js/all-recipes.js")
+                .Include("~/Static/js/recipeAll.js"));
           
 
         }

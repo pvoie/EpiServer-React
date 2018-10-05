@@ -7,18 +7,30 @@
         @Html.PropertyFor(x => x.CurrentPage.Heanding, "Paragraph", new { CssClass = "top-copy" })
         @Html.PropertyFor(x => x.CurrentPage.Description, "Paragraph", new { CssClass = "bottom-copy" })
     </div>
-
-    <div id="allRecipeItems" class="recipe-item-all">
-        <div class="recipe-item-holder clearfix" data-search="itemsHolder">
-            @if (Model.ResultPage.Items.Count > 0)
-            {
-                foreach (var item in Model.ResultPage.Items)
-                {
-                    Html.RenderPartial("/Views/Shared/_recipeSearchItem.cshtml", item);
-                }
-            }
-        </div>
-    </div>
+    @{ if (Model.ResultPage.PaginationViewModel.TotalItems > 0)
+        {
+            <div id="allRecipeItems" class="recipe-item-all">
+                <div class="recipe-item-holder clearfix" data-search="itemsHolder">
+                    @foreach (var item in Model.ResultPage.Items)
+                    {
+                        Html.RenderPartial("/Views/Pages/ResultsPage/_recipeSearchItem.cshtml", item);
+                    }
+                </div>
+                <input type="hidden" data-search="hasMorePages" value="true">
+                <div class="view-more-recipe" data-search="viewMore" style="">
+                    <div class="vert-align">
+                        <a href="@Url.Action("AjaxSearch", "ResultsPageController")" title="Ver Más Recetas">Ver Más Recetas</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="did-you-mean-box " data-search="noResults">
+                @Html.PropertyFor(x=> x.CurrentPage.NotFoundMessage,"Paragraph",new { CssClass = "bottom-copy no-filter" })                
+            </div>
+        }
+    }
 </div>
 <div class="go-back">
     <div class="vert-align">Regresar</div>

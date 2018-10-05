@@ -1,0 +1,10 @@
+﻿@model string
+
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    <div class="did-you-mean-box " data-search="noResults">
+        <p class="bottom-copy no-filter">
+            @Model
+        </p>
+    </div>
+}

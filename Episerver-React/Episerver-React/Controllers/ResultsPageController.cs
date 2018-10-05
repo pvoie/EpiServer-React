@@ -22,20 +22,34 @@ namespace Episerver_React.Controllers
     public class ResultsPageController : BasePageController<ResultsPage>
     {
         private readonly IClient _searchClient = SearchClient.Instance;
+        private const int DefaultPageSize = 3;
 
         public ActionResult Index(ResultsPage currentPage, string filters = "", string q = "")
         {
             var model = CreateRecipeSearchModelWithSettings(currentPage) as RecipeSearchResultViewModel<ResultsPage>;
 
-            model.ResultPage = RecipeSearch(filters, q);
+            var itemsPerPage = model.CurrentPage.PageSize;
+            model.ResultPage = RecipeSearch(filters, q, itemsPerPage);
 
             return View(string.Format("~/Views/Pages/{0}/Index.cshtml", currentPage.ViewName), model);
         }
 
 
+        public ActionResult AjaxSearch(ResultsPage currentPage, string filters = "", string q ="", int pageNumber = 1)
+        {
+            var model = CreateRecipeSearchModelWithSettings(currentPage) as RecipeSearchResultViewModel<ResultsPage>;
+
+            var itemsPerPage = model.CurrentPage.PageSize;
+            model.ResultPage = RecipeSearch(filters, q, itemsPerPage, pageNumber);
+
+            return PartialView("~/Views/Pages/ResultsPage/_recipeSearchResults.cshtml", model);
+        }
+
+
+
         #region Search
 
-        private RecipeSearchResult RecipeSearch(string filters = "", string kwd = "")
+        private RecipeSearchResult RecipeSearch(string filters = "", string kwd = "", int itemsPerPage = 3, int currentPage = 1)
         {
             RecipeSearchResult resultPage = new RecipeSearchResult();
 
@@ -53,6 +67,8 @@ namespace Episerver_React.Controllers
                     .InField(x => x.CategoryMenu);
             }
 
+            var skipNumber = (currentPage - 1) * itemsPerPage;
+            searchQuery = searchQuery.Skip(skipNumber).Take(itemsPerPage);
             var queryResults = searchQuery.GetContentResult();
             var totalResults = queryResults.TotalMatching;
 
@@ -64,6 +80,13 @@ namespace Episerver_React.Controllers
                     PageLink = x.ContentLink,
                     ImageLink = x.Image
                 }).ToList();
+
+                resultPage.PaginationViewModel = new PaginationViewModel
+                {
+                    CurrentPage = currentPage,
+                    ItemsPerPage = itemsPerPage,
+                    TotalItems = totalResults
+                };
             }
             else
             {

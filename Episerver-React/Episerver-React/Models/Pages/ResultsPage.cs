@@ -27,7 +27,19 @@ namespace Episerver_React.Models.Pages
         [UIHint(UIHint.Textarea)]
         public virtual String Description { get; set; }
 
+        [CultureSpecific]
+        [Display(
+          Name = "Items per page",
+          GroupName = SystemTabNames.Content,
+          Order = 30)]
+        public virtual int PageSize { get; set; }
 
+        [CultureSpecific]
+        [Display(
+          Name = "Not found message",
+          GroupName = SystemTabNames.Content,
+          Order = 40)]
+        public virtual string NotFoundMessage { get; set; }
 
     }
 }
