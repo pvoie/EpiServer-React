@@ -1,4 +1,4 @@
-(function ($) {
+
     var currentPage = 1,
         $resultsHolder,
         $viewMoreResults;
@@ -16,7 +16,8 @@
 
     function showHideMoreItems() {
         var hasMoreItems = $('input[data-search="hasMorePages"]', $resultsHolder).val();
-        if (hasMoreItems && hasMoreItems !== 'false') {
+        console.log(hasMoreItems);
+        if (hasMoreItems && hasMoreItems !== 'False') {
             $viewMoreResults.show();
         } else {
             $viewMoreResults.hide();
@@ -47,7 +48,7 @@
         resultsPromise.done(function (data) {
             processAjaxResults($(data));
         }).fail(function () {
-            $viewMoreResults.hide();
+            //$viewMoreResults.hide();
         }).always(function () {
             currentPage++;
             windowResize();
@@ -90,7 +91,7 @@
 
     function getQueryParameterValue (key) {
         var parameters = new RegExp('[\?&]' + key + '=([^&#]*)').exec(window.location.href);
-        if (parameters == null) {
+        if (parameters === null) {
             return '';
         } else {
             return parameters[1] || '';
@@ -144,4 +145,4 @@
     $(document).ready(function () {
         startPage();
     });
-}($wm));
+

@@ -9,17 +9,12 @@
     </div>
     @{ if (Model.ResultPage.PaginationViewModel.TotalItems > 0)
         {
+            int index = 1;
             <div id="allRecipeItems" class="recipe-item-all">
-                <div class="recipe-item-holder clearfix" data-search="itemsHolder">
-                    @foreach (var item in Model.ResultPage.Items)
-                    {
-                        Html.RenderPartial("/Views/Pages/ResultsPage/_recipeSearchItem.cshtml", item);
-                    }
-                </div>
-                <input type="hidden" data-search="hasMorePages" value="true">
+                @Html.Partial("~/Views/Pages/ResultsPage/_recipeSearchResults.cshtml", Model)                
                 <div class="view-more-recipe" data-search="viewMore" style="">
                     <div class="vert-align">
-                        <a href="@Url.Action("AjaxSearch", "ResultsPageController")" title="Ver Más Recetas">Ver Más Recetas</a>
+                        <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)AjaxSearch" title="Ver Más Recetas">Ver Más Recetas</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +22,21 @@
         else
         {
             <div class="did-you-mean-box " data-search="noResults">
-                @Html.PropertyFor(x=> x.CurrentPage.NotFoundMessage,"Paragraph",new { CssClass = "bottom-copy no-filter" })                
+                @{ if (!string.IsNullOrEmpty(Model.ResultPage.SuggestedTerm))
+                    {
+                        <p class="bottom-copy no-filter">
+                            Did you mean
+                            <a href="@string.Format("{0}?q={1}", Url.ContentUrl(Model.CurrentPage.ContentLink), Model.ResultPage.SuggestedTerm)" title="Did you mean">
+                                @Model.ResultPage.SuggestedTerm
+                            </a>?
+                        </p>
+                    }
+                    else
+                    {
+                        @Html.PropertyFor(x => x.CurrentPage.NotFoundMessage, "Paragraph", new { CssClass = "bottom-copy no-filter" })
+                    }
+                }
+                <div class="close-box">Cerrar</div>
             </div>
         }
     }
@@ -35,3 +44,5 @@
 <div class="go-back">
     <div class="vert-align">Regresar</div>
 </div>
+@Scripts.Render("~/static/js/common.js")
+@Scripts.Render("~/static/js/all-recipes.js")

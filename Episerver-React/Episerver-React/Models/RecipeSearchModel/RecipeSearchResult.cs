@@ -18,5 +18,9 @@ namespace Episerver_React.Models.RecipeSearchModel
         public List<RecipeSearchItem> Items { get; set; }
 
         public PaginationViewModel PaginationViewModel { get; set; }
+
+        public bool HasMorePages { get; set; }
+
+        public string SuggestedTerm { get; set; }
     }
 }

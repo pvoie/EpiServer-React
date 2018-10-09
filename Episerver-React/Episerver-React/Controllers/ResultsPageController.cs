@@ -15,6 +15,7 @@ using Episerver_React.Models.Blocks;
 using System;
 using Episerver_React.Models.RecipeSearchModel;
 using Episerver_React.Models.RecipeSearchViewModels;
+using EPiServer.Find.Statistics;
 
 namespace Episerver_React.Controllers
 {
@@ -35,12 +36,11 @@ namespace Episerver_React.Controllers
         }
 
 
-        public ActionResult AjaxSearch(ResultsPage currentPage, string filters = "", string q ="", int pageNumber = 1)
+        public ActionResult AjaxSearch(ResultsPage currentPage, string filters = "", string q ="", int page = 1)
         {
-            var model = CreateRecipeSearchModelWithSettings(currentPage) as RecipeSearchResultViewModel<ResultsPage>;
-
+            var model = CreateRecipeSearchModelWithSettings(currentPage) as RecipeSearchResultViewModel<ResultsPage>;            
             var itemsPerPage = model.CurrentPage.PageSize;
-            model.ResultPage = RecipeSearch(filters, q, itemsPerPage, pageNumber);
+            model.ResultPage = RecipeSearch(filters, q, itemsPerPage, page);
 
             return PartialView("~/Views/Pages/ResultsPage/_recipeSearchResults.cshtml", model);
         }
@@ -64,7 +64,17 @@ namespace Episerver_React.Controllers
             if (!string.IsNullOrWhiteSpace(filters))
             {
                 searchQuery = searchQuery.For(filters)
-                    .InField(x => x.CategoryMenu);
+                    .InField(x => x.CategoryMenu);                    ;
+            }
+
+
+            if (searchQuery.GetContentResult().TotalMatching > itemsPerPage * currentPage)
+            {
+                resultPage.HasMorePages = true;
+            }
+            else
+            {
+                resultPage.HasMorePages = false;
             }
 
             var skipNumber = (currentPage - 1) * itemsPerPage;
@@ -86,16 +96,61 @@ namespace Episerver_React.Controllers
                     CurrentPage = currentPage,
                     ItemsPerPage = itemsPerPage,
                     TotalItems = totalResults
+                    
                 };
+
+                
             }
             else
             {
+                resultPage.SuggestedTerm = GetDidYouMeanSuggestion(kwd);
+                if (string.IsNullOrWhiteSpace(resultPage.SuggestedTerm))
+                {
+                    resultPage.SuggestedTerm = GetSpellCheckerSuggestion(kwd);
+                }
 
             }
 
             return resultPage;
 
         }
+
+
+        private string GetDidYouMeanSuggestion(string kwd)
+        {
+            if (string.IsNullOrWhiteSpace(kwd))
+            {
+                return string.Empty;
+            }
+
+            var hits = SearchClient.Instance.Statistics().GetDidYouMean(kwd, x => x.Size = 1).Hits;
+            if (hits == null || !hits.Any())
+            {
+                return string.Empty;
+            }
+
+            return hits.FirstOrDefault().Suggestion;
+        }
+
+
+        private string GetSpellCheckerSuggestion(string kwd)
+        {
+            if (string.IsNullOrWhiteSpace(kwd))
+            {
+                return string.Empty;
+            }
+
+            var hits = SearchClient.Instance.Statistics().GetSpellcheck(kwd, x => x.Size = 1).Hits;
+            if (hits == null || !hits.Any())
+            {
+                return string.Empty;
+            }
+
+            return hits.FirstOrDefault().Suggestion;
+        }
+
+
+
 
         #endregion
 

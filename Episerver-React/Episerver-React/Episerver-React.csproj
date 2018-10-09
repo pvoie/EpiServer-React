@@ -388,6 +388,7 @@
     <Content Include="Static\js\home.js" />
     <Content Include="Static\js\menu.js" />
     <Content Include="Static\js\MyScript.js" />
+    <Content Include="Static\js\recipeAll.js" />
     <Content Include="Static\js\TweenMax.min.js" />
     <Content Include="Static\widgets\hamburger-menu.png" />
     <Content Include="Static\widgets\home-icon.png" />

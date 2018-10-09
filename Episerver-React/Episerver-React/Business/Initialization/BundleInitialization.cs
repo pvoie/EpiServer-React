@@ -32,10 +32,12 @@ namespace Episerver_React.Business.Initialization
 
             bundles.Add(new ScriptBundle("~/static/js/default-scripts.js")
                .Include("~/Scripts/jquery-3.3.1.min.js")
+               .Include("~/Static/js/MyScript.js")
            );
 
-            bundles.Add(new ScriptBundle("~/static/js/customscripts.js")
-               .IncludeDirectory("~/Static/js/", "*.js", true)
+            bundles.Add(new ScriptBundle("~/static/js/homescripts.js")
+               .Include("~/Static/js/home.js")
+               
            );
 
             bundles.Add(new ScriptBundle("~/static/js/menu-scripts.js")
@@ -45,7 +47,10 @@ namespace Episerver_React.Business.Initialization
 
             bundles.Add(new ScriptBundle("~/static/js/all-recipes.js")
                 .Include("~/Static/js/recipeAll.js"));
-          
+
+
+            bundles.Add(new ScriptBundle("~/static/js/common.js")
+                .Include("~/Static/js/common.js"));
 
         }
 
