@@ -267,6 +267,7 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Extensions\ContentAreaExtensions.cs" />
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Business\Extensions\PageDataExtensions.cs" />
     <Compile Include="Business\Initialization\BundleInitialization.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="Models\Media\SiteImage.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
+    <Compile Include="Models\Pages\CampaignPage.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\ResultsPage.cs" />
@@ -442,6 +444,7 @@
     <Content Include="Views\Pages\ResultsPage\_recipeSearchItem.cshtml" />
     <Content Include="Views\Pages\ResultsPage\_recipeSearchResults.cshtml" />
     <Content Include="Views\Pages\ResultsPage\_recipeNotFoundMessage.cshtml" />
+    <Content Include="Views\Pages\CampaignPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

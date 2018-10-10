@@ -97,9 +97,7 @@ namespace Episerver_React.Controllers
                     ItemsPerPage = itemsPerPage,
                     TotalItems = totalResults
                     
-                };
-
-                
+                };                
             }
             else
             {
@@ -108,11 +106,9 @@ namespace Episerver_React.Controllers
                 {
                     resultPage.SuggestedTerm = GetSpellCheckerSuggestion(kwd);
                 }
-
             }
 
             return resultPage;
-
         }
 
 
