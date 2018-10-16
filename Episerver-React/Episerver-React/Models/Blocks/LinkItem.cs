@@ -1,7 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using EPiServer;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using Episerver_React.Models.Media;
+using Episerver_React.Models.Interfaces;
 
 namespace Episerver_React.Models.Blocks
 {
@@ -29,5 +32,14 @@ namespace Episerver_React.Models.Blocks
         [CultureSpecific]
         public virtual string Title { get; set; }
 
+        [Display(
+           Name = "Image",
+           Order = 40,
+           GroupName = SystemTabNames.Content)]
+        [CultureSpecific]
+        [AllowedTypes(typeof(SiteImage))]
+        public virtual ContentReference Image { get; set; }
+
+        
     }
 }

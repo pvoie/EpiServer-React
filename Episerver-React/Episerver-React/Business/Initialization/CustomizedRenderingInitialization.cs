@@ -30,11 +30,14 @@ namespace Episerver_React.Business.Initialization
             {
                 ctx.RowSupportEnabled = false;
                 ctx.AutoAddRow = false;
-                ctx.DisableBuiltinDisplayOptions = false;
+                //ctx.DisableBuiltinDisplayOptions = false;
                 ctx.DisableBuiltinDisplayOptions = true;
                 ctx.CustomDisplayOptions.Add<TierOneDisplayOption>();
                 ctx.CustomDisplayOptions.Add<TierTwoDisplayOption>();
                 ctx.CustomDisplayOptions.Add<TierThreeDisplayOption>();
+                ctx.CustomDisplayOptions.Add<TopImageDisplayOption>();
+                ctx.CustomDisplayOptions.Add<BottomImageDisplayOption>();
+                ctx.CustomDisplayOptions.Add<RightImageDisplayOption>();
             });
         }
 
@@ -77,6 +80,45 @@ namespace Episerver_React.Business.Initialization
         {
             Name = "One Third Width";
             Tag = GlobalSettings.ContentAreaTags.TierThree;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
+        }
+    }
+
+    public class TopImageDisplayOption : DisplayModeFallback
+    {
+        public TopImageDisplayOption()
+        {
+            Name = "Top Image";
+            Tag = GlobalSettings.ContentAreaTags.TopImage;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
+        }
+    }
+
+    public class BottomImageDisplayOption : DisplayModeFallback
+    {
+        public BottomImageDisplayOption()
+        {
+            Name = "Bottom Image";
+            Tag = GlobalSettings.ContentAreaTags.BottomImage;
+            LargeScreenWidth = 12;
+            MediumScreenWidth = 11;
+            SmallScreenWidth = 8;
+            ExtraSmallScreenWidth = 4;
+        }
+    }
+
+    public class RightImageDisplayOption : DisplayModeFallback
+    {
+        public RightImageDisplayOption()
+        {
+            Name = "Right Image";
+            Tag = GlobalSettings.ContentAreaTags.RightImage;
             LargeScreenWidth = 12;
             MediumScreenWidth = 11;
             SmallScreenWidth = 8;

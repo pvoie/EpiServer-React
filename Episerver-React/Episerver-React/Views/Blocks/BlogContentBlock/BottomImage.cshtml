@@ -1,0 +1,27 @@
+﻿@model BlogContentBlock
+
+@{
+    var imagesContent = Model.Images != null ? Model.Images.FilteredItemsOfType<LinkItem>() : null;
+    var imagesCount = imagesContent != null ? imagesContent.Count() : 0;
+}
+
+
+<div class="blog-content">
+    @Html.PropertyFor(x => x.Heading, "SimpleDiv", new { CssClass = "blog-content-title" })
+    @Html.PropertyFor(x => x.Description, "SimpleDiv", new { CssClass = "blog-content-copy" })
+    @if (imagesCount > 0)
+    {
+        var itemsPerRow = imagesCount.Equals(1) ? 1 : ((imagesCount % 2) == 0 ? 2 : 3);
+        <div class="blog-content-img blog-content-img--@itemsPerRow">
+            @foreach (var item in imagesContent)
+            {
+                <div class="blog-img-wrapper">
+                    <a href="@item.Link" title="@item.Title">
+                        <img src="@(Url.ContentUrl(item.Image) ?? string.Empty)" class="">
+                    </a>
+                </div>
+
+            }
+        </div>
+    }
+</div>

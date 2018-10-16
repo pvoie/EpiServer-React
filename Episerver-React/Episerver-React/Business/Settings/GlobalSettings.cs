@@ -20,10 +20,13 @@ namespace Episerver_React.Business.Settings
         /// Custom tags that can be used as Display Option inside a Content Area
         /// </summary>
         public static class ContentAreaTags
-        {
+        {   
             public const string TierOne = "tier-1";
             public const string TierTwo = "tier-2";
             public const string TierThree = "tier-3";
+            public const string TopImage = "top-img";
+            public const string BottomImage = "bottom-img";
+            public static string RightImage = "right-img";
         }
 
 
@@ -33,6 +36,7 @@ namespace Episerver_React.Business.Settings
         public static class RenderingTags
         {
             public const string RecipeIngredientTemplate = "RecipeTemplate";
+            
         }
 
     }

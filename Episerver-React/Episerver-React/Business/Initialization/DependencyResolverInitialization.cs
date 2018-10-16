@@ -38,6 +38,7 @@ namespace Episerver_React.Business.Initialization
 
             container.For<IContentRenderingService<CallToActionCardA>>().Use<CallToActionCardARenderingService>();
             container.For<IContentRenderingService<RecipeIngredientBlock>>().Use<RecipeIngredientBlockRenderingService>();
+            container.For<IContentRenderingService<BlogContentBlock>>().Use<BlogContentBlockRenderingService>();
 
             
         }

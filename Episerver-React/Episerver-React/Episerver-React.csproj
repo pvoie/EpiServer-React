@@ -270,12 +270,15 @@
     <Compile Include="Business\Extensions\ContentAreaExtensions.cs" />
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Business\Extensions\PageDataExtensions.cs" />
+    <Compile Include="Business\Initialization\DisplayRegistryInitialization.cs" />
+    <Compile Include="Business\RestServices\SupportedDisplayOptionsStore.cs" />
     <Compile Include="Business\Initialization\BundleInitialization.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initialization\ErrorHandlingContentRenderer.cs" />
     <Compile Include="Business\Initialization\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
+    <Compile Include="Business\Rendering\Services\BlogContentBlockRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\CallToActionCardARenderingService.cs" />
     <Compile Include="Business\Rendering\Services\IContentRenderingService.cs" />
     <Compile Include="Business\Rendering\Services\RecipeIngredientBlockRenderingService.cs" />
@@ -291,7 +294,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\BaseBlockData.cs" />
+    <Compile Include="Models\Blocks\BlogContentBlock.cs" />
     <Compile Include="Models\Blocks\HtmlInjectedBlock.cs" />
+    <Compile Include="Models\Blocks\ImagesBlock.cs" />
     <Compile Include="Models\Blocks\LinkItem.cs" />
     <Compile Include="Models\Blocks\RecipeIngredientBlock.cs" />
     <Compile Include="Models\Blocks\RecipeMenuBlock.cs" />
@@ -301,9 +306,11 @@
     <Compile Include="Models\Interfaces\IBlockViewModel.cs" />
     <Compile Include="Models\Interfaces\IContainerPage.cs" />
     <Compile Include="Models\Interfaces\IPageViewModel.cs" />
+    <Compile Include="Models\Interfaces\ISpecialRenderingContent.cs" />
     <Compile Include="Models\Media\SiteImage.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
     <Compile Include="Models\Pages\BasePageData.cs" />
+    <Compile Include="Models\Pages\BlogPage.cs" />
     <Compile Include="Models\Pages\CampaignPage.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
@@ -326,6 +333,10 @@
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientResources\Scripts\CacheManager.js" />
+    <Content Include="ClientResources\Scripts\ModuleInitializer.js" />
+    <Content Include="ClientResources\Scripts\widget\DisplayOptionSelector.js" />
+    <Content Include="ClientResources\Styles\Styles.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -354,6 +365,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="module.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -369,6 +381,7 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Static\css\adUnitCss.css" />
     <Content Include="Static\css\archive.css" />
+    <Content Include="Static\css\blog.css" />
     <Content Include="Static\css\common.css" />
     <Content Include="Static\css\CustomStyle.css" />
     <Content Include="Static\css\default.css" />
@@ -445,6 +458,10 @@
     <Content Include="Views\Pages\ResultsPage\_recipeSearchResults.cshtml" />
     <Content Include="Views\Pages\ResultsPage\_recipeNotFoundMessage.cshtml" />
     <Content Include="Views\Pages\CampaignPage\Index.cshtml" />
+    <Content Include="Views\Pages\BlogPage\Index.cshtml" />
+    <Content Include="Views\Blocks\BlogContentBlock\TopImage.cshtml" />
+    <Content Include="Views\Blocks\BlogContentBlock\BottomImage.cshtml" />
+    <Content Include="Views\Blocks\BlogContentBlock\RightImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

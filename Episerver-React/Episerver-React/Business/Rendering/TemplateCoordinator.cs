@@ -16,7 +16,7 @@ namespace Episerver_React.Business.Rendering
         #region Services
         internal static Injected<IContentRenderingService<CallToActionCardA>> _ctaRenderingService;
         internal static Injected<IContentRenderingService<RecipeIngredientBlock>> _recipeIngredientRenderingService;
-
+        internal static Injected<IContentRenderingService<BlogContentBlock>> _blogContentBlockRenderingService;
         #endregion Services
 
         #region Paths
@@ -55,7 +55,7 @@ namespace Episerver_React.Business.Rendering
             // Add BasePage templates
             viewTemplateModelRegistrator.Add(typeof(CallToActionCardA), _ctaRenderingService.Service.GetAvailableTemplates().ToArray());
             viewTemplateModelRegistrator.Add(typeof(RecipeIngredientBlock), _recipeIngredientRenderingService.Service.GetAvailableTemplates().ToArray());
-            
+            viewTemplateModelRegistrator.Add(typeof(BlogContentBlock), _blogContentBlockRenderingService.Service.GetAvailableTemplates().ToArray());
         }
 
         public static string ViewPath(string folder, string fileName)
