@@ -11,7 +11,7 @@
         {
             int index = 1;
             <div id="allRecipeItems" class="recipe-item-all">
-                @Html.Partial("~/Views/Pages/ResultsPage/_recipeSearchResults.cshtml", Model)                
+                @Html.Partial("~/Views/Pages/ResultsPage/_recipeSearchResults.cshtml", Model)
                 <div class="view-more-recipe" data-search="viewMore" style="">
                     <div class="vert-align">
                         <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)AjaxSearch" title="Ver Más Recetas">Ver Más Recetas</a>
@@ -41,8 +41,11 @@
         }
     }
 </div>
-<div class="go-back">
-    <div class="vert-align">Regresar</div>
-</div>
+@if (Model.CurrentPage.BackButton)
+{
+    <div class="go-back">
+        <div class="vert-align">Regresar</div>
+    </div>
+}
 @Scripts.Render("~/static/js/common.js")
 @Scripts.Render("~/static/js/all-recipes.js")

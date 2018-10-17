@@ -30,7 +30,6 @@ namespace Episerver_React.Business.Initialization
             {
                 ctx.RowSupportEnabled = false;
                 ctx.AutoAddRow = false;
-                //ctx.DisableBuiltinDisplayOptions = false;
                 ctx.DisableBuiltinDisplayOptions = true;
                 ctx.CustomDisplayOptions.Add<TierOneDisplayOption>();
                 ctx.CustomDisplayOptions.Add<TierTwoDisplayOption>();

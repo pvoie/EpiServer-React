@@ -286,6 +286,7 @@
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\Settings\ContentEditorTabs.cs" />
     <Compile Include="Business\Settings\GlobalSettings.cs" />
+    <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\RecipeMenuBlockController.cs" />
@@ -312,6 +313,7 @@
     <Compile Include="Models\Pages\BasePageData.cs" />
     <Compile Include="Models\Pages\BlogPage.cs" />
     <Compile Include="Models\Pages\CampaignPage.cs" />
+    <Compile Include="Models\Pages\FolderPage.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\ResultsPage.cs" />

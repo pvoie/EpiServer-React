@@ -39,6 +39,10 @@
         </div>
     </div>
 </div>
-<div class="go-back">
-    <div class="vert-align">Regresar</div>
-</div>
+@if (Model.CurrentPage.BackButton)
+{
+    <div class="go-back">
+        <div class="vert-align">Regresar</div>
+    </div>
+}
+

@@ -27,5 +27,19 @@ namespace Episerver_React.Models.Pages
         [AllowedTypes(new[] { typeof(BlogContentBlock) })]
         public virtual ContentArea ContentBlocks { get; set; }
 
+
+        [CultureSpecific]
+        [Display(
+           Name = "Has back button",
+           GroupName = SystemTabNames.Content,
+           Order = 30)]
+        public virtual bool BackButton { get; set; }
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+
+            BackButton = false;
+        }
     }
 }

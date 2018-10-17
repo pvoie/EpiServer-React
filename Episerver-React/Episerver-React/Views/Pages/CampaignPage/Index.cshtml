@@ -21,9 +21,12 @@
                     </div>
                 </a>
             }
-            <div class="go-back">
-                <div class="vert-align">Regresar</div>
-            </div>
+            if (Model.CurrentPage.BackButton)
+            {
+                <div class="go-back">
+                    <div class="vert-align">Regresar</div>
+                </div>
+            }
         }@Scripts.Render("~/static/js/common.js")
 
     </div>

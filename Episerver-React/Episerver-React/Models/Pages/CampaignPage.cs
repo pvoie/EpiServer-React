@@ -26,5 +26,19 @@ namespace Episerver_React.Models.Pages
         [AllowedTypes(typeof(ArticlePage))]
         public virtual ContentArea Recipes { get; set; }
 
+        [CultureSpecific]
+        [Display(
+           Name = "Has back button",
+           GroupName = SystemTabNames.Content,
+           Order = 30)]
+        public virtual bool BackButton { get; set; }
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+
+            BackButton = false;
+        }
+
     }
 }
