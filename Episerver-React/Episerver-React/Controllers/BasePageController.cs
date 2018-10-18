@@ -15,6 +15,7 @@ using Episerver_React.Models.Interfaces;
 using Episerver_React.Models.Pages;
 using Episerver_React.Models.RecipeSearchViewModels;
 using Episerver_React.Models.ViewModels;
+using Episerver_React.Models.SiteMapModels;
 
 namespace Episerver_React.Controllers
 {
@@ -50,6 +51,18 @@ namespace Episerver_React.Controllers
 
 
         /// <summary>
+        /// Creates a simple Recipe Search Model
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        protected IPageViewModel<T> CreateSiteMapModel(T page)
+        {
+            var type = typeof(SiteMapViewModel<>).MakeGenericType(page.GetOriginalType());
+            return Activator.CreateInstance(type, page) as IPageViewModel<T>;
+        }
+
+
+        /// <summary>
         /// Creates the page view model with additional settings
         /// </summary>
         /// <param name="page"></param>
@@ -77,6 +90,20 @@ namespace Episerver_React.Controllers
             return model;
         }
 
+
+        /// <summary>
+        /// Creates the recipe search view model with additional settings
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        protected IPageViewModel<T> CreateSiteMapModelWithSettings(T page)
+        {
+            var model = CreateSiteMapModel(page);
+
+            AddSettingsToModel(model);
+
+            return model;
+        }
 
         /// <summary>
         /// Creates the view model with additional settings

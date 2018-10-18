@@ -52,6 +52,9 @@ namespace Episerver_React.Business.Initialization
             bundles.Add(new ScriptBundle("~/static/js/common.js")
                 .Include("~/Static/js/common.js"));
 
+            bundles.Add(new ScriptBundle("~/static/js/site-map.js")
+                .Include("~/Static/js/siteMap.js"));
+
         }
 
         public void Uninitialize(InitializationEngine context)

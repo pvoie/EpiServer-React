@@ -31,6 +31,8 @@ namespace Episerver_React.Models.ViewModels
 
         public ContentReference RecipeSearchPage { get; set; }
 
+        public ContentReference SiteMapPage { get; set; }
+
 
         public void SplitCategoriesInColumns(int minColumnCount = 3)
         {
@@ -74,6 +76,7 @@ namespace Episerver_React.Models.ViewModels
 
             MainLandingPageLink = settings.HomeLandingPage;
             RecipeSearchPage = settings.RecipeSearchPage;
+            SiteMapPage = settings.SiteMapPage;
 
         }
     }

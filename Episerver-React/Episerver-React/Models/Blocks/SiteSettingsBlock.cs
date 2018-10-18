@@ -30,6 +30,8 @@ namespace Episerver_React.Models.Blocks
             GroupName = ContentEditorTabs.Footer)]
         public virtual HtmlInjectedBlock FooterBlock { get; set; }
 
+        #region Menu               
+
         [Display(
          Name = "Menu",
          Order = 40,
@@ -40,7 +42,7 @@ namespace Episerver_React.Models.Blocks
 
         [Display(
          Name = "Home Landing Page",
-         Order = 40,
+         Order = 50,
          GroupName = SystemTabNames.Content)]        
         public virtual PageReference HomeLandingPage { get; set; }
 
@@ -48,9 +50,19 @@ namespace Episerver_React.Models.Blocks
         [Display(
          Name = "Search Page Link",
          GroupName = SystemTabNames.Content,
-         Order = 40)]
+         Order = 60)]
         [AllowedTypes(new[] { typeof(BasePageData), typeof(LinkItem) })]
         public virtual ContentReference RecipeSearchPage { get; set; }
+
+        [CultureSpecific]
+        [Display(
+         Name = "Site Map Page",
+         GroupName = SystemTabNames.Content,
+         Order = 60)]
+        [AllowedTypes(new[] { typeof(SiteMapPage) })]
+        public virtual ContentReference SiteMapPage { get; set; }
+
+        #endregion
 
 
     }

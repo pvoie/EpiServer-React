@@ -291,6 +291,7 @@
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\RecipeMenuBlockController.cs" />
     <Compile Include="Controllers\ResultsPageController.cs" />
+    <Compile Include="Controllers\SiteMapPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -317,10 +318,14 @@
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\ResultsPage.cs" />
+    <Compile Include="Models\Pages\SiteMapPage.cs" />
     <Compile Include="Models\RecipeSearchModel\RecipeSearchItem.cs" />
     <Compile Include="Models\RecipeSearchModel\RecipeSearchResult.cs" />
     <Compile Include="Models\RecipeSearchViewModels\PaginationViewModel.cs" />
     <Compile Include="Models\RecipeSearchViewModels\RecipeSearchResultViewModel.cs" />
+    <Compile Include="Models\SiteMapModels\MenuItem.cs" />
+    <Compile Include="Models\SiteMapModels\SiteMapView.cs" />
+    <Compile Include="Models\SiteMapModels\SiteMapViewModel.cs" />
     <Compile Include="Models\ViewModels\BlockViewModel.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
@@ -399,6 +404,7 @@
     <Content Include="Static\css\recipeAll.css" />
     <Content Include="Static\css\recipeSingle.css" />
     <Content Include="Static\css\richContent.css" />
+    <Content Include="Static\css\siteMap.css" />
     <Content Include="Static\css\stickyHeader.css" />
     <Content Include="Static\css\videoRichContent.css" />
     <Content Include="Static\js\common.js" />
@@ -406,6 +412,7 @@
     <Content Include="Static\js\menu.js" />
     <Content Include="Static\js\MyScript.js" />
     <Content Include="Static\js\recipeAll.js" />
+    <Content Include="Static\js\siteMap.js" />
     <Content Include="Static\js\TweenMax.min.js" />
     <Content Include="Static\widgets\hamburger-menu.png" />
     <Content Include="Static\widgets\home-icon.png" />
@@ -464,6 +471,8 @@
     <Content Include="Views\Blocks\BlogContentBlock\TopImage.cshtml" />
     <Content Include="Views\Blocks\BlogContentBlock\BottomImage.cshtml" />
     <Content Include="Views\Blocks\BlogContentBlock\RightImage.cshtml" />
+    <Content Include="Views\Pages\SiteMapPage\Index.cshtml" />
+    <Content Include="Views\Pages\SiteMapPage\_siteMapItems.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -29,7 +29,7 @@ $(document).ready(function () {
     //if ($("div:first").val.toString()) {
 
     //}
-    $("div:first").remove();
+    $("div:contains('There is a license error ')").remove();
     startMenu();
 
    

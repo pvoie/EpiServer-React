@@ -28,6 +28,15 @@
     width: 16px;
     background:url("../widgets/hamburger-menu.png") no-repeat;
 }
+.site-map-icon {
+    height: 37px;
+    width: 40px;
+    margin: 0 12px;
+    cursor: pointer;
+    background: url("../widgets/sitemapicon.jpg") no-repeat;
+    outline: 0;
+    outline: none;
+}
 .home-icon {    
     height: 37px;
     width: 37px;

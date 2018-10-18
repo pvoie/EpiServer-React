@@ -14,6 +14,22 @@ namespace Episerver_React.Models.Pages
         AvailableInEditMode = false)]
     public abstract class BasePageData : PageData
     {
+        #region SiteMap
+        [Required]
+        [CultureSpecific]
+        [Display(
+          Name = "Visible in Site Map",
+          Order = 150,
+          GroupName = SystemTabNames.Content)]
+        public virtual bool VisibleInSiteMap { get; set; }
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+            VisibleInSiteMap = false;
+        }
+        #endregion
+
         #region SEO
 
         [Required]

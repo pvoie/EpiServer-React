@@ -12,6 +12,7 @@
         <img src="/Static/widgets/menu-tab.png">
     </div>
     <a href="@Url.ContentUrl(Model.MainLandingPageLink)" class="tab-item home-icon"></a>
+    <a href="@Url.ContentUrl(Model.SiteMapPage)" class="tab-item site-map-icon" title="Site Map"></a>
     <div class="menu-search-container">
         <form method="get" action="@Url.ContentUrl(Model.RecipeSearchPage)">
             <input class="menu-input " type="text" name="q" placeholder="@(string.IsNullOrEmpty(Model.CurrentBlock.SearchPlaceholder) ? "Buscar" : Model.CurrentBlock.SearchPlaceholder)">
