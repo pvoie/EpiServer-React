@@ -271,6 +271,7 @@
     <Compile Include="Business\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Business\Extensions\PageDataExtensions.cs" />
     <Compile Include="Business\Initialization\DisplayRegistryInitialization.cs" />
+    <Compile Include="Business\Initialization\ImageHandlerInitialization.cs" />
     <Compile Include="Business\RestServices\SupportedDisplayOptionsStore.cs" />
     <Compile Include="Business\Initialization\BundleInitialization.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />

@@ -18,6 +18,34 @@ namespace Episerver_React.Models.Media
             GroupName = SystemTabNames.Content,
             Order = 10)]
         public virtual string AltText { get; set; }
+        
+        [Editable(false)]
+        [Display(
+            Name = "Extension",
+            GroupName = SystemTabNames.Content,
+            Order = 20)]
+        public virtual string Extension { get; set; }
+
+        [Editable(false)]
+        [Display(
+           Name = "Mime type",
+           GroupName = SystemTabNames.Content,
+           Order = 22)]
+        public virtual string Mime { get; set; }
+
+        [Editable(false)]
+        [Display(
+            Name = "Width",
+            GroupName = SystemTabNames.Content,
+            Order = 30)]
+        public virtual int Width { get; set; }
+
+        [Editable(false)]
+        [Display(
+            Name = "Height",
+            GroupName = SystemTabNames.Content,
+            Order = 40)]
+        public virtual int Height { get; set; }
 
     }
 }
