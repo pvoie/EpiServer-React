@@ -1,0 +1,18 @@
+﻿@model PageViewModel<BlogPage>
+
+@Html.PropertyFor(x => x.SiteSettings.MenuItem)
+<div id="fullContainer" class="center-column">
+    <div class="blog-container">
+        <div class="blog-head">
+            @Html.PropertyFor(x => x.CurrentPage.Heanding, "SimpleDiv", new { CssClass = "blog-title" })
+        </div>
+        @Html.PropertyFor(x => x.CurrentPage.ContentBlocks, new { HasContainer = false, HasItemContainer = false })
+    </div>
+    @if (Model.CurrentPage.BackButton)
+    {
+        <div class="go-back">
+            <div class="vert-align">Regresar</div>
+        </div>
+    }
+</div>
+@Scripts.Render("~/static/js/common.js")

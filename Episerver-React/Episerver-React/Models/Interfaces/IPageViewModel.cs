@@ -1,4 +1,6 @@
-﻿using Episerver_React.Models.Pages;
+﻿using Episerver_React.Models.Blocks;
+using Episerver_React.Models.Pages;
+using System.Collections.Generic;
 
 namespace Episerver_React.Models.Interfaces
 {
@@ -10,6 +12,11 @@ namespace Episerver_React.Models.Interfaces
     {
         T CurrentPage { get; }
 
-        //SiteSettingsBlock SiteSettings { get; set; }       
+        SiteSettingsBlock SiteSettings { get; set; }
+
+        string HeaderHtml { get; set; }
+
+        string FooterHtml { get; set; }
+        
     }
 }

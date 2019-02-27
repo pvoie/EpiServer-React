@@ -1,0 +1,10 @@
+/*Header reset styles to match the Ektron site*/
+a.nav-main-item,
+button.nav-main-item {
+    font-size: 15px;
+    font-family: Verdana,sans-serif;
+}
+
+a.nav-main-item {
+    color: inherit;
+}

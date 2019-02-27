@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MenuItem>
+
+@foreach (var menuItem in Model)
+{
+    if (menuItem.Children.Any())
+    {
+        <li class="map-li">
+            <p><a href="@Url.ContentUrl(menuItem.ContentLink)" class="map-item">@menuItem.Name</a></p>
+            <ul class="map-ul">
+                @{ Html.RenderPartial("~/Views/Pages/SiteMapPage/_siteMapItems.cshtml", menuItem.Children);}
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li class="map-li">
+            <p><a href="@Url.ContentUrl(menuItem.ContentLink)" class="map-item">@menuItem.Name</a></p>           
+        </li>
+    }
+
+}

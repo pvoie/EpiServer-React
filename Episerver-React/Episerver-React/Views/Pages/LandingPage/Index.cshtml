@@ -1,0 +1,20 @@
+﻿@model PageViewModel<LandingPage>
+
+@Html.PropertyFor(x => x.SiteSettings.MenuItem)
+
+<div id="fullContainer">
+    <div id="section0" class="section">
+        <div class="masthead background" style="background: url(@Url.ContentUrl(Model.CurrentPage.HeroBackground)); height: 200px;">
+            <div class="recetas-logo">
+                @Html.PropertyFor(m => m.CurrentPage.HeroLogo, "Image")
+
+            </div>
+
+        </div>
+        <div class="landingCtas">
+            @Html.PropertyFor(m => m.CurrentPage.Banners, new { HasContainer = false })
+        </div>
+    </div>
+    <a href="http://recetasysonrisas/en/postre-bebida-celebraciones-coctel-de-naranja-y-zarzamoras/">click</a>
+</div>
+@Scripts.Render("~/static/js/homescripts.js")

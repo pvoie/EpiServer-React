@@ -1,0 +1,21 @@
+﻿@model SiteMapViewModel<SiteMapPage>
+
+@Html.PropertyFor(x => x.SiteSettings.MenuItem)
+
+<div id="fullContainer">
+    <ul class="map-ul">
+        @{
+            Html.RenderPartial("~/Views/Pages/SiteMapPage/_siteMapItems.cshtml", Model.SiteMap.MenuItems);
+        }
+    </ul>
+   
+</div>
+
+@if (Model.CurrentPage.BackButton)
+{
+    <div class="go-back">
+        <div class="vert-align">Regresar</div>
+    </div>
+}
+@Scripts.Render("~/static/js/common.js") 
+@Scripts.Render("~/Static/js/siteMap.js")

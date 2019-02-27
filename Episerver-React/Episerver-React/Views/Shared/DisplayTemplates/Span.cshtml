@@ -1,0 +1,6 @@
+﻿@model string
+
+@{ 
+    var CssClass = ViewData["CssClass"];
+    <span class="@CssClass">@Model</span>    
+}

@@ -1,0 +1,213 @@
+.mapContainer {
+    width: 100%;
+    position: relative;
+}
+
+.mapContainer--withSticky {
+    padding-top: 79px;
+}
+
+.mapContainer .googleMap {
+    height: 600px;
+}
+
+.mapContainer .map-overlay {
+    position: absolute;
+    top: 95px;
+    left: 20px;
+    width: 331px;
+    max-height: 500px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 6px 8px 30px -1px rgba(0,0,0,0.53);
+    -moz-box-shadow: 6px 8px 30px -1px rgba(0,0,0,0.53);
+    box-shadow: 6px 8px 30px -1px rgba(0,0,0,0.53);
+    overflow-x: hidden;
+}
+
+.mapContainer .map-overlay-expand {
+    display: none;
+}
+
+.mapContainer .overlay-input-copy {
+    padding: 5px 10px 10px 5px;
+}
+
+.mapContainer .overlay-input-copy.visible {
+    display: block;
+}
+
+.mapContainer .overlay-top-copy {
+    display: none;
+    background-color: #f2f8fd;
+    padding: 10px;
+}
+
+.mapContainer .overlay-top-copy.visible {
+    display: block;
+}
+
+.mapContainer .submitBtn {
+    background-color: #007ec5;
+    border-radius: 5px;
+    color: #fff;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mapContainer .searchResults {
+    display: none;
+    background-color: #fff;
+}
+
+.mapContainer .searchItemTemplate {
+    display: none;
+}
+
+.mapContainer__defaultWindow p {
+    margin: 0;
+}
+
+.mapContainer .search-field {
+    border-bottom: #9E9E9E;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding: 10px;
+}
+
+.mapContainer .store-info-fields {
+    color: inherit;
+    outline: 0;
+}
+
+.mapContainer .store-info-fields:hover {
+    color: #3da1e0;
+    outline: 0;
+}
+
+.mapContainer .info-city {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.mapContainer .info-store-number {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.mapContainer .info-store-location {
+    line-height: 17px;
+    font-size: 14px;
+}
+
+.mapContainer .store-count-mobile,
+.mapContainer .mobileChangeLocationCta,
+.store-count-mobile.visible {
+    display: none;
+}
+
+@media screen and (max-width: 1010px) {
+    .mapContainer .map-overlay {
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        top: auto;
+        max-height: 56px;
+        height: 56px;
+        overflow-y: hidden;
+        -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -ms-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+        background: none;
+    }
+
+    .mapContainer .map-overlay.expanded {
+        max-height: 400px;
+        height: 400px;
+        -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -ms-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+        pointer-events: none;
+    }
+
+    .mapContainer .resultsContainer {
+        max-height: 254px;
+        overflow-y: auto;
+        font-size: 21px;
+        pointer-events: auto;
+    }
+
+    .mapContainer .map-overlay-expand {
+        display: block;
+        font-size: 0;
+        padding: 5px 15px;
+        background-color: #fff;
+        pointer-events: auto;
+    }
+
+    .mapContainer .overlay-expand-copy {
+        display: inline-block;
+        font-size: 16px;
+        width: calc(100% - 100px);
+        padding-right: 15px;
+        line-height: 46px;
+        pointer-events: auto;
+    }
+
+    .mapContainer .overlay-arrow {
+        display: inline-block;
+        width: 90px;
+        height: 46px;
+        line-height: 46px;
+        vertical-align: top;
+        pointer-events: auto;
+    }
+
+    .mapContainer .overlay-arrow-link {
+        background: url(/static/widgets/HealthWellness/images/arrow.png) no-repeat left top;
+        background-size: contain;
+        width: 100%;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .mapContainer .map-overlay.expanded .overlay-arrow-link {
+        background: url(/static/widgets/HealthWellness/images/arrow-close.png) no-repeat left top;
+    }
+
+    .mapContainer .googleMap {
+        height: 400px;
+    }
+
+    .mapContainer .overlay-top-copy,
+    .mapContainer .overlay-top-copy.visible {
+        display: none;
+    }
+
+    .mapContainer .mobileChangeLocationCta {
+        background-color: #f2f8fd;
+        padding: 10px;
+        display: block;
+    }
+
+    .mapContainer .overlay-input-copy {
+        font-size: 21px;
+        display: none;
+        background-color: #fff;
+        pointer-events: auto;
+    }
+
+    .gm-bundled-control {
+        bottom: 105px !important;
+    }
+
+    .store-count-mobile.visible {
+        display: inline-block;
+        line-height: 24px;
+    }
+}

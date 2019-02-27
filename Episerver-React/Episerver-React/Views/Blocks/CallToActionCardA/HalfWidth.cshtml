@@ -1,0 +1,14 @@
+﻿@model CallToActionCardA
+
+<a href="@Url.ContentUrl(Model.Link.Link)" title="@(Model.Link.Title ?? string.Empty)" class="cta-half" data-cta="half-width" style="height: 300px;" processed="true">
+    <div class="tier-two background left" style="background: url(@Url.ContentUrl(Model.BgImage));">
+        <div class="tier-copy tier-bottom-copy">
+            <div class="copy-copy">
+                <span class="bottom-line">
+                    @Html.PropertyFor(m => m.Heading, "Span", new { CssClass = "tier-copy-black tier-headline" })
+                    <br>
+                </span>
+            </div>
+        </div>
+    </div>
+</a>

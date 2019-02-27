@@ -1,0 +1,115 @@
+
+@font-face{
+    font-family: 'Bogle';
+    src:url(../../../Fonts/Bogle/BOGLE-REGULAR.OTF) format('opentype');
+}
+@font-face{
+    font-family: 'Bogle Bold';
+    src:url(../../../Fonts/Bogle/BOGLE-BOLD.OTF) format('opentype');
+}
+@font-face{
+    font-family: 'Bogle Black';
+    src:url(../../../Fonts/Bogle/BOGLE-BLACK.OTF) format('opentype');
+}
+body {
+    font-family: 'Bogle','Bogle Bold','Bogle Black',myriad-pro,myriad pro,"Helvetica Neue",PT Sans,Helvetica,Arial,sans-serif;
+    overflow-x: hidden;
+    margin: 0 auto;
+    width: 100%;
+}
+.shadow{
+    text-shadow: 5px 3px 16px rgba(0, 0, 0, 1);
+}
+.yellow{
+    color:#ffc120;
+}
+.blue{
+    color:#017cc4;
+}
+.dark-blue{
+    color:#1b2d46;
+}
+.orange{
+    color:#ff4e00;
+}
+.black{
+    color:#000000;
+}
+.white{
+    color:#ffffff;
+}
+.brown{
+    color: #5d3428;
+}
+.red-brown{
+    color: #751d18;
+}
+.green{
+    color: #00ff00;
+}
+#leftBreadcrumb {
+    width: 100%!important
+}
+.breakpoint-indicator {
+    display: none!important
+}
+#hispanicPortalHeader {
+    margin-bottom: 0
+}
+div#TDM_flagpole{
+    display:none;
+}
+.page-wrapper {
+    display: block
+}
+[data-ux-pagebuilder="Column"]:not(.ux-siteApp-pageBuilderCssFramework [data-ux-pagebuilder="Column"]){
+    clear:both;
+    float:none;
+}
+[data-ux-pagebuilder="Column"] {
+    clear:both;
+    max-width:100%;
+}
+#fullContainer{
+    max-width: 1024px;
+    text-align:center;
+    margin:0% auto;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    overflow: hidden;
+    background-color:#fbfaef;
+}
+.go-back,.go-back-home{
+    max-width: 1024px;
+    cursor: pointer;
+    clear: both;
+    color: white;
+    padding: 6px;
+    background-color: #007DC6;
+    margin-top: -12px;
+    margin-bottom: 25px;
+    width: 100%;
+    z-index: 4;
+    text-align: center;
+    margin: 0 auto;
+}
+.go-back a {
+    display: block;
+}
+.vert-align a, .vert-align a:hover {
+    color: white;
+}
+
+.js-content.js-header {
+    height: 9%;
+}
+
+@media only screen and (max-width: 1010px) {
+    #footer-link-one, .clearfix, .js-footer, .page-wrapper {
+        display: none;
+    }
+
+    .recipe-item-holder.clearfix {
+        display: block;
+    }
+}

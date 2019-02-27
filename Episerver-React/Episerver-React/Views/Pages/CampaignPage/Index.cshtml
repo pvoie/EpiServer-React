@@ -1,0 +1,34 @@
+﻿@model PageViewModel<CampaignPage>
+
+@Html.PropertyFor(x => x.SiteSettings.MenuItem)
+<div id="fullContainer">
+    <div class="top-header-container">
+        @Html.PropertyFor(x => x.CurrentPage.Heading, "Paragraph", new { CssClass = "top-copy" })
+    </div>
+    <div class="recipe-item-holder">
+        @if (Model.CurrentPage.Recipes != null || Model.CurrentPage.Recipes.Count > 0)
+        {
+            foreach (var item in Model.CurrentPage.Recipes.FilteredItemsOfType<ArticlePage>())
+            {
+                <a href="@Url.ContentUrl(item.ContentLink)" title="@(item.Heading??string.Empty)">
+                    <div class="recipe-item recipe-margin">
+                        <div class="recipe-item-image display-image" style="background-image: url(@Url.ContentUrl(item.Image))"></div>
+                        <div class="recipe-item-div">
+                            <div class="recipe-item-copy">
+                                <div class="recipe-item-title">@(item.Heading ?? string.Empty)</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+            if (Model.CurrentPage.BackButton)
+            {
+                <div class="go-back">
+                    <div class="vert-align">Regresar</div>
+                </div>
+            }
+        }@Scripts.Render("~/static/js/common.js")
+
+    </div>
+    </div>
+

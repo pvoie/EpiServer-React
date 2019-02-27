@@ -1,0 +1,18 @@
+﻿@model RecipeSearchItem
+
+@if (Model != null)
+{
+    <a href="@Url.ContentUrl(Model.PageLink)" title="@(string.IsNullOrWhiteSpace(Model.Heading) ? string.Empty : Model.Heading)" data-search="resultItem">
+        <div class="recipe-item recipe-margin">
+            <div class="recipe-item-image" style="background-image: url(@Url.ContentUrl(Model.ImageLink))">
+                <div class="recipe-item-div" id="@Html.PropertyFor(x => x.OriginalId)">
+                    <div class="recipe-item-copy">
+                        @Html.PropertyFor(x => x.Heading, "SimpleDiv", new { CssClass = "recipe-item-title" })                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+}
+
+

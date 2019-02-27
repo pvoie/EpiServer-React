@@ -1,0 +1,247 @@
+body { 
+    color: #000000;
+}
+body a{
+ color: #007dc6;
+}
+.top-header-container{
+    text-align: left;
+    margin-top: 55px;
+    margin-left: 27px;
+    margin-bottom: 52px;    
+    margin-right: 27px;
+}
+.top-header-container p{
+
+}
+.top-copy{
+    font-size: 73px;
+    color: #017cc4;
+    font-family: "Bogle Black";
+    line-height: 71px;
+    font-weight: bold;
+    margin-bottom: 23px !important;
+}
+.bottom-copy{
+    font-size: 18px;
+}
+.no-filter{
+    text-align: center;
+    color: #000000;
+    padding: 35px 0;
+    border: #007dc6 solid 2px;
+}
+.close-box{
+    
+    float:right;
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    background-color: #007DC6;
+    max-width:64px;
+    width: 100%;    
+    margin-top: -35px;
+    cursor: pointer;
+    z-index: 4;
+}
+/* Recipe Items under generator*/
+.recipe-item-all{
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+}
+.recipe-item-holder{
+    margin: 0 auto;
+}
+.recipe-item{
+    background-color: #ffffff;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    max-width: 333px;
+    min-width: 260px;
+    width: 31.6666666677%;
+    height: 260px;
+    cursor: pointer;
+    zoom: 1;
+    z-index: 99;
+    margin-bottom: 1%;
+}
+.recipe-margin{
+    margin-right:1%;
+}
+.recipe-spacer{
+    background-color: #457bab;
+    position: relative;
+    float: left;
+    width: 1%;
+    height: 260px;
+    overflow: hidden;
+}
+.recipe-item-image{
+    position: relative;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.recipe-item-box{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    border: 5px solid rgba(255, 255, 255, 0.53);
+    height: 100%;
+    width: 100%;
+    z-index: 15;
+}
+.recipe-item-div{
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 7px;
+    padding-top: 4px;
+    text-align:left;
+    width: 100%;
+    max-height: 38px;
+    z-index: 2;
+    background-color: #ffc11f;
+}
+.recipe-item-copy{
+    margin-left: 16px;
+    margin-right: 16px;
+    color: #000;    
+    font-size: 18px;
+    font-weight: bold;
+}
+.recipe-item-title{
+    opacity: 1;
+    line-height: 27px;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.recipe-item-desc{
+    width: 90%;
+    font-size:.8em;
+}
+.recipe-item-view{
+    cursor: pointer;
+    color: #007DC6;
+    font-size: .8em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.recipe-item-view img{
+    width: 8px;
+    position: relative;
+    top: 1px;
+    left: 3px;
+}
+.view-more-recipe{
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    background-color: #007DC6;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+    cursor:pointer;
+    z-index: 4;
+}
+.view-more-recipe a {
+    display: block;
+    outline: none;
+    outline: 0;
+}
+
+.view-more-recipe a:hover,
+.view-more-recipe a:focus {
+    outline: none;
+    outline: 0;
+}
+
+.view-all-recipe{
+    clear: both;
+    color: white;
+    padding: 6px;
+    background-color: #007DC6;
+    border-radius: 4px;
+    margin-top: 9px;
+    margin-bottom: 25px;
+    width: 207px;
+    display: none;
+    cursor:pointer;
+    position: relative;
+    z-index: 4;
+}
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
+.did-you-mean-box.hidden {
+    display: none;
+}
+
+.did-you-mean-box {
+    margin-bottom: 45px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.display-image {
+    display: block;
+}
+
+@media only screen and (max-width: 796px) {
+    .recipe-item {       
+        max-width: 398px;
+        min-width: 260px;
+        width: 49.5%;
+    }
+    .top-copy {
+        font-size: 47px;
+        line-height: 49px;
+    }
+   
+}
+@media only screen and (max-width: 526px) {
+    .recipe-item {       
+        max-width: 526px;
+        min-width: 260px;
+        width: 100%;
+    }
+     .top-copy {
+        font-size: 38px;
+        line-height: 42px;
+    }
+}
+@media only screen and (max-width: 430px) {
+
+     .top-copy {
+        font-size: 27px;
+        line-height: 31px;
+     }
+     .bottom-copy {
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 372px) {
+
+     .top-copy {
+        font-size: 27px;
+        line-height: 31px;
+     }
+     .bottom-copy {
+        font-size: 16px;
+    }
+}

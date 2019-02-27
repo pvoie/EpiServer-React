@@ -1,0 +1,46 @@
+﻿@model RecipeMenuBlockViewModel
+
+
+@Styles.Render("~/static/css/menu-styles.css")
+<div id="menuContainer">
+    <div class="menu-tab-container">
+        <div class="tab-contents">
+            <div class="tab-item hamburger"></div>
+            <div id="arrowImage" class="tab-item down-arrow"></div>
+            @Html.PropertyFor(x => x.CurrentBlock.DropdownLabel, "SimpleDiv", new { CssClass = "tab-item tab-copy" })
+        </div>
+        <img src="/Static/widgets/menu-tab.png">
+    </div>
+    <a href="@Url.ContentUrl(Model.MainLandingPageLink)" class="tab-item home-icon"></a>
+    <a href="@Url.ContentUrl(Model.SiteMapPage)" class="tab-item site-map-icon" title="Site Map"></a>
+    <div class="menu-search-container">
+        <form method="get" action="@Url.ContentUrl(Model.RecipeSearchPage)">
+            <input class="menu-input " type="text" name="q" placeholder="@(string.IsNullOrEmpty(Model.CurrentBlock.SearchPlaceholder) ? "Buscar" : Model.CurrentBlock.SearchPlaceholder)">
+            <div class="menu-submit">
+                <input type="submit" class="menu-search-btn" value="">
+            </div>
+        </form>
+    </div>
+    <div class="drop-down-menu">
+        <div class="drop-target">
+            <ul>
+                @foreach (var item in Model.FirstColumn)
+                {
+                    <li>
+                        <a href="@string.Format("{0}?filters={1}",Url.ContentUrl(Model.RecipeSearchPage).ToString(),item)" title="@item">@item</a>
+                    </li>
+                }
+            </ul>
+
+            <ul>
+                @foreach (var item in Model.SecondColumn)
+                {
+                    <li>
+                        <a href="@string.Format("{0}?filters={1}",Url.ContentUrl(Model.RecipeSearchPage).ToString(),item)" title="@item">@item</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/static/js/menu-scripts.js")

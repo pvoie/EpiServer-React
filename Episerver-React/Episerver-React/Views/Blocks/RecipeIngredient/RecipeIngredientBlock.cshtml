@@ -1,0 +1,13 @@
+﻿@model RecipeIngredientBlock
+
+<div>
+    <div class="title-area">
+        @Html.PropertyFor(m => m.Title, "Paragraph")
+    </div>
+    <div class="recipe-steps">
+        @if (Model.Description != null)
+        {
+        <p>@Html.PropertyFor(m => m.Description)</p>
+        }
+    </div>
+</div>

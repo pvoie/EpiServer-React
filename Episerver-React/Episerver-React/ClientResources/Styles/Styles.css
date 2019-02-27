@@ -1,0 +1,37 @@
+﻿.epiStringList .dijitTextArea {
+    width: 250px;
+}
+
+.epiStringList .epiStringListError .dijitTextArea {
+    border: solid 1px #d46464;
+}
+
+.keyValueItemContainer
+{
+    margin-bottom: 5px;
+}
+
+.Sleek .dijitValidationTextBox
+{
+    margin-right: 10px;
+}
+
+.grid__item, .c-block-grid__item {
+    display: inline;
+    padding-left: 20px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+.c-block-grid__item--standard {
+    width: 25% !important;
+}
+
+.epi-injected-minSize {
+    display: inline;
+}
+
+#dijit_form_Select_1_menu {
+    max-height: 500px;
+    overflow-y: auto !important;
+}
